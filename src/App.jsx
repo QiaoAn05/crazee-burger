@@ -1,4 +1,5 @@
 import { useState } from "react"
+import LoginPage from "./components/pages/LoginPage"
 
 function App() {
   //States
@@ -18,6 +19,7 @@ function App() {
   //Render
   return (
     <div>
+      <LoginPage/>
       <h1>Bienvenue chez nous !</h1>
       <h2>Connectez-vous</h2>
       <form action="submit" onSubmit={handleSubmit}>
