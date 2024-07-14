@@ -2,17 +2,17 @@ import { useState } from "react"
 
 export default function LoginPage() {
   //States
-  const [firstname, setFirstname] = useState("")
+  const [inputValue, setInputValue] = useState("")
 
   //Comportements
   const handleChange = (e) => {
-    setFirstname(e.target.value)
+    setInputValue(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert("Bonjour " + firstname)
-    setFirstname("")
+    alert("Bonjour " + inputValue)
+    setInputValue("")
   }
 
   //Render
@@ -22,7 +22,7 @@ export default function LoginPage() {
       <h2>Connectez-vous</h2>
       <form action="submit" onSubmit={handleSubmit}>
         <input
-          value={firstname} 
+          value={inputValue} 
           onChange={handleChange} 
           type="text" 
           placeholder="Entrez votre prénom" 
