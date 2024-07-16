@@ -11,8 +11,8 @@ export default function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert(`Bonjour ${inputValue}`)
     setInputValue("")
+    window.location.href = "order"
   }
   //Affichage
   return (
