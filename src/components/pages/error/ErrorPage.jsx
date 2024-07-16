@@ -5,7 +5,6 @@ export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
     //comportement
-
     //affichage
   return (
     <div id="error-page">
