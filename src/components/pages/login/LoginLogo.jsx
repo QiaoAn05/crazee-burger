@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../../theme';
 
 export default function LoginLogo() {
   return (
@@ -17,6 +16,8 @@ const LoginLogoStyled = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
+    line-height: 1.5px;
+    padding-top: 6%;
 
     p {
         color: #FFA01B;
