@@ -23,7 +23,7 @@ const LoginPageStyled = styled.div`
 
   &::before {
     content: "";
-    background: url("src/assets/images/F03 burger-background.jpg") rgba(0, 0, 0, 0.7);
+    background: url("public/images/burger-and-fries-background.jpg") rgba(0, 0, 0, 0.7);
     background-size: cover;
     background-position: center;
     background-blend-mode: darken;
@@ -36,6 +36,6 @@ const LoginPageStyled = styled.div`
     z-index: -1;
   }
   //tips intégrateur:
-  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${background})
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("")
 
 `;
