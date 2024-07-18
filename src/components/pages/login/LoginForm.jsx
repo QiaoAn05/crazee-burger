@@ -45,7 +45,12 @@ import styled from 'styled-components';
 import { theme } from "../../../theme"
 
 const LoginFormStyled = styled.form`
-  display: flex;
+background-color: green;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -103,5 +108,5 @@ const LoginFormStyled = styled.form`
   button:hover {
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
-  }
+  } */
 `;
