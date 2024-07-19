@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import styled from 'styled-components';
+import Input from "./Input";
+import { BsPersonCircle } from "react-icons/bs";
 
 
 export default function LoginForm() {
@@ -26,16 +27,14 @@ export default function LoginForm() {
     <h1>Bienvenue chez nous !</h1>
     <hr />
     <h2>Connectez-vous</h2>
-    <div className="input-with-icon">
-      <BsPersonCircle className="icon" />
-      <input
-        value={inputValue} 
-        onChange={handleChange} 
-        type="text" 
-        placeholder="Entrez votre prénom" 
-        required
-      />
-    </div>
+    <Input 
+      value={inputValue} 
+      onChange={handleChange}
+      placeholder="Entrez votre prénom"
+      required
+      Icon={<BsPersonCircle className="icon" />}
+    />
+   
       <button>
         <span>
           Accéder à mon espace
@@ -72,35 +71,7 @@ h2 {
   font-size: 36px;
 }
 
-.input-with-icon {
-  background-color: #fff;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  padding: 18px 24px;
-  margin: 18px 0;
 
-  .icon {
-    font-size: 15px;
-    margin-right: 8px;
-    color: #93a2b1;
-  }
-
-  input {
-    border: none;
-    font-size: 15px;
-    color: #17161a;
-    width: 100%;
-  }
-  input:focus {
-    outline: none;
-  }
-
-  &::placeholder {
-    background-color: white;
-    color: lightgray;
-  }
-}
 
 button {
   width: 100%;
