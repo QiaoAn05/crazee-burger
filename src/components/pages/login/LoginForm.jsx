@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { theme } from "../../../theme";
 
 
 export default function LoginForm() {
@@ -50,24 +51,23 @@ text-align: center;
 max-width: 500px;
 min-width: 400px;
 margin: 0px auto;
-padding: 2.5rem 2rem;
-border-radius: 5px;
+padding: 40px ${theme.spacing.lg};
+border-radius: ${theme.borderRadius.round};
 font-family: "Amatic SC", cursive;
 
 hr {
-  border: 1.5px solid #f56a2c;
-  margin-bottom: 40px;
+  border: 1.5px solid ${theme.colors.loginLine};
+  margin-bottom: ${theme.gridUnit *5}px;
 }
 
 h1 {
-  color: white;
-  font-size: 48px;
+  color: ${theme.colors.white};
+  font-size: ${theme.fonts.sizes.P5};
 }
 
 h2 {
-  color: #8e8b8b;
+  color: ${theme.colors.white};
   margin: 20px 10px 10px;
-  font-size: 36px;
+  font-size: ${theme.fonts.sizes.P4};
 }
-
 `;
