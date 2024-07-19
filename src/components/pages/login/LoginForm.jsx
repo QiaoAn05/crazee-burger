@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { BsPersonCircle } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
+import styled from 'styled-components';
 
 
 export default function LoginForm() {
@@ -41,72 +42,31 @@ export default function LoginForm() {
   )
 }
 
-import styled from 'styled-components';
-import { theme } from "../../../theme"
 
 const LoginFormStyled = styled.form`
 background-color: green;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+text-align: center;
+max-width: 500px;
+min-width: 400px;
+margin: 0px auto;
+padding: 2.5rem 2rem;
+border-radius: 5px;
+font-family: "Amatic SC", cursive;
 
-  h1 {
-    font-size: ${theme.fonts.P5};
-  }
+hr {
+  border: 1.5px solid #f56a2c;
+  margin-bottom: 40px;
+}
 
-  h2 {
-    font-size: ${theme.fonts.P4};
-  }
+h1 {
+  color: white;
+  font-size: 48px;
+}
 
-  hr {
-    width: 400px;
-    height: 3px;
-    border: 1px solid #F56A2C;
-    background-color: #F56A2C;
-  }
+h2 {
+  color: #8e8b8b;
+  margin: 20px 10px 10px;
+  font-size: 36px;
+}
 
-  .input {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255);
-    width: 352px;
-    padding: 18px 24px;
-    color: ${theme.colors.greyDark};
-    margin-bottom: 10px;
-  }
-  input {
-    border: none;
-    color: ${theme.colors.greyLight}
-    
-  }
-  input:focus {
-    border: none;
-    outline: none;
-    color: ${theme.colors.dark};
-  }
-
-  button {
-    padding: 18px 24px;
-    gap: 10px;
-    width: 400px;
-    border-radius: 5px;
-    font-family: "Open Sans";
-    cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  button:hover {
-    background-color: ${theme.colors.primary_burger};
-    color: ${theme.colors.white};
-  } */
 `;
