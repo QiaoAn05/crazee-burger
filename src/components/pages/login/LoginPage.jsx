@@ -12,7 +12,6 @@ export default function LoginPage() {
   )
 }
 
-
 const LoginPageStyled = styled.div`
 
   height: 100vh;

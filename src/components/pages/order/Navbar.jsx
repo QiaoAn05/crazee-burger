@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Logo from "../../reusable-ui/Logo";
 import { theme } from "../../../theme";
 import styled from "styled-components";
