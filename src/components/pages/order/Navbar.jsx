@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import Logo from "../../reusable-ui/Logo";
 import { theme } from "../../../theme";
 import styled from "styled-components";
-import { BsPersonCircle } from "react-icons/bs";
+
+import NavbarRightSide from "./NavbarRightSide";
 
 export default function Navbar({ username }) {
   return (
@@ -12,16 +13,8 @@ export default function Navbar({ username }) {
                 <Logo />
             </Link>  
         </div>
+        <NavbarRightSide username={ username }/>
         
-        <div className="right-side">
-            <div className="infos-user">
-                <p>Hey, <span>{username}</span></p>
-                <Link to='/'>
-                    <a>Se déconnecter</a>
-                </Link>
-            </div>
-            <BsPersonCircle className="icon" />
-        </div>
     </NavbarStyled>  )
 }
 
@@ -39,48 +32,12 @@ const NavbarStyled = styled.nav`
         background-color: pink;
        .link {
             text-decoration: none;
+            .logo {
+                transform: scale(1);
+            }
         } 
     }
-    
 
-    .right-side {
-        background-color: purple;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding-right: 50px;
-        .icon {
-            transform: scale(2);
-            color: ${theme.colors.greyDark};
-            
-        }
-
-        .infos-user{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            p {
-                color: ${theme.colors.greyDark};
-                line-height: 0;
-            }
     
-            span {
-                color: ${theme.colors.primary};
-            }
-    
-            a {
-                color: ${theme.colors.greyDark};
-                text-decoration: none;
-                font-size: ${theme.fonts.sizes.XS};
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-
-    .logo {
-        transform: scale(1);
-    }
    
 `;
