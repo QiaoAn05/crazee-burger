@@ -16,13 +16,15 @@ export default function Navbar({ username }) {
 }
 
 const NavbarStyled = styled.nav`
+
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: ${theme.colors.background_white};
     padding: 0 20px;
-    border-radius: ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound} 0 0;
+    border-top-left-radius: ${theme.borderRadius.extraRound};
+    border-top-right-radius: ${theme.borderRadius.extraRound};
 
     .left-side {
         background-color: pink;
