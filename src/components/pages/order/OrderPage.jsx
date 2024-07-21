@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Navbar from "./Navbar";
+import Main from "./Main";
 
 export default function OrderPage() {
     //state
@@ -12,8 +13,7 @@ export default function OrderPage() {
     <OrderPageStyled>
       <div className="container">
         <Navbar username={username}/>
-        
-        <div className="main"></div>
+        <Main/>
       </div>   
     </OrderPageStyled>
   )
@@ -32,13 +32,5 @@ const OrderPageStyled = styled.div`
     width: 1400px;
     height: 95vh;
     border-radius: ${theme.borderRadius.extraRound};
-    
-    .main {
-      background-color: green;
-      width: 100%;
-      flex: 1;
-      box-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-      border-radius: 0 0 ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
-    }
   }
 `;

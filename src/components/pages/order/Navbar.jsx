@@ -22,7 +22,7 @@ export default function Navbar({ username }) {
     </NavbarStyled>  )
 }
 
-const NavbarStyled = styled.div`
+const NavbarStyled = styled.nav`
     background-color: blue;
     height: 10vh;
     display: flex;
