@@ -16,12 +16,11 @@ export default function Navbar({ username }) {
 }
 
 const NavbarStyled = styled.nav`
-    background-color: blue;
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: ${theme.colors.background_white}; */
+    background-color: ${theme.colors.background_white};
     padding: 0 20px;
     border-radius: ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound} 0 0;
 
