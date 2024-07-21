@@ -7,7 +7,7 @@ import { BsPersonCircle } from "react-icons/bs";
 export default function Navbar({ username }) {
   return (
     <NavbarStyled>
-        <Link to='/'>
+        <Link to='/' className="link">
             <Logo />
         </Link>
         <div className="right-nav">
@@ -30,6 +30,10 @@ const NavbarStyled = styled.div`
     background-color: ${theme.colors.background_white};
     padding: 20px;
     border-radius: ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound} 0 0;
+
+    .link {
+        text-decoration: none;
+    }
 
     .right-nav {
         display: flex;
