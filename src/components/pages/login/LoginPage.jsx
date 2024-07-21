@@ -6,7 +6,7 @@ export default function LoginPage() {
   //Affichage
   return (
     <LoginPageStyled>
-      <Logo/>
+      <Logo className={ "logo-login-page" }/>
       <LoginForm/>
     </LoginPageStyled>
   )
@@ -37,5 +37,7 @@ const LoginPageStyled = styled.div`
   }
   //tips intégrateur:
   // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("")
-
+  .logo-login-page {
+    transform: scale(2.5);
+  }
 `;
