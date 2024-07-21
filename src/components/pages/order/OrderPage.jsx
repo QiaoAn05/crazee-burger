@@ -22,8 +22,6 @@ export default function OrderPage() {
 const OrderPageStyled = styled.div`
   background-color: ${theme.colors.primary};
   height: 100vh;
-  /* padding: 24px 56px; */
-  /* height: calc(-48px +100vh); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,9 +34,9 @@ const OrderPageStyled = styled.div`
     border-radius: ${theme.borderRadius.extraRound};
     
     .main {
-      background-color: #b564d7;
+      background-color: green;
       width: 100%;
-      flex-grow: 1;
+      flex: 1;
       box-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
       border-radius: 0 0 ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
     }

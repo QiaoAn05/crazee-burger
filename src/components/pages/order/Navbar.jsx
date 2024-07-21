@@ -23,11 +23,13 @@ export default function Navbar({ username }) {
 }
 
 const NavbarStyled = styled.div`
+    background-color: blue;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    background-color: ${theme.colors.background_white};
+    /* background-color: ${theme.colors.background_white}; */
     padding: 20px;
     border-radius: ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound} 0 0;
 
