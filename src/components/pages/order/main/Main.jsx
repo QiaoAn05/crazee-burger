@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import Basket from "./Basket";
+import Menu from "./Menu";
 
 export default function Main() {
   return (
-    <MainStyled></MainStyled>
+    <MainStyled>
+      <Basket/>
+      <Menu/>
+    </MainStyled>
   )
 }
 
@@ -14,4 +19,7 @@ const MainStyled = styled.div`
     border-radius: 0 0 ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
     /* background-color: ${theme.colors.background_white}; */
     background-color: purple;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 6fr;
 `;
