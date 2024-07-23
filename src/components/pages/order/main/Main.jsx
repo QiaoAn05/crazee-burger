@@ -19,7 +19,7 @@ const MainStyled = styled.div`
     background-color: ${theme.colors.background_white};
     display: grid;
     grid-template-rows: 1fr;
-    /* grid-template-columns: 1fr 6fr; basket + menu */
+    /* grid-template-columns: 1fr 3fr; */
     grid-template-columns: 1fr;
     overflow: auto;
 `;
