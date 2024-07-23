@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
-import { IoChevronForward } from "react-icons/io5";
 
-export default function MenuCard() {
+export default function MenuCard({item}) {
   return (
     <MenuCardStyled className="card">
-        <img src="" alt="image de la card" />
+        <img src={item.imageSource} alt="image de la card" />
         <div className="card-content">
-            <p className="title">Name of the card</p>
+            <p className="title">{item.title}</p>
             <div className="card-description">
-                <p>15,00 €</p>
+                <p>{item.price} €</p>
                 <PrimaryButton
                 Label="Ajouter"
                 />
