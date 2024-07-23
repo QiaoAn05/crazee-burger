@@ -5,7 +5,7 @@ import {fakeMenu1, fakeMenu2} from "../../../../data/fakeMenu"
 
 export default function Menu() {
   //state
-  const [menu, setMenu] = useState(fakeMenu1)
+  const [menu, setMenu] = useState(fakeMenu2)
   //behavior
   //Render
   return (
@@ -18,6 +18,10 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.section`
-  background-color: cyan;
-  
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 40px 30px;
+  padding: 50px 50px 150px;
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 `;

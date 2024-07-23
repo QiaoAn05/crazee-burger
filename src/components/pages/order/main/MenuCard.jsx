@@ -27,10 +27,13 @@ const MenuCardStyled = styled.div`
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
+
     img {
         background-color: yellow;
         height: 145px;
         width: 200px;
+        object-fit: contain;
         margin: 50px 20px 0 20px;
     }
     .card-content {
