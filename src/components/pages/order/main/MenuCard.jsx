@@ -2,13 +2,15 @@ import styled from "styled-components";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 
 export default function MenuCard({item}) {
+    const roundedPrice = Number(item.price.toFixed(2));
+    
   return (
     <MenuCardStyled className="card">
         <img src={item.imageSource} alt="image de la card" />
         <div className="card-content">
             <p className="title">{item.title}</p>
             <div className="card-description">
-                <p>{item.price} €</p>
+                <p>{roundedPrice} €</p>
                 <PrimaryButton
                 Label="Ajouter"
                 />
