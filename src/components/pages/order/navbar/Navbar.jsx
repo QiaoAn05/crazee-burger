@@ -1,7 +1,6 @@
 import Logo from "../../../reusable-ui/Logo";
 import { theme } from "../../../../theme";
 import styled from "styled-components";
-
 import NavbarRightSide from "./NavbarRightSide";
 import { refreshPage } from "../../../../utils/window";
 
