@@ -21,7 +21,6 @@ export default function MenuCard({item}) {
 }
 
 const MenuCardStyled = styled.div`
-    background-color: pink;
     width: 240px;
     height: 330px;
     border-radius: 15px;
@@ -30,14 +29,12 @@ const MenuCardStyled = styled.div`
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
 
     img {
-        background-color: yellow;
         height: 145px;
         width: 200px;
         object-fit: contain;
         margin: 50px 20px 0 20px;
     }
     .card-content {
-        background-color: green;
         width: 200px;
         height: 105px;
         margin: 20px 20px 10px 20px;
@@ -54,7 +51,6 @@ const MenuCardStyled = styled.div`
             text-overflow: ellipsis;
         }
         .card-description {
-            background-color: blue;
             display: flex;
             align-items: center;
             justify-content: space-between;

@@ -18,10 +18,9 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.section`
-  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 40px 30px;
-  padding: 50px 50px 150px;
+  padding: 50px 50px 50px;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 `;
