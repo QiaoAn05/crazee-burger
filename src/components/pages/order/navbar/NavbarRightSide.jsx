@@ -1,8 +1,8 @@
 import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../../../theme";
-import Profile from "./Profile";
+import { theme } from "../../../../theme";
+import Profile from "../Profile";
 
 export default function NavbarRightSide({ username }) {
   return (
