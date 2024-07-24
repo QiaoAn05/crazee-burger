@@ -19,23 +19,28 @@ export default function Product({title, imageSource, price}) {
 }
 
 const ProductStyled = styled.div`
-    width: 240px;
-    height: 330px;
+    width: 200px;
+    height: 300px;
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 65% 1fr;
+    /* display: flex;
+    flex-direction: column; */
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    padding-bottom: 10px;
 
     img {
         height: 145px;
-        width: 200px;
+        width: 100%;
         object-fit: contain;
-        margin: 50px 20px 0 20px;
+        margin-top: 30px;
+        /* margin: 50px 20px 0 20px; */
     }
     .card-content {
         width: 200px;
         height: 105px;
-        margin: 20px 20px 10px 20px;
+        /* margin: 20px 20px 10px 20px; */
         display: flex;
         flex-direction: column;
         gap: 15px;
