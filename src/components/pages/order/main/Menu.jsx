@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Product from "./Product";
 import { useState } from "react";
-import {fakeMenu1, fakeMenu2} from "../../../../fakeData/fakeMenu"
+import {fakeMenu2} from "../../../../fakeData/fakeMenu"
 import { theme } from "../../../../theme";
 
 export default function Menu() {
@@ -26,7 +26,6 @@ export default function Menu() {
 const MenuStyled = styled.section`
 background-color: ${theme.colors.background_white};
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px 30px;
   padding: 50px 50px 150px;
