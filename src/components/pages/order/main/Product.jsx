@@ -6,7 +6,7 @@ export default function Product({title, imageSource, price}) {
     
   return (
     <ProductStyled>
-        <img src={imageSource} alt="image de la card" />
+        <img src={imageSource} alt={title} />
         <div className="card-content">
             <p className="title">{title}</p>
             <div className="card-description">
