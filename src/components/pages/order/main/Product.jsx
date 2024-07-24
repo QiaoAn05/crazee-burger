@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import {formatPrice} from "../../../../utils/maths";
 
 export default function Product({title, imageSource, price}) {
-    const roundedPrice = Number(price.toFixed(2));
     
   return (
     <ProductStyled>
@@ -10,7 +10,7 @@ export default function Product({title, imageSource, price}) {
         <div className="card-content">
             <p className="title">{title}</p>
             <div className="card-description">
-                <p>{roundedPrice} €</p>
+                <p>{formatPrice(price)}</p>
                 <PrimaryButton Label="Ajouter"/>
             </div>
         </div>
