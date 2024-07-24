@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MenuCard from "./MenuCard";
 import { useState } from "react";
-import {fakeMenu1, fakeMenu2} from "../../../../data/fakeMenu"
+import {fakeMenu1, fakeMenu2} from "../../../../fakeData/fakeMenu"
 
 export default function Menu() {
   //state
