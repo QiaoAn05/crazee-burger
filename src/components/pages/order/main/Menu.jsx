@@ -19,8 +19,10 @@ export default function Menu() {
 
 const MenuStyled = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px 30px;
-  padding: 50px 50px 50px;
+  padding: 50px 50px 150px;
+  justify-items: center;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 `;
