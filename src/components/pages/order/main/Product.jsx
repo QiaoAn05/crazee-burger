@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 
-export default function MenuCard({item}) {
-    const roundedPrice = Number(item.price.toFixed(2));
+export default function Product({title, imageSource, price}) {
+    const roundedPrice = Number(price.toFixed(2));
     
   return (
-    <MenuCardStyled>
-        <img src={item.imageSource} alt="image de la card" />
+    <ProductStyled>
+        <img src={imageSource} alt="image de la card" />
         <div className="card-content">
-            <p className="title">{item.title}</p>
+            <p className="title">{title}</p>
             <div className="card-description">
                 <p>{roundedPrice} €</p>
                 <PrimaryButton Label="Ajouter"/>
             </div>
         </div>
-    </MenuCardStyled>
+    </ProductStyled>
   )
 }
 
-const MenuCardStyled = styled.div`
+const ProductStyled = styled.div`
     width: 240px;
     height: 330px;
     border-radius: 15px;

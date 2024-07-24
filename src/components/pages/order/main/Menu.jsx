@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MenuCard from "./MenuCard";
+import Product from "./Product";
 import { useState } from "react";
 import {fakeMenu1, fakeMenu2} from "../../../../fakeData/fakeMenu"
 import { theme } from "../../../../theme";
@@ -11,8 +11,13 @@ export default function Menu() {
   //Render
   return (
     <MenuStyled>
-      {menu.map(item => (
-        <MenuCard key={item.id} item={item}/>
+      {menu.map(product => (
+        <Product 
+        key={product.id} 
+        title={product.title}
+        imageSource={product.imageSource}
+        price={product.price}
+        />
       ))}
     </MenuStyled>
   )
