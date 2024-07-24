@@ -5,15 +5,13 @@ export default function MenuCard({item}) {
     const roundedPrice = Number(item.price.toFixed(2));
     
   return (
-    <MenuCardStyled className="card">
+    <MenuCardStyled>
         <img src={item.imageSource} alt="image de la card" />
         <div className="card-content">
             <p className="title">{item.title}</p>
             <div className="card-description">
                 <p>{roundedPrice} €</p>
-                <PrimaryButton
-                Label="Ajouter"
-                />
+                <PrimaryButton Label="Ajouter"/>
             </div>
         </div>
     </MenuCardStyled>
