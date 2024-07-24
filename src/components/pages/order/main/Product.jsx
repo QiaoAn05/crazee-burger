@@ -43,6 +43,7 @@ const ProductStyled = styled.div`
         /* margin: 20px 20px 10px 20px; */
         display: flex;
         flex-direction: column;
+        /* display: grid; */
         gap: 15px;
         .title {
             font-family: "Amatic SC", sans-serif;
@@ -55,6 +56,8 @@ const ProductStyled = styled.div`
         }
         .card-description {
             display: flex;
+            /* display: grid;
+            grid-template-columns: 1fr 1fr; */
             align-items: center;
             justify-content: space-between;
             p {
