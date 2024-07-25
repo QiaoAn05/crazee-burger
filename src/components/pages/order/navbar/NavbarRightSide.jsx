@@ -5,10 +5,15 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { theme } from "../../../../theme";
 import { FaUserSecret } from "react-icons/fa";
+import { useState } from "react";
 
 export default function NavbarRightSide({ username }) {
-  
+  const [isAdminMode, setIsAdminMode] = useState(false);
+
   const onToggle = () => {
+    if (isAdminMode === true) {
+      return setIsAdminMode(!isAdminMode);
+    }
     toast("Mode admin activé", {
       icon: <FaUserSecret size={30} />,
       theme: "dark",
@@ -20,7 +25,7 @@ export default function NavbarRightSide({ username }) {
       draggable: true,
       progress: undefined,
     })
-
+    setIsAdminMode(!isAdminMode)
   }
   
   return (
