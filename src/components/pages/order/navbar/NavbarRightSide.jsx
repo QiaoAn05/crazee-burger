@@ -11,20 +11,19 @@ export default function NavbarRightSide({ username }) {
   const [isAdminMode, setIsAdminMode] = useState(false);
 
   const onToggle = () => {
-    if (isAdminMode === true) {
-      return setIsAdminMode(!isAdminMode);
+    if (!isAdminMode) {
+      toast("Mode admin activé", {
+        // icon: <FaUserSecret size={30} />,
+        theme: "dark",
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     }
-    toast("Mode admin activé", {
-      icon: <FaUserSecret size={30} />,
-      theme: "dark",
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    })
     setIsAdminMode(!isAdminMode)
   }
   
