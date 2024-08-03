@@ -1,4 +1,5 @@
-export const fakeMenu1 = [
+export const EMPTY = [];
+export const SMALL = [
   {
     id: 1,
     imageSource: "/images/burger1.png",
@@ -17,9 +18,9 @@ export const fakeMenu1 = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
 
-export const fakeMenu2 = [
+export const LONG = [
   {
     id: 1,
     imageSource: "/images/burger-bacon-egg.png",
@@ -110,4 +111,10 @@ export const fakeMenu2 = [
     isAvailable: true,
     isAdvertised: false,
   },
-]
+];
+
+export const FAKE_MENU = {
+  EMPTY,
+  SMALL,
+  LONG,
+};
