@@ -3,14 +3,16 @@ import Profile from "./Profile";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import { toast } from "react-toastify";
 import { FaUserSecret } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ToastAdmin from "./ToastAdmin";
+import AdminContext from "../../../../context/AdminContext";
 
 export default function NavbarRightSide({ username }) {
-  const [isAdminMode, setIsAdminMode] = useState(false);
+  // const [isAdminMode, setIsAdminMode] = useState(false);
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
 
   const onToggleToast = () => {
-    if (!isAdminMode) {
+    if (!isAdmin) {
       toast.info("Mode admin activé", {
         // icon: <FaUserSecret size={30} />,
         theme: "dark",
@@ -23,7 +25,8 @@ export default function NavbarRightSide({ username }) {
         progress: undefined,
       })
     }
-    setIsAdminMode(!isAdminMode)
+    // setIsAdminMode(!isAdminMode)
+    setIsAdmin(!isAdmin)
   }
   
   return (
