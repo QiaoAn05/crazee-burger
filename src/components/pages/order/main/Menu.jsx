@@ -3,6 +3,7 @@ import Product from "./Product";
 import { useState } from "react";
 import { theme } from "../../../../theme";
 import { FAKE_MENU } from "../../../../fakeData/fakeMenu";
+import PanelAdmin from "./PanelAdmin";
 
 export default function Menu() {
   //state
@@ -21,7 +22,7 @@ export default function Menu() {
           />
         ))}
       </div>
-      <div className="panel-admin">PanelAdmin</div>
+      <PanelAdmin/>
     </MenuStyled>
   )
 }
@@ -35,11 +36,5 @@ background-color: ${theme.colors.background_white};
     padding: 50px 50px 150px;
     justify-items: center;
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
-  }
-  .panel-admin {
-    background-color: red;
-    width: 100%;
-    position: sticky;
-    bottom: 0;
   }
 `;
