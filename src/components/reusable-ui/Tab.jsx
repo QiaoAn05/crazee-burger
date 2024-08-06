@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Tab({ Icon, onClick, className }) {
+export default function Tab({ label, Icon, onClick, className }) {
   return (
     <TabStyled onClick={onClick} className={className}>
         <div className="icon">
             {Icon}
         </div>
+        {label}
     </TabStyled>
   )
 }
@@ -19,6 +20,7 @@ const TabStyled = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 13px;
   
   background-color: ${theme.colors.white};
   box-shadow: ${theme.shadows.subtle};
