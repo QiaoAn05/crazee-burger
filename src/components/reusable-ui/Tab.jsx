@@ -43,6 +43,8 @@ const TabStyled = styled.button`
   
   &:hover {
     border-bottom: 2px solid ${theme.colors.white};
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
   .icon {
     display: flex;
