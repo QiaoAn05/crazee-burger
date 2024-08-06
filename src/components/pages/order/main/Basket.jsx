@@ -7,5 +7,5 @@ export default function Basket() {
 }
 
 const BasketStyled = styled.aside`
-  background-color: yellow;
+  background-color: pink;
 `;

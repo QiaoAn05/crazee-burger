@@ -35,6 +35,7 @@ background-color: ${theme.colors.background_white};
   .product {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 40px 30px;
     padding: 50px 50px 150px;
     justify-items: center;
