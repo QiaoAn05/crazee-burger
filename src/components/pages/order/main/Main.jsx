@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Basket from "./Basket";
 import Menu from "./Menu";
+import Admin from "./admin/Admin";
 
 export default function Main() {
   return (
@@ -9,7 +10,7 @@ export default function Main() {
       {/* <Basket/> */}
       <div className="menu-and-admin">
         <Menu/>
-        <div className="admin">Admin</div>
+        <Admin/>
       </div>
     </MainStyled>
   )
@@ -27,13 +28,6 @@ const MainStyled = styled.div`
 
     .menu-and-admin {
       position: relative;
-      .admin {
-        background-color: red;
-        height: 250px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
+      
     }
 `;
