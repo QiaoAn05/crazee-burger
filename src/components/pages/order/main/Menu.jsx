@@ -3,13 +3,13 @@ import Product from "./Product";
 import { useContext, useState } from "react";
 import { theme } from "../../../../theme";
 import { FAKE_MENU } from "../../../../fakeData/fakeMenu";
-import PanelAdmin from "./PanelAdmin";
-import AdminContext from "../../../../context/AdminContext";
+// import PanelAdmin from "./PanelAdmin";
+// import AdminContext from "../../../../context/AdminContext";
 
 export default function Menu() {
   //state
   const [menu, setMenu] = useState(FAKE_MENU.LONG)
-  const { isAdmin, setIsAdmin } = useContext(AdminContext);
+  // const { isAdmin, setIsAdmin } = useContext(AdminContext);
 
   //behavior
   //Render
@@ -25,7 +25,7 @@ export default function Menu() {
           />
         ))}
       </div>
-      {isAdmin && <PanelAdmin/>}
+      {/* {isAdmin && <PanelAdmin/>} */}
     </MenuStyled>
   )
 }

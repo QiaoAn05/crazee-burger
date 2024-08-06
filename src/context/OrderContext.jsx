@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
 export default createContext({
-    isAdmin: false,
-    setIsAdmin: () => {},
+    isAdminMode: false,
+    setIsAdminMode: () => {}
 })
