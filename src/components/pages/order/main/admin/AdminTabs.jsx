@@ -17,16 +17,19 @@ const {
   setIsEditSelected
 } = useContext(OrderContext)
 
-  const selectAddTab = () => {
-    setIsAddSelected(true)
-    setIsEditSelected(false)
+  const selectTab = (selectedTab) => {
     setIsCollapsed(false)
-  }
 
-  const selectEditTab = () => {
-    setIsEditSelected(true)
-    setIsAddSelected(false)
-    setIsCollapsed(false)
+    if(selectedTab === "add") {
+      setIsAddSelected(true)
+      setIsEditSelected(false)
+    }
+
+    if(selectedTab === "edit") {
+      setIsEditSelected(true)
+      setIsAddSelected(false)
+    }
+
   }
 
   return (
@@ -40,13 +43,13 @@ const {
         <Tab
         label="Ajouter un produit"
         Icon={<AiOutlinePlus/>} 
-        onClick={selectAddTab} 
+        onClick={() => selectTab("add")} 
         className={isAddSelected ? "is-active" : ""}
         />
         <Tab
         label="Modifier un produit"
         Icon={<MdModeEditOutline/>} 
-        onClick={selectEditTab} 
+        onClick={() => selectTab("edit")} 
         className={isEditSelected ? "is-active" : ""}
         />
     </AdminTabsStyled>
