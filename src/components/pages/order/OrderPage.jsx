@@ -7,10 +7,11 @@ import OrderContext from "../../../context/OrderContext";
 
 export default function OrderPage() {
     //state
-    const [isAdminMode, setIsAdminMode] = useState(true);
+    const [isAdminMode, setIsAdminMode] = useState(true)
     const [isCollapsed, setIsCollapsed] = useState(false)
     const [isAddSelected, setIsAddSelected] = useState(true)
     const [isEditSelected, setIsEditSelected] = useState(false)
+    const [currentTabSelected, setCurrentTabSelected] = useState("add")
  
     //comportements
 
@@ -23,6 +24,8 @@ export default function OrderPage() {
       setIsAddSelected,
       isEditSelected,
       setIsEditSelected,
+      currentTabSelected, 
+      setCurrentTabSelected,
     }
 
     //affichage
