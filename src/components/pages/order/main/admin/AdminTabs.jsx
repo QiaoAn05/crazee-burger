@@ -32,9 +32,31 @@ const {
 
   }
 
+  const tabsConfig = [
+    {
+      label: "",
+      Icon: isCollapsed ? <FiChevronUp/> : <FiChevronDown/>,
+      onClick: () => setIsCollapsed(!isCollapsed),
+      className: isCollapsed ? "is-active" : "",
+    },
+    {
+      label: "Ajouter un produit",
+      Icon: <AiOutlinePlus/>,
+      onClick: () => selectTab("add"),
+      className: isAddSelected ? "is-active" : "",
+    },
+    {
+      label: "Modifier un produit",
+      Icon: <MdModeEditOutline/>,
+      onClick: () => selectTab("edit"),
+      className: isEditSelected ? "is-active" : "",
+    },
+  ]
+
+  //affichage
   return (
     <AdminTabsStyled>
-        <Tab 
+        {/* <Tab 
         label=""
         Icon={isCollapsed ? <FiChevronUp/> : <FiChevronDown/>} 
         onClick={() => setIsCollapsed(!isCollapsed)} 
@@ -51,7 +73,15 @@ const {
         Icon={<MdModeEditOutline/>} 
         onClick={() => selectTab("edit")} 
         className={isEditSelected ? "is-active" : ""}
-        />
+        /> */}
+        {tabsConfig.map((tab) => {
+          return <Tab 
+          label= {tab.label}
+          Icon={tab.Icon} 
+          onClick={tab.onClick} 
+          className={tab.className}
+          />
+        })}
     </AdminTabsStyled>
   )
 }

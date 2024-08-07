@@ -5,7 +5,7 @@ export default createContext({
     setIsAdminMode: () => {},
     isCollapsed: false,
     setIsCollapsed: () => {},
-    isAddSelected: true,
+    isAddSelected: false,
     setIsAddSelected: () => {},
     isEditSelected: false,
     setIsEditSelected: () => {},
