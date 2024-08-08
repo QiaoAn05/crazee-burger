@@ -24,6 +24,8 @@ const MainStyled = styled.div`
     width: 100%;
     flex: 1;
     border-radius: 0 0 ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
+    box-shadow: ${theme.shadows.strong};
+    
     display: grid;
     grid-template-rows: 1fr;
     /* grid-template-columns: 25% 1fr; */

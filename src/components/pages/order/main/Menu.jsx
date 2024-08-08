@@ -35,6 +35,6 @@ background-color: ${theme.colors.background_white};
     grid-gap: 40px 30px;
     padding: 50px 50px 150px;
     justify-items: center;
-    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: ${theme.shadows.strong};
   }
 `;

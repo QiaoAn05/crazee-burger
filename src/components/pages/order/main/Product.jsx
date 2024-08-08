@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import {formatPrice} from "../../../../utils/maths";
+import { theme } from "../../../../theme";
 
 export default function Product({title, imageSource, price}) {
     
@@ -25,7 +26,7 @@ const ProductStyled = styled.div`
     border-radius: 15px;
     display: grid;
     grid-template-rows: 65% 1fr;
-    box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: ${theme.shadows.medium};
     padding: 20px;
 
     img {
