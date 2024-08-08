@@ -19,14 +19,14 @@ export default function Product({title, imageSource, price}) {
 }
 
 const ProductStyled = styled.div`
-    width: 200px;
-    height: 300px;
+    box-sizing: border-box;
+    width: 240px;
+    height: 330px;
     border-radius: 15px;
     display: grid;
     grid-template-rows: 65% 1fr;
     box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    padding-bottom: 10px;
 
     img {
         height: 145px;
