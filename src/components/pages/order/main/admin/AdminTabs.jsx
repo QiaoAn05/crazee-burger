@@ -32,10 +32,11 @@ const {
         />
         {tabs.map((tab) => (
           <Tab 
+          key={tab.index}
           label= {tab.label}
           Icon={tab.Icon} 
           onClick={() => selectTab(tab.index)} 
-          className={tab.className}
+          className={currentTabSelected === tab.index ? "is-active" : ""}
           />
         ))}
     </AdminTabsStyled>
