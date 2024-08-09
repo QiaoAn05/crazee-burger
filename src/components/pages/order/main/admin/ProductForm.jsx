@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Image from "./Image";
 import Inputs from "./Inputs";
+import SuccessButton from "../../../../reusable-ui/SuccessButton";
 
 export default function ProductForm() {
   return (
     <ProductFormStyled action="submit">
         <Image/>
         <Inputs/>
-        {/* <PrimaryButton Label="Ajouter un nouveau produit au menu"/> */}
-        <button className="SuccessButton">Ajouter un nouveau produit au menu</button>
+        <SuccessButton Label="Ajouter un nouveau produit au menu"/>
     </ProductFormStyled>
   )
 }
@@ -20,9 +20,12 @@ const ProductFormStyled = styled.form`
   grid-template-rows: 3fr 1fr;
   padding-left: 71px;
   padding-top: 31px;
+  width: 880px;
+  column-gap: 20px;
+  row-gap: 10px;
 
-  .SuccessButton {
-    background-color: green;
+  &>:last-child {
     grid-column: 2/2;
+    padding: 10px 20px;
   }
 `;

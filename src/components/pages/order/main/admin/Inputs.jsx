@@ -31,4 +31,11 @@ export default function Inputs() {
 
 const InputsStyled = styled.div`
   background-color: #762828;
+  display: grid;
+  gap: 10px;
+  
+  & > * {
+    margin: 0;
+    padding: 10px 20px;
+  }
 `;
