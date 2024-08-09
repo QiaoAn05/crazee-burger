@@ -11,6 +11,6 @@ export default function Image() {
 const ImageStyled = styled.div`
   height: 100%;
   width: 100%;
-  border: 1ps solid #E4E5E9;
+  border: 1px solid #E4E5E9;
   background-color: red;
 `;

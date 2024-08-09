@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { theme } from "../../../../../theme";
 import { useContext } from 'react';
 import OrderContext from '../../../../../context/OrderContext';
-import { tabsConfig, getTabSelected } from "./tabsConfig"
+import { tabsConfig, getTabSelected } from "./tabsConfig";
 import ProductForm from './ProductForm';
 
 export default function AdminPanel() {
