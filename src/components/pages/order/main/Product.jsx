@@ -8,7 +8,6 @@ import OrderContext from "../../../../context/OrderContext";
 
 export default function Product({productInfo, title, imageSource, price, onProductDelete}) {
     const { isAdminMode, setIsAdminMode } = useContext(OrderContext)
-
     
   return (
     <ProductStyled>
