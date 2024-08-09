@@ -9,16 +9,29 @@ export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM)
 
   //behavior
+
+  const handleDelete = (id) => {
+    console.log(id);
+    //copie du state
+    const productCopy = [...menu];
+    //manipulation de la copie du state
+    const productCopyUpdated = productCopy.filter(product => product.id !== id)
+    //modifier le state
+    setMenu(productCopyUpdated)
+  }
+
   //Render
   return (
     <MenuStyled>
       <div className="product">
         {menu.map(product => (
           <Product 
-          key={product.id} 
+          key={product.id}
+          productInfo={product}
           title={product.title}
           imageSource={product.imageSource}
           price={product.price}
+          onProductDelete={handleDelete}
           />
         ))}
       </div>
