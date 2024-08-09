@@ -2,11 +2,11 @@ import styled from "styled-components";
 import Product from "./Product";
 import { useState } from "react";
 import { theme } from "../../../../theme";
-import { FAKE_MENU } from "../../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   //state
-  const [menu, setMenu] = useState(FAKE_MENU.LONG)
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM)
 
   //behavior
   //Render
