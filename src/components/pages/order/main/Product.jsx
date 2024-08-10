@@ -7,15 +7,13 @@ import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function Product({productInfo, title, imageSource, price, onProductDelete}) {
-    const { isAdminMode, setIsAdminMode } = useContext(OrderContext)
+    const { isAdminMode } = useContext(OrderContext)
     
   return (
     <ProductStyled>
-        {/* <button className="btn-delete" onClick={()=>onProductDelete()}> */}
         {isAdminMode &&
             <TiDelete onClick={()=>onProductDelete(productInfo.id)} className="icon"/>
         }
-        {/* </button> */}
         <img src={imageSource} alt={title} />
         <div className="card-content">
             <p className="title">{title}</p>
