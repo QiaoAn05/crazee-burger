@@ -8,8 +8,10 @@ import OrderContext from "../../../../../context/OrderContext";
 export default function ProductForm() {
   //state
   const [newProductName, setNewProductName] = useState("");
+  const [newProductUrl, setNewProductUrl] = useState("");
+  const [newProductPrice, setNewProductPrice] = useState("");
   const { menu, setMenu } = useContext(OrderContext)
- 
+
   //behaviors
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +19,10 @@ export default function ProductForm() {
     const menuCopy = [...menu]
     //manipulation de la copie du state
     const id = new Date().getTime()
-    const name = "newProductName"
-    const url = "public\images\coming-soon.png"
-    const price = 2
-    const productToAdd = {id, name, url, price}
+    const title = newProductName
+    const imageSource = "/public/images/coming-soon.png"
+    const price = newProductPrice
+    const productToAdd = {id, title, imageSource, price}
     menuCopy.push(productToAdd)
     //modifier le state avec le setter
     setMenu(menuCopy)
@@ -32,7 +34,12 @@ export default function ProductForm() {
     <ProductFormStyled action="submit" onSubmit={handleSubmit}>
         <Image/>
         <Inputs 
-          
+          newProductName={newProductName}
+          setNewProductName={setNewProductName}
+          newProductUrl={newProductUrl}
+          setNewProductUrl={setNewProductUrl}
+          newProductPrice={newProductPrice}
+          setNewProductPrice={setNewProductPrice}
         />
         <SuccessButton Label="Ajouter un nouveau produit au menu"/>
     </ProductFormStyled>

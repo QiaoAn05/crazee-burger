@@ -5,21 +5,21 @@ import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import { useState } from "react";
 
-export default function Inputs() {
+export default function Inputs({ newProductName, setNewProductName, newProductUrl, setNewProductUrl, newProductPrice, setNewProductPrice }) {
   //State
-  const [inputValueName, setInputValueName] = useState("")
-  const [inputValueUrl, setInputValueUrl] = useState("")
-  const [inputValuePrice, setInputValuePrice] = useState("")
+  // const [inputValueName, setInputValueName] = useState("")
+  // const [inputValueUrl, setInputValueUrl] = useState("")
+  // const [inputValuePrice, setInputValuePrice] = useState("")
 
   //Comportements
   const handleChangeName = (e) => {
-    setInputValueName(e.target.value)
+    setNewProductName(e.target.value)
   }
   const handleChangeUrl = (e) => {
-    setInputValueUrl(e.target.value)
+    setNewProductUrl(e.target.value)
   }
   const handleChangePrice = (e) => {
-    setInputValuePrice(e.target.value)
+    setNewProductPrice(e.target.value)
   }
 
   //Affichage
@@ -27,19 +27,19 @@ export default function Inputs() {
     <InputsStyled>
         <TextInput 
         placeholder="Nom du produit (ex: Super Burger)" 
-        value={inputValueName} 
+        value={newProductName} 
         onChange={handleChangeName}
         Icon={<FaHamburger className="icon"/>}
         />
         <TextInput 
         placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)" 
-        value={inputValueUrl} 
+        value={newProductUrl} 
         onChange={handleChangeUrl} 
         Icon={<BsFillCameraFill className="icon"/>}
         />
         <TextInput 
         placeholder="Prix" 
-        value={inputValuePrice} 
+        value={newProductPrice} 
         onChange={handleChangePrice}
         Icon={<MdOutlineEuro className="icon"/>}
         />
