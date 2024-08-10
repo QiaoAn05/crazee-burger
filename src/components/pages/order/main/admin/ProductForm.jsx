@@ -20,7 +20,7 @@ export default function ProductForm() {
     //manipulation de la copie du state
     const id = new Date().getTime()
     const title = newProductName
-    const imageSource = "/public/images/coming-soon.png"
+    const imageSource = "/images/coming-soon.png"
     const price = newProductPrice
     const productToAdd = {id, title, imageSource, price}
     menuCopy.push(productToAdd)
