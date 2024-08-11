@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Product from "./Product";
 import { useContext, useState } from "react";
 import { theme } from "../../../../theme";
-// import { fakeMenu } from "../../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import OrderContext from "../../../../context/OrderContext";
 
@@ -20,6 +20,9 @@ export default function Menu() {
     //modifier le state
     setMenu(productCopyUpdated)
   }
+  const handleReset = () => {
+    setMenu(fakeMenu.SMALL)
+  }
 
   //Render
   return (
@@ -31,7 +34,7 @@ export default function Menu() {
             <div className="empty-admin-menu">
               <p><b>Le menu est vide?</b></p>
               <p>Cliquez ci-dessous pour le réinitialiser</p>
-              <PrimaryButton Label={"Générer de nouveaux produits"}/>
+              <PrimaryButton OnClick={handleReset} Label={"Générer de nouveaux produits"}/>
             </div>
             :
               <div className="empty-menu">
