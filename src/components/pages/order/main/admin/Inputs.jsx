@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import TextInput from "../../../../reusable-ui/TextInput";
+import NumberInput from "../../../../reusable-ui/NumberInput";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import { useState } from "react";
 
 export default function Inputs({ newProductName, setNewProductName, newProductUrl, setNewProductUrl, newProductPrice, setNewProductPrice }) {
   //State
-  // const [inputValueName, setInputValueName] = useState("")
-  // const [inputValueUrl, setInputValueUrl] = useState("")
-  // const [inputValuePrice, setInputValuePrice] = useState("")
 
   //Comportements
   const handleChangeName = (e) => {
@@ -37,7 +34,7 @@ export default function Inputs({ newProductName, setNewProductName, newProductUr
         onChange={handleChangeUrl} 
         Icon={<BsFillCameraFill className="icon"/>}
         />
-        <TextInput 
+        <NumberInput 
         placeholder="Prix" 
         value={newProductPrice} 
         onChange={handleChangePrice}
