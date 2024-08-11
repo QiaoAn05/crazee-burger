@@ -4,6 +4,8 @@ import Inputs from "./Inputs";
 import SuccessButton from "../../../../reusable-ui/SuccessButton";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
+import { FiCheck } from "react-icons/fi";
+import { theme } from "../../../../../theme";
 
 export default function ProductForm() {
   //state
@@ -11,6 +13,7 @@ export default function ProductForm() {
   const [newProductUrl, setNewProductUrl] = useState("");
   const [newProductPrice, setNewProductPrice] = useState("");
   const { menu, setMenu } = useContext(OrderContext)
+  const [ isSuccessfull, setIsSuccessfull ] = useState(false)
 
   //behaviors
   const handleSubmit = (e) => {
@@ -27,6 +30,10 @@ export default function ProductForm() {
     //modifier le state avec le setter
     setMenu(menuCopy)
     setNewProductName("")
+    setIsSuccessfull(true)
+    setTimeout(() => {
+      setIsSuccessfull(false);
+    }, 2000);
   }
 
   //render
@@ -42,6 +49,9 @@ export default function ProductForm() {
           setNewProductPrice={setNewProductPrice}
         />
         <SuccessButton Label="Ajouter un nouveau produit au menu"/>
+        {isSuccessfull &&
+          <span className="success-message"><FiCheck className="check-icon"/>Ajouté avec succès !</span>
+        }
     </ProductFormStyled>
   )
 }
@@ -57,8 +67,20 @@ const ProductFormStyled = styled.form`
   column-gap: 20px;
   row-gap: 10px;
 
-  &>:last-child {
+  &>:nth-child(3) {
     grid-column: 2/2;
     padding: 10px 20px;
+  }
+
+  .success-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-column: span 2;
+    color: ${theme.colors.success};
+    .check-icon {
+      border: 1px solid ${theme.colors.success};
+      border-radius: 50%;
+    }
   }
 `;
