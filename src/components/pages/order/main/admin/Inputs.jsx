@@ -51,6 +51,7 @@ const InputsStyled = styled.div`
   background-color: #762828;
   display: grid;
   gap: 10px;
+  grid-column: span 3;
 
   & > * {
     margin: 0;

@@ -49,7 +49,7 @@ export default function ProductForm() {
 const ProductFormStyled = styled.form`
   background-color: purple;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 3fr 1fr;
   padding-left: 71px;
   padding-top: 31px;
