@@ -23,7 +23,7 @@ export default function ProductForm() {
     //manipulation de la copie du state
     const id = new Date().getTime()
     const title = newProductName
-    const imageSource = "/images/coming-soon.png"
+    const imageSource = newProductUrl || "/images/coming-soon.png"
     const price = newProductPrice
     const productToAdd = {id, title, imageSource, price}
     menuCopy.push(productToAdd)
@@ -39,7 +39,7 @@ export default function ProductForm() {
   //render
   return (
     <ProductFormStyled action="submit" onSubmit={handleSubmit}>
-        <Image/>
+        <Image newProductUrl={newProductUrl}/>
         <Inputs 
           newProductName={newProductName}
           setNewProductName={setNewProductName}
@@ -57,7 +57,7 @@ export default function ProductForm() {
 }
 
 const ProductFormStyled = styled.form`
-  background-color: purple;
+  /* background-color: purple; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 3fr 1fr;

@@ -45,7 +45,7 @@ export default function Inputs({ newProductName, setNewProductName, newProductUr
 }
 
 const InputsStyled = styled.div`
-  background-color: #762828;
+  /* background-color: #762828; */
   display: grid;
   gap: 10px;
   grid-column: span 3;
@@ -53,5 +53,7 @@ const InputsStyled = styled.div`
   & > * {
     margin: 0;
     padding: 10px 20px;
+    border: 1px solid #E4E5E9;
+
   }
 `;
