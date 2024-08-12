@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Image({ newProductUrl }) {
   return (
     <ImageStyled>
-        <img src="/images/coming-soon.png" alt="image du produit à ajouter" />
+        <img src={newProductUrl || "/images/coming-soon.png"} alt="image du produit à ajouter" />
     </ImageStyled>
   )
 }
