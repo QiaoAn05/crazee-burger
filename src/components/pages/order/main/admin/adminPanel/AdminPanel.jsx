@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { theme } from "../../../../../theme";
+import { theme } from "../../../../../../theme";
 import { useContext } from 'react';
-import OrderContext from '../../../../../context/OrderContext';
-import { tabsConfig, getTabSelected } from "./tabsConfig";
-import ProductForm from './ProductForm';
+import OrderContext from '../../../../../../context/OrderContext';
+import { tabsConfig, getTabSelected } from "../tabsConfig";
+// import ProductForm from '../ProductForm';
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext)
@@ -13,9 +13,10 @@ export default function AdminPanel() {
 
   return (
     <AdminPanelStyled>
-      {tabSelected.label === "Ajouter un produit" &&
+      {tabSelected && tabSelected.Content}
+      {/* {tabSelected.label === "Ajouter un produit" &&
       <ProductForm/>
-      }
+      } */}
     </AdminPanelStyled>
   )
 }
@@ -25,4 +26,5 @@ const AdminPanelStyled = styled.div`
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.greyLight};
     box-shadow: ${theme.shadows.subtle};
+    padding: 30px 5%;
 `;
