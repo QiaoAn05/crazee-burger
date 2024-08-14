@@ -4,10 +4,9 @@ import OrderContext from "../../../../../../context/OrderContext";
 
 const EMPTY_PRODUCT = {
   id: "",
-  title: "Nouveau produit",
-  imageSource:
-    "https://img.freepik.com/free-psd/fresh-beef-burger-isolated-transparent-background_191095-9018.jpg",
-  price: 14,
+  title: "",
+  imageSource: "",
+  price: 0,
 };
 
 export default function AddForm() {
