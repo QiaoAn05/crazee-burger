@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import Product from "./Product";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { theme } from "../../../../theme";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
   //state
-  // const [menu, setMenu] = useState(fakeMenu.SMALL)
-  const { isAdminMode, menu, setMenu } = useContext(OrderContext)
-
+  const { isAdminMode, menu, setMenu} = useContext(OrderContext)
+  
+ 
   //behavior
   const handleDelete = (id) => {
     //copie du state
@@ -27,8 +26,19 @@ export default function Menu() {
   //Render
   return (
     <MenuStyled>
-      
-      {menu.length === 0 ?
+      <div className="product">
+        {menu.map(product => (
+          <Product 
+          key={product.id}
+          productInfo={product}
+          title={product.title}
+          imageSource={product.imageSource}
+          price={product.price}
+          onProductDelete={handleDelete}
+          />
+        ))}
+      </div>
+      {/* {menu.length === 0 ?
         <div>
           {isAdminMode ?
             <div className="empty-admin-menu">
@@ -58,7 +68,7 @@ export default function Menu() {
             />
           ))}
         </div>
-      }
+      } */}
     </MenuStyled>
   )
 }
