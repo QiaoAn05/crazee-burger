@@ -8,24 +8,9 @@ const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   //state
-  const { menu, isAdminMode } = useContext(OrderContext);
+  const { menu, isAdminMode, handleDelete } = useContext(OrderContext);
 
   //behavior
-
-  // const handleDelete = (id) => {
-  //   //copie du state
-  //   const productCopy = [...menu];
-  //   //manipulation de la copie du state
-  //   const productCopyUpdated = productCopy.filter(
-  //     (product) => product.id !== id
-  //   );
-  //   //modifier le state
-  //   setMenu(productCopyUpdated);
-  // };
-
-  // const handleReset = () => {
-  //   setMenu(fakeMenu.SMALL);
-  // };
 
   //Render
   return (
@@ -37,7 +22,7 @@ export default function Menu() {
           imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
           price={price}
           hasDeleteButton={isAdminMode}
-          // onProductDelete={handleDelete}
+          onDelete={() => handleDelete(id)}
         />
       ))}
     </MenuStyled>

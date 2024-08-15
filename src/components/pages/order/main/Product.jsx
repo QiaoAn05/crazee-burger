@@ -9,11 +9,16 @@ export default function Product({
   imageSource,
   price,
   hasDeleteButton,
+  onDelete,
 }) {
   return (
     <ProductStyled>
       {hasDeleteButton && (
-        <button className="delete-button" aria-label="delete-button">
+        <button
+          onClick={onDelete}
+          className="delete-button"
+          aria-label="delete-button"
+        >
           <TiDelete className="icon" />
         </button>
       )}
