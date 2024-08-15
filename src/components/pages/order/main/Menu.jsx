@@ -11,6 +11,7 @@ export default function Menu() {
   const { menu } = useContext(OrderContext);
 
   //behavior
+
   // const handleDelete = (id) => {
   //   //copie du state
   //   const productCopy = [...menu];
@@ -21,6 +22,7 @@ export default function Menu() {
   //   //modifier le state
   //   setMenu(productCopyUpdated);
   // };
+
   // const handleReset = () => {
   //   setMenu(fakeMenu.SMALL);
   // };
@@ -34,6 +36,7 @@ export default function Menu() {
           title={title}
           imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
           price={price}
+          // onProductDelete={handleDelete}
         />
       ))}
     </MenuStyled>

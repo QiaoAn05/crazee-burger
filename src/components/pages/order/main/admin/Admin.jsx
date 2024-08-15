@@ -5,20 +5,19 @@ import OrderContext from "../../../../../context/OrderContext";
 import AdminPanel from "./adminPanel/AdminPanel";
 
 export default function Admin() {
-  const { isCollapsed } = useContext(OrderContext)
+  const { isCollapsed } = useContext(OrderContext);
 
   return (
     <AdminStyled className="admin">
       <AdminTabs />
-      { !isCollapsed && <AdminPanel /> }
+      {!isCollapsed && <AdminPanel />}
     </AdminStyled>
-)
+  );
 }
 
 const AdminStyled = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;
