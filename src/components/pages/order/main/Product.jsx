@@ -3,29 +3,21 @@ import PrimaryButton from "../../../reusable-ui/PrimaryButton";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import { TiDelete } from "react-icons/ti";
-import { useContext } from "react";
-import OrderContext from "../../../../context/OrderContext";
 
 export default function Product({
-  productInfo,
   title,
   imageSource,
   price,
-  onProductDelete,
+  hasDeleteButton,
 }) {
-  const { isAdminMode } = useContext(OrderContext);
-
   return (
     <ProductStyled>
-      <button className="delete-button" aria-label="delete-button">
-        <TiDelete className="icon" />
-      </button>
-      {/* {isAdminMode && (
-        <TiDelete
-          onClick={() => onProductDelete(productInfo.id)}
-          className="icon"
-        />
-      )} */}
+      {hasDeleteButton && (
+        <button className="delete-button" aria-label="delete-button">
+          <TiDelete className="icon" />
+        </button>
+      )}
+
       <img src={imageSource} alt={title} />
       <div className="card-content">
         <p className="title">{title}</p>
