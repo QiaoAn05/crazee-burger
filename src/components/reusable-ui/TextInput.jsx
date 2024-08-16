@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
 export default function TextInput({
@@ -6,10 +6,11 @@ export default function TextInput({
   onChange,
   Icon,
   className,
+  version = "normal",
   ...extraProps
 }) {
   return (
-    <TextInputStyled className={className}>
+    <TextInputStyled className={className} version={version}>
       <div className="icon">{Icon && Icon}</div>
       <input value={value} onChange={onChange} type="text" {...extraProps} />
     </TextInputStyled>
@@ -17,35 +18,60 @@ export default function TextInput({
 }
 
 const TextInputStyled = styled.div`
-  background-color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
-  padding: 18px 24px;
-  /* gap: 10px; */
 
   .icon {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: ${theme.fonts.sizes.SM};
-    margin: 0 8px 0 10px;
-    color: ${theme.colors.greySemiDark};
+    margin: 0 13px 0 8px;
   }
 
   input {
     border: none;
     font-size: ${theme.fonts.sizes.SM};
-    color: ${theme.colors.dark};
     width: 100%;
+
+    &::placeholder {
+      color: ${theme.colors.greyMedium};
+    }
+  }
+
+  ${(props) => props.version === "normal" && extraStyleNormal};
+  ${(props) => props.version === "minimalist" && extraStyleMinimalist};
+`;
+
+const extraStyleNormal = css`
+  background-color: ${theme.colors.white};
+  padding: 18px 24px;
+  color: ${theme.colors.greySemiDark};
+
+  input {
+    color: ${theme.colors.dark};
 
     &:focus {
       outline: none;
     }
 
     &::placeholder {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.greyMedium};
+      background: ${theme.colors.white};
+    }
+  }
+`;
+
+const extraStyleMinimalist = css`
+  background-color: ${theme.colors.background_white};
+  padding: 8px 16px;
+  color: ${theme.colors.greyBlue};
+
+  input {
+    background: ${theme.colors.background_white};
+    color: ${theme.colors.dark};
+    &:focus {
+      outline: 0;
     }
   }
 `;
