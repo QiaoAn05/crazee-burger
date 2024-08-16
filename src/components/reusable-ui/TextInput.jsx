@@ -1,18 +1,19 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({
+  value,
+  onChange,
+  Icon,
+  className,
+  ...extraProps
+}) {
   return (
-    <TextInputStyled>
-    {Icon && Icon}
-    <input
-      value={value} 
-      onChange={onChange}
-      type="text"
-      {...extraProps}
-    />
-  </TextInputStyled>
-  )
+    <TextInputStyled className={className}>
+      <div className="icon">{Icon && Icon}</div>
+      <input value={value} onChange={onChange} type="text" {...extraProps} />
+    </TextInputStyled>
+  );
 }
 
 const TextInputStyled = styled.div`
@@ -21,11 +22,14 @@ const TextInputStyled = styled.div`
   display: flex;
   align-items: center;
   padding: 18px 24px;
-  margin: 18px 0;
+  /* gap: 10px; */
 
   .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: ${theme.fonts.sizes.SM};
-    margin-right: ${theme.spacing.xs};
+    margin: 0 8px 0 10px;
     color: ${theme.colors.greySemiDark};
   }
 
@@ -34,7 +38,7 @@ const TextInputStyled = styled.div`
     font-size: ${theme.fonts.sizes.SM};
     color: ${theme.colors.dark};
     width: 100%;
-    
+
     &:focus {
       outline: none;
     }
@@ -44,6 +48,4 @@ const TextInputStyled = styled.div`
       color: ${theme.colors.greyMedium};
     }
   }
-
-
 `;

@@ -4,12 +4,10 @@ import { theme } from "../../theme";
 export default function PrimaryButton({ Label, Icon, OnClick }) {
   return (
     <PrimaryButtonStyled onClick={OnClick && OnClick}>
-        <span>
-          {Label}
-        </span>
-        { Icon && Icon }
-      </PrimaryButtonStyled>
-  )
+      <span>{Label}</span>
+      <div className="icon">{Icon && Icon}</div>
+    </PrimaryButtonStyled>
+  );
 }
 
 const PrimaryButtonStyled = styled.button`
@@ -35,5 +33,12 @@ const PrimaryButtonStyled = styled.button`
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
     cursor: pointer;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 10px; */
   }
 `;
