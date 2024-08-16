@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Basket from "./Basket";
-import Menu from "./Menu";
+import Menu from "./menu/Menu";
 import Admin from "./admin/Admin";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";

@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import Product from "./Product";
+import Product from "../Product";
 import { useContext } from "react";
-import { theme } from "../../../../theme";
-import OrderContext from "../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
+import OrderContext from "../../../../../context/OrderContext";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import EmptyMenuClient from "./EmptyMenuClient";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
@@ -15,13 +17,10 @@ export default function Menu() {
 
   //Render
 
-  if (menu.length === 0)
-    return (
-      <div>
-        <span>Pas de produit</span>
-        <button onClick={resetMenu}>Générer de nouveaux produits</button>
-      </div>
-    );
+  if (menu.length === 0) {
+    if (!isAdminMode) return <EmptyMenuClient />;
+    return <EmptyMenuAdmin onReset={resetMenu} />;
+  }
   return (
     <MenuStyled>
       {menu.map(({ id, title, imageSource, price }) => (
