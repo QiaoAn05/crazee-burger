@@ -1,21 +1,16 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({
-  Label,
-  Icon,
-  OnClick,
-  version = "normal",
-}) {
+export default function Button({ Label, Icon, OnClick, version = "primary" }) {
   return (
-    <PrimaryButtonStyled onClick={OnClick && OnClick} version={version}>
+    <ButtonStyled onClick={OnClick && OnClick} version={version}>
       <span>{Label}</span>
       {Icon && <div className="icon">{Icon}</div>}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 }
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
   ${({ version }) => extraStyle[version]}//dictionnaire
 `;
 
@@ -73,6 +68,6 @@ const extraStyleSuccess = css`
 `;
 
 const extraStyle = {
-  normal: extraStylePrimary,
+  primary: extraStylePrimary,
   success: extraStyleSuccess,
 };

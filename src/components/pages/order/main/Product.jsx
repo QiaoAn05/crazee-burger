@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
+import Button from "../../../reusable-ui/Button";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import { TiDelete } from "react-icons/ti";
@@ -28,7 +28,7 @@ export default function Product({
         <p className="title">{title}</p>
         <div className="card-description">
           <p>{formatPrice(price)}</p>
-          <PrimaryButton Label="Ajouter" />
+          <Button Label="Ajouter" version="primary" />
         </div>
       </div>
     </ProductStyled>
