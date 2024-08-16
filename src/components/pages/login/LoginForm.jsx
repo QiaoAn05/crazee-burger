@@ -37,7 +37,11 @@ export default function LoginForm() {
         className="input-login"
         version="normal"
       />
-      <PrimaryButton Label="Accéder à mon espace" Icon={<IoChevronForward />} />
+      <PrimaryButton
+        Label="Accéder à mon espace"
+        Icon={<IoChevronForward />}
+        version="normal"
+      />
     </LoginFormStyled>
   );
 }
