@@ -8,11 +8,20 @@ const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   //state
-  const { menu, isAdminMode, handleDelete } = useContext(OrderContext);
+  const { menu, isAdminMode, handleDelete, resetMenu } =
+    useContext(OrderContext);
 
   //behavior
 
   //Render
+
+  if (menu.length === 0)
+    return (
+      <div>
+        <span>Pas de produit</span>
+        <button onClick={resetMenu}>Générer de nouveaux produits</button>
+      </div>
+    );
   return (
     <MenuStyled>
       {menu.map(({ id, title, imageSource, price }) => (
