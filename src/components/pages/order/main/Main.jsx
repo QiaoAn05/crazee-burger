@@ -21,7 +21,8 @@ export default function Main() {
 }
 
 const MainStyled = styled.div`
-  width: 100%;
+  background: ${theme.colors.background_white};
+  height: calc(95vh - 10vh);
   flex: 1;
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
@@ -31,9 +32,12 @@ const MainStyled = styled.div`
   grid-template-rows: 1fr;
   /* grid-template-columns: 25% 1fr; */
   grid-template-columns: 1fr;
-  overflow: auto;
 
   .menu-and-admin {
     position: relative;
+    overflow-y: hidden;
+    display: grid;
+    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
 `;

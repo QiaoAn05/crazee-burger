@@ -41,9 +41,10 @@ const MenuStyled = styled.section`
   background-color: ${theme.colors.background_white};
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 40px 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-row-gap: 60px;
   padding: 50px 50px 150px;
   justify-items: center;
   box-shadow: ${theme.shadows.strong};
+  overflow-y: scroll;
 `;
