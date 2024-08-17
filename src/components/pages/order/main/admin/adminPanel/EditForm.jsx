@@ -1,5 +1,7 @@
 export default function EditForm() {
   return (
-    <div>EditForm</div>
-  )
+    <div>
+      <span>Cliquer sur un produit du menu pour le modifier</span>
+    </div>
+  );
 }
