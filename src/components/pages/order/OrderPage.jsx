@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Navbar from "./navbar/Navbar";
 import Main from "./main/Main";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "./main/admin/adminPanel/AddForm";
@@ -14,6 +14,7 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const inputComposantRef = useRef();
 
   //comportements
 
@@ -54,6 +55,7 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    inputComposantRef,
   };
 
   //affichage

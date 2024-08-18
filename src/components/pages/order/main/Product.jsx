@@ -10,9 +10,10 @@ export default function Product({
   price,
   hasDeleteButton,
   onDelete,
+  isSelectedProduct,
 }) {
   return (
-    <ProductStyled>
+    <ProductStyled onClick={isSelectedProduct}>
       {hasDeleteButton && (
         <button
           onClick={onDelete}
@@ -45,6 +46,11 @@ const ProductStyled = styled.div`
   box-shadow: ${theme.shadows.medium};
   padding: 20px;
   position: relative; //permet d'ajouter une position absolute au bouton supprimer
+
+  &:hover {
+    box-shadow: 0px 0px 8px 0px #ff9a23;
+    cursor: pointer;
+  }
 
   .delete-button {
     border: 1px solid red;
