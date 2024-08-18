@@ -14,6 +14,4 @@ export default createContext({
   resetMenu: () => {},
   newProduct: [],
   setNewProduct: () => {},
-
-  inputComposantRef: null,
 });
