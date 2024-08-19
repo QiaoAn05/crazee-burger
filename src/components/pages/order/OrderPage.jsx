@@ -14,6 +14,7 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [isBeingUpdate, setIsBeingUpdate] = useState([]);
 
   //comportements
 
@@ -37,6 +38,17 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
+  const handleEdit = (idOfProductToEdit) => {
+    //copie du state
+    const menuCopy = [...menu];
+    //modification de la copie du state
+    const productToUpdate = menuCopy.filter(
+      (product) => product.id === idOfProductToEdit
+    );
+    //update du state avec le setter
+    setIsBeingUpdate(productToUpdate);
+  };
+
   const resetMenu = () => {
     setMenu(fakeMenu.SMALL);
   };
@@ -54,6 +66,9 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
+    handleEdit,
+    isBeingUpdate,
+    setIsBeingUpdate,
   };
 
   //affichage

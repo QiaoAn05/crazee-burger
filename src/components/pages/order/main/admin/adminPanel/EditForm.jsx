@@ -3,17 +3,37 @@ import OrderContext from "../../../../../../context/OrderContext";
 import HintMessage from "./HintMessage";
 
 export default function EditForm({ placeholder }) {
-  const { inputComposantRef } = useContext(OrderContext);
+  const { isBeingUpdate } = useContext(OrderContext);
+
+  console.log("isBeingUpdate : ", isBeingUpdate);
   return (
     <div>
-      <HintMessage />
-      {/* <label htmlFor="input-composant">TextInput</label>
-      <input
-        ref={inputComposantRef}
-        type="text"
-        name="input-composant"
-        placeholder={placeholder}
-      /> */}
+      {isBeingUpdate.length === 0 && <HintMessage />}
+      {isBeingUpdate.map((product, id) => (
+        <div key={id}>
+          <input
+            // ref={inputComposantRef}
+            value={product.title}
+            type="text"
+            name="input-composant"
+            placeholder={placeholder}
+          />
+          <input
+            // ref={inputComposantRef}
+            value={product.imageSource}
+            type="text"
+            name="input-composant"
+            placeholder={placeholder}
+          />
+          <input
+            // ref={inputComposantRef}
+            value={product.price}
+            type="text"
+            name="input-composant"
+            placeholder={placeholder}
+          />
+        </div>
+      ))}
     </div>
   );
 }

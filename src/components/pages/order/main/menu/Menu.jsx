@@ -10,7 +10,7 @@ const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   //state
-  const { menu, isAdminMode, handleDelete, resetMenu } =
+  const { menu, isAdminMode, handleDelete, resetMenu, handleEdit } =
     useContext(OrderContext);
 
   //behavior
@@ -31,6 +31,7 @@ export default function Menu() {
           price={price}
           hasDeleteButton={isAdminMode}
           onDelete={() => handleDelete(id)}
+          onEdit={() => handleEdit(id)}
         />
       ))}
     </MenuStyled>

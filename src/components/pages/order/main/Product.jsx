@@ -10,9 +10,10 @@ export default function Product({
   price,
   hasDeleteButton,
   onDelete,
+  onEdit,
 }) {
   return (
-    <ProductStyled>
+    <ProductStyled onClick={onEdit}>
       {hasDeleteButton && (
         <button
           onClick={onDelete}
