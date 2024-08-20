@@ -3,9 +3,13 @@ import OrderContext from "../../../../../../context/OrderContext";
 import HintMessage from "./HintMessage";
 
 export default function EditForm({ placeholder }) {
-  const { isBeingUpdate } = useContext(OrderContext);
+  const { isBeingUpdate, setIsBeingUpdate } = useContext(OrderContext);
 
-  console.log("isBeingUpdate : ", isBeingUpdate);
+  const handleChange = (e) => {
+    setIsBeingUpdate(e.target.value);
+    // console.log(e.target.value);
+  };
+
   return (
     <div>
       {isBeingUpdate.length === 0 && <HintMessage />}
@@ -15,21 +19,22 @@ export default function EditForm({ placeholder }) {
             // ref={inputComposantRef}
             value={product.title}
             type="text"
-            name="input-composant"
+            name="title"
             placeholder={placeholder}
+            onChange={handleChange}
           />
           <input
             // ref={inputComposantRef}
             value={product.imageSource}
             type="text"
-            name="input-composant"
+            name="imageSource"
             placeholder={placeholder}
           />
           <input
             // ref={inputComposantRef}
             value={product.price}
             type="text"
-            name="input-composant"
+            name="price"
             placeholder={placeholder}
           />
         </div>
