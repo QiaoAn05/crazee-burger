@@ -5,7 +5,7 @@ import Main from "./main/Main";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { EMPTY_PRODUCT } from "./main/admin/adminPanel/AddForm";
+import { EMPTY_PRODUCT } from "../../../enums/product";
 
 export default function OrderPage() {
   //state
@@ -14,7 +14,7 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-  const [isBeingUpdate, setIsBeingUpdate] = useState([]);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
 
   //comportements
 
@@ -38,15 +38,11 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
-  const handleEdit = (idOfProductToEdit) => {
-    //copie du state
-    const menuCopy = [...menu];
-    //modification de la copie du state
-    const productToUpdate = menuCopy.filter(
-      (product) => product.id === idOfProductToEdit
+  const handleEdit = (idProductClicked) => {
+    const productToFind = menu.find(
+      (product) => product.id === idProductClicked
     );
-    //update du state avec le setter
-    setIsBeingUpdate(productToUpdate);
+    setProductSelected(productToFind);
   };
 
   const resetMenu = () => {
@@ -67,8 +63,8 @@ export default function OrderPage() {
     newProduct,
     setNewProduct,
     handleEdit,
-    isBeingUpdate,
-    setIsBeingUpdate,
+    productSelected,
+    setProductSelected,
   };
 
   //affichage
