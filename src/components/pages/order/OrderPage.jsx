@@ -38,13 +38,6 @@ export default function OrderPage() {
     setMenu(menuUpdated);
   };
 
-  const handleEdit = (idProductClicked) => {
-    const productToFind = menu.find(
-      (product) => product.id === idProductClicked
-    );
-    setProductSelected(productToFind);
-  };
-
   const resetMenu = () => {
     setMenu(fakeMenu.SMALL);
   };
@@ -62,7 +55,6 @@ export default function OrderPage() {
     resetMenu,
     newProduct,
     setNewProduct,
-    handleEdit,
     productSelected,
     setProductSelected,
   };

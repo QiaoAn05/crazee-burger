@@ -8,6 +8,13 @@ export default function EditForm() {
   return (
     <div>
       <HintMessage />
+      {productSelected && (
+        <div>
+          <input type="text" value={productSelected.title} />
+          <input type="text" value={productSelected.imageSource} />
+          <input type="text" value={productSelected.price} />
+        </div>
+      )}
     </div>
   );
 }
