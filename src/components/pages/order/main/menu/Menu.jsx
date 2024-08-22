@@ -5,13 +5,20 @@ import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
+import { checkIfProductIsClicked } from "./helper";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   //state
-  const { menu, isAdminMode, handleDelete, resetMenu, setProductSelected } =
-    useContext(OrderContext);
+  const {
+    menu,
+    isAdminMode,
+    handleDelete,
+    resetMenu,
+    productSelected,
+    setProductSelected,
+  } = useContext(OrderContext);
 
   //behavior
 
@@ -40,7 +47,7 @@ export default function Menu() {
           onDelete={() => handleDelete(id)}
           onClick={() => handleClick(id)}
           isHoverable={isAdminMode}
-          isSelected={true}
+          isSelected={checkIfProductIsClicked(id, productSelected.id)}
         />
       ))}
     </MenuStyled>
