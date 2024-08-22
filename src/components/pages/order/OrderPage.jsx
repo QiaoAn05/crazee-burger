@@ -46,7 +46,6 @@ export default function OrderPage() {
     const indexOfProductToEdit = menu.findIndex(
       (product) => product.id === productBeingEdited.id
     );
-    console.log("indexOfProductToEdit: ", indexOfProductToEdit);
     menuCopy[indexOfProductToEdit] = productBeingEdited;
 
     //Update du state avec le setter
