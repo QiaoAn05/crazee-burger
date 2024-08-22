@@ -38,7 +38,7 @@ export default function Menu() {
           price={price}
           hasDeleteButton={isAdminMode}
           onDelete={() => handleDelete(id)}
-          onEdit={() => handleClick(id)}
+          onClick={() => handleClick(id)}
           isHoverable={isAdminMode}
           isSelected={true}
         />
