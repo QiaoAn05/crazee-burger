@@ -12,10 +12,11 @@ export default function Product({
   onDelete,
   onEdit,
   isHoverable,
+  isSelected,
 }) {
   return (
     <ProductStyled onClick={onEdit} isHoverable={isHoverable}>
-      <div className="card">
+      <div className="card" style={isSelected ? { background: "orange" } : {}}>
         {hasDeleteButton && (
           <button
             onClick={onDelete}
