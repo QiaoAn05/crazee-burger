@@ -36,7 +36,11 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button Label="Ajouter" version="primary" />
+            <Button
+              Label="Ajouter"
+              version="primary"
+              OnClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       </div>
@@ -120,6 +124,10 @@ const ProductStyled = styled.div`
         button {
           width: fit-content;
           padding: 12px 26px;
+          &:active {
+            background-color: ${theme.colors.primary};
+            color: ${theme.colors.white};
+          }
         }
       }
     }
