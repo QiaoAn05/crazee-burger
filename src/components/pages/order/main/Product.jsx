@@ -47,6 +47,7 @@ export default function Product({
 const ProductStyled = styled.div`
   ${({ isHoverable }) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
+  height: 330px;
 
   .card {
     box-sizing: border-box;
