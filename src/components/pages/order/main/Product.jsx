@@ -15,8 +15,12 @@ export default function Product({
   isSelected,
 }) {
   return (
-    <ProductStyled onClick={onClick} isHoverable={isHoverable}>
-      <div className="card" style={isSelected ? { background: "orange" } : {}}>
+    <ProductStyled
+      onClick={onClick}
+      isHoverable={isHoverable}
+      isSelected={isSelected}
+    >
+      <div className="card">
         {hasDeleteButton && (
           <button
             onClick={onDelete}
@@ -31,7 +35,7 @@ export default function Product({
         <div className="card-content">
           <p className="title">{title}</p>
           <div className="card-description">
-            <p>{formatPrice(price)}</p>
+            <p className="price">{formatPrice(price)}</p>
             <Button Label="Ajouter" version="primary" />
           </div>
         </div>
@@ -41,7 +45,7 @@ export default function Product({
 }
 
 const ProductStyled = styled.div`
-  ${(props) => props.isHoverable && hoverableStyle}
+  ${({ isHoverable }) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
 
   .card {
@@ -108,7 +112,7 @@ const ProductStyled = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        p {
+        .price {
           color: orange;
           margin: 0;
         }
@@ -118,6 +122,8 @@ const ProductStyled = styled.div`
         }
       }
     }
+    ${({ isHoverable, isSelected }) =>
+      isHoverable && isSelected && selectedStyle}
   }
 `;
 
@@ -129,4 +135,67 @@ const hoverableStyle = css`
     cursor: pointer;
     border-radius: ${theme.borderRadius.extraRound};
   }
+`;
+
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+
+  .delete-button {
+    color: ${theme.colors.white};
+    &:active {
+      color: ${theme.colors.white};
+    }
+  }
+
+  .card-content {
+    .card-description {
+      .price {
+        color: ${theme.colors.white};
+        color: white;
+      }
+      button {
+        color: ${theme.colors.primary};
+        background-color: ${theme.colors.white};
+        border: 1px solid ${theme.colors.white};
+        transition: all 200ms ease-out;
+        &:hover {
+          color: ${theme.colors.white};
+          background-color: ${theme.colors.primary};
+          border: ${theme.colors.white};
+          transition: all 200ms ease-out;
+        }
+        &:active {
+          background-color: ${theme.colors.white};
+          color: ${theme.colors.primary};
+        }
+
+        &.is-disabled {
+          opacity: 50%;
+          cursor: not-allowed;
+          z-index: 2;
+        }
+
+        &.with-focus {
+          border: 1px solid white;
+          background-color: ${theme.colors.white};
+          color: ${theme.colors.primary};
+          &:hover {
+            color: ${theme.colors.white};
+            background-color: ${theme.colors.white};
+          }
+          &:active {
+            background-color: ${theme.colors.white};
+            color: ${theme.colors.primary};
+          }
+        }
+      }
+    }
+  }
+  /* .text-info {
+    .description {
+      .left-description {
+        color: ${theme.colors.white};
+      }
+    }
+  } */
 `;
