@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 export default function EditForm() {
   //state
-  const { productSelected, setProductSelected, handleEdit } =
+  const { productSelected, setProductSelected, handleEdit, titleEditRef } =
     useContext(OrderContext);
 
   const inputTexts = getInputTextConfig(productSelected);
@@ -35,6 +35,7 @@ export default function EditForm() {
             {...input}
             onChange={handleChange}
             version="minimalist"
+            ref={input.name === "title" ? titleEditRef : null}
           />
         ))}
       </div>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme";
 import Navbar from "./navbar/Navbar";
 import Main from "./main/Main";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { EMPTY_PRODUCT } from "../../../enums/product";
@@ -16,6 +16,7 @@ export default function OrderPage() {
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditRef = useRef();
 
   //comportements
 
@@ -72,6 +73,7 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     handleEdit,
+    titleEditRef,
   };
 
   //affichage
