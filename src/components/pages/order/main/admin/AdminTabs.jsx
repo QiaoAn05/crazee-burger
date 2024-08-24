@@ -4,43 +4,43 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../../theme";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
-import { tabsConfig } from "./tabsConfig";
+import { getTabsConfig } from "./tabsConfig";
 
 export default function AdminTabs() {
-const { 
-  isCollapsed, 
-  setIsCollapsed, 
-  currentTabSelected,
-  setCurrentTabSelected,
-} = useContext(OrderContext)
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    currentTabSelected,
+    setCurrentTabSelected,
+  } = useContext(OrderContext);
 
   const selectTab = (selectedTab) => {
-    setIsCollapsed(false)
-    setCurrentTabSelected(selectedTab)
-  }
+    setIsCollapsed(false);
+    setCurrentTabSelected(selectedTab);
+  };
 
-  const tabs = tabsConfig
+  const tabs = getTabsConfig();
 
   //affichage
   return (
     <AdminTabsStyled>
-        <Tab 
+      <Tab
         label=""
-        Icon={isCollapsed ? <FiChevronUp/> : <FiChevronDown/>} 
-        onClick={() => setIsCollapsed(!isCollapsed)} 
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        onClick={() => setIsCollapsed(!isCollapsed)}
         className={isCollapsed ? "is-active" : ""}
-        />
-        {tabs.map((tab) => (
-          <Tab 
+      />
+      {tabs.map((tab) => (
+        <Tab
           key={tab.index}
-          label= {tab.label}
-          Icon={tab.Icon} 
-          onClick={() => selectTab(tab.index)} 
+          label={tab.label}
+          Icon={tab.Icon}
+          onClick={() => selectTab(tab.index)}
           className={currentTabSelected === tab.index ? "is-active" : ""}
-          />
-        ))}
+        />
+      ))}
     </AdminTabsStyled>
-  )
+  );
 }
 
 const AdminTabsStyled = styled.div`
