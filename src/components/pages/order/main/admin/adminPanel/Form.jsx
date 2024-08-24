@@ -1,43 +1,39 @@
-import { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
-import Button from "../../../../../reusable-ui/Button";
 import ImagePreview from "./ImagePreview";
-import SubmitMessage from "./SubmitMessage";
 import { getInputTextConfig } from "./getInputTextConfig";
 
-export default function Form({ product, onSubmit, onChange, isSubmitted }) {
-  //state
+const Form = React.forwardRef(
+  ({ product, onSubmit, onChange, QUELQUECHOSE }, ref) => {
+    //state
 
-  //comportements
+    //comportements
 
-  const inputTexts = getInputTextConfig(product);
+    const inputTexts = getInputTextConfig(product);
 
-  //affichage
-  return (
-    <FormStyled onSubmit={onSubmit}>
-      <ImagePreview imageSource={product.imageSource} title={product.title} />
-      <div className="input-fields">
-        {inputTexts.map((input) => (
-          <TextInput
-            key={input.id}
-            {...input}
-            onChange={onChange}
-            version="minimalist"
-          />
-        ))}
-      </div>
-      <div className="submit">
-        <Button
-          Label={"Ajouter un nouveau produit au menu"}
-          className="submit-button"
-          version="success"
-        />
-        {isSubmitted && <SubmitMessage />}
-      </div>
-    </FormStyled>
-  );
-}
+    //affichage
+    return (
+      <FormStyled onSubmit={onSubmit}>
+        <ImagePreview imageSource={product.imageSource} title={product.title} />
+        <div className="input-fields">
+          {inputTexts.map((input) => (
+            <TextInput
+              key={input.id}
+              {...input}
+              onChange={onChange}
+              version="minimalist"
+              ref={ref && input.name === "title" ? ref : null}
+            />
+          ))}
+        </div>
+        <div className="submit">{QUELQUECHOSE}</div>
+      </FormStyled>
+    );
+  }
+);
+
+export default Form;
 
 const FormStyled = styled.form`
   display: grid;

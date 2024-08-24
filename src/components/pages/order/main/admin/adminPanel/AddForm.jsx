@@ -3,6 +3,8 @@ import OrderContext from "../../../../../../context/OrderContext";
 import { getInputTextConfig } from "./getInputTextConfig";
 import { EMPTY_PRODUCT } from "../../../../../../enums/product";
 import Form from "./Form";
+import Button from "../../../../../reusable-ui/Button";
+import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
   //state
@@ -36,8 +38,6 @@ export default function AddForm() {
     }, 2000);
   };
 
-  const inputTexts = getInputTextConfig(newProduct);
-
   //affichage
   return (
     <Form
@@ -45,6 +45,16 @@ export default function AddForm() {
       onSubmit={handleSubmit}
       onChange={handleChange}
       isSubmitted={isSubmitted}
+      QUELQUECHOSE={
+        <>
+          <Button
+            Label={"Ajouter un nouveau produit au menu"}
+            className="submit-button"
+            version="success"
+          />
+          {isSubmitted && <SubmitMessage />}
+        </>
+      }
     />
   );
 }
