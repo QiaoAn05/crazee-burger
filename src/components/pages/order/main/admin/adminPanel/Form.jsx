@@ -5,7 +5,7 @@ import ImagePreview from "./ImagePreview";
 import { getInputTextConfig } from "./getInputTextConfig";
 
 const Form = React.forwardRef(
-  ({ product, onSubmit, onChange, QUELQUECHOSE }, ref) => {
+  ({ product, onSubmit, onChange, children }, ref) => {
     //state
 
     //comportements
@@ -27,7 +27,7 @@ const Form = React.forwardRef(
             />
           ))}
         </div>
-        <div className="submit">{QUELQUECHOSE}</div>
+        <div className="submit">{children}</div>
       </FormStyled>
     );
   }
@@ -55,9 +55,5 @@ const FormStyled = styled.form`
     align-items: center;
     position: relative;
     top: 3px;
-
-    .submit-button {
-      width: 50%;
-    }
   }
 `;
