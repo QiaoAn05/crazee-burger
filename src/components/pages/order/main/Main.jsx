@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import Basket from "./Basket";
+import Basket from "./basket/Basket";
 import Menu from "./menu/Menu";
 import Admin from "./admin/Admin";
 import { useContext } from "react";
