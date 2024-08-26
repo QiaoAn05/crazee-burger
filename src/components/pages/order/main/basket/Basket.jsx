@@ -14,8 +14,10 @@ export default function Basket() {
 }
 
 const BasketStyled = styled.aside`
-  background-color: red;
+  background: #f5f5f7;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   border-radius: 0px 0px 0px 15px;
+  width: 350px;
 `;
