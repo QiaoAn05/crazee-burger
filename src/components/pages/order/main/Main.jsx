@@ -11,7 +11,7 @@ export default function Main() {
 
   return (
     <MainStyled>
-      {/* <Basket/> */}
+      <Basket />
       <div className="menu-and-admin">
         <Menu />
         {isAdminMode && <Admin />}
@@ -30,8 +30,8 @@ const MainStyled = styled.div`
 
   display: grid;
   grid-template-rows: 1fr;
-  /* grid-template-columns: 25% 1fr; */
-  grid-template-columns: 1fr;
+  grid-template-columns: 25% 1fr;
+  /* grid-template-columns: 1fr; */
 
   .menu-and-admin {
     position: relative;
