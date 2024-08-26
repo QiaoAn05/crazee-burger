@@ -17,4 +17,5 @@ const BasketStyled = styled.aside`
   background-color: red;
   display: flex;
   flex-direction: column;
+  border-radius: 0px 0px 0px 15px;
 `;
