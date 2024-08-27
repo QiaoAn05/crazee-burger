@@ -4,6 +4,8 @@ import BasketFooter from "./BasketFooter";
 import BasketOrder from "./BasketOrder";
 import { theme } from "../../../../../theme";
 import Header from "../../../../reusable-ui/Header";
+import Total from "./Total";
+import { formatPrice } from "../../../../../utils/maths";
 
 export default function Basket() {
   return (
@@ -11,7 +13,9 @@ export default function Basket() {
       {/* <BasketHeader />
       <BasketOrder />
       <BasketFooter /> */}
-      <Header>Head</Header>
+
+      <Total amountToPay={formatPrice(0)} />
+
       <div className="body">Body</div>
       <Header>footer</Header>
     </BasketStyled>
