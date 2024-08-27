@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import Basket from "./Basket";
+import Basket from "./basket/Basket";
 import Menu from "./menu/Menu";
 import Admin from "./admin/Admin";
 import { useContext } from "react";
@@ -11,7 +11,7 @@ export default function Main() {
 
   return (
     <MainStyled>
-      {/* <Basket/> */}
+      <Basket />
       <div className="menu-and-admin">
         <Menu />
         {isAdminMode && <Admin />}
@@ -30,14 +30,14 @@ const MainStyled = styled.div`
 
   display: grid;
   grid-template-rows: 1fr;
-  /* grid-template-columns: 25% 1fr; */
-  grid-template-columns: 1fr;
+  grid-template-columns: 25% 1fr;
+  /* grid-template-columns: 1fr; */
+  overflow: hidden;
 
   .menu-and-admin {
     position: relative;
     overflow-y: hidden;
     display: grid;
-    border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
 `;
