@@ -32,12 +32,12 @@ const MainStyled = styled.div`
   grid-template-rows: 1fr;
   grid-template-columns: 25% 1fr;
   /* grid-template-columns: 1fr; */
+  overflow: hidden;
 
   .menu-and-admin {
     position: relative;
     overflow-y: hidden;
     display: grid;
-    border-bottom-left-radius: ${theme.borderRadius.extraRound};
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
   }
 `;
