@@ -28,4 +28,5 @@ const BasketBodyStyled = styled.div`
   flex: 1;
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.basket};
+  padding: 16px 20px;
 `;
