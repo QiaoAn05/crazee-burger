@@ -3,7 +3,7 @@ import { theme } from "../../../../../theme";
 import Total from "./Total";
 import { formatPrice } from "../../../../../utils/maths";
 import Footer from "./Footer";
-import BasketBody from "./BasketBody";
+import BasketBody from "./basketBody/BasketBody";
 
 export default function Basket() {
   return (
