@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
 import EmptyOrder from "./EmptyOrder";
+import { fakeBasket } from "../../../../../../fakeData/fakeBasket";
+import Order from "./Order";
 
 export default function BasketBody() {
+  const [basket, setBasket] = useState(fakeBasket.SMALL);
+
   return (
     <BasketBodyStyled>
-      <EmptyOrder />
+      {/* <EmptyOrder /> */}
+      {basket.map(({ id, imageSource, title, price, quantity }) => (
+        <Order
+          key={id}
+          imageSource={imageSource}
+          title={title}
+          price={price}
+          quantity={quantity}
+        />
+      ))}
     </BasketBodyStyled>
   );
 }

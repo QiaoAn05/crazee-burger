@@ -135,8 +135,9 @@ const ProductStyled = styled.div`
     /* ${({ isHoverable, isSelected }) =>
       isHoverable && isSelected && selectedStyle}
   } */
-  ${({ $isHoverable, $isSelected }) =>
-    $isHoverable && $isSelected && selectedStyle}
+    ${({ $isHoverable, $isSelected }) =>
+      $isHoverable && $isSelected && selectedStyle}
+  }
 `;
 
 const hoverableStyle = css`
