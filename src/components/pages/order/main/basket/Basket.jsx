@@ -16,7 +16,6 @@ export default function Basket() {
 }
 
 const BasketStyled = styled.aside`
-  background-color: pink;
   display: flex;
   flex-direction: column;
   box-shadow: ${theme.shadows.basket};

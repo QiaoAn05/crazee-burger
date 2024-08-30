@@ -19,10 +19,14 @@ export default function Order({ imageSource, title, price, quantity }) {
 
 const OrderStyled = styled.div`
   background-color: green;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 8px 16px;
-  border-radius: 10px;
+  border-radius: 5px;
+  height: 86px;
+
   img {
     background-color: lightblue;
     height: 70px;
@@ -35,16 +39,23 @@ const OrderStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 70px;
     padding-right: 20px;
     padding-left: 20px;
 
     .title-price {
       width: 119.14px;
+      height: 100%;
       background-color: blue;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 5px;
+      .title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       p {
         margin: 0;
       }

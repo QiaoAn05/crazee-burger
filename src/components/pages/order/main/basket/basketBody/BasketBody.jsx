@@ -6,7 +6,7 @@ import { fakeBasket } from "../../../../../../fakeData/fakeBasket";
 import Order from "./Order";
 
 export default function BasketBody() {
-  const [basket, setBasket] = useState(fakeBasket.SMALL);
+  const [basket, setBasket] = useState(fakeBasket.LARGE);
 
   return (
     <BasketBodyStyled>
@@ -26,7 +26,13 @@ export default function BasketBody() {
 
 const BasketBodyStyled = styled.div`
   flex: 1;
+  /* height: 694.69px; */
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.basket};
   padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: 1fr; */
+  grid-gap: 20px;
+  /* overflow: scroll; */
 `;
