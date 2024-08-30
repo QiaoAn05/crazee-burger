@@ -26,13 +26,14 @@ export default function BasketBody() {
 
 const BasketBodyStyled = styled.div`
   flex: 1;
-  /* height: 694.69px; */
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.basket};
   padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  /* grid-template-columns: 1fr; */
+  padding-right: 5px;
+  display: grid;
   grid-gap: 20px;
-  /* overflow: scroll; */
+  max-height: 450px;
+  overflow-y: scroll;
+  scrollbar-color: transparent transparent;
+  overflow-x: hidden;
 `;

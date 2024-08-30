@@ -26,6 +26,8 @@ const OrderStyled = styled.div`
   padding: 8px 16px;
   border-radius: 5px;
   height: 86px;
+  /* position: sticky;
+  top: 0; */
 
   img {
     background-color: lightblue;
