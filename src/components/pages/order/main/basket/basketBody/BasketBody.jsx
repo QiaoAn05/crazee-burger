@@ -6,7 +6,7 @@ import { fakeBasket } from "../../../../../../fakeData/fakeBasket";
 import Order from "./Order";
 
 export default function BasketBody() {
-  const [basket, setBasket] = useState(fakeBasket.LARGE);
+  const [basket, setBasket] = useState(fakeBasket.EMPTY);
 
   return (
     <BasketBodyStyled>

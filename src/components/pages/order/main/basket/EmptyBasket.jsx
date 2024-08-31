@@ -3,7 +3,11 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
 export default function EmptyBasket() {
-  return <EmptyBasketStyled>Votre commande est vide.</EmptyBasketStyled>;
+  return (
+    <EmptyBasketStyled>
+      <span>Votre commande est vide.</span>
+    </EmptyBasketStyled>
+  );
 }
 
 const EmptyBasketStyled = styled.span`
