@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../../theme";
-import EmptyOrder from "./EmptyOrder";
+import EmptyBasket from "../EmptyBasket";
 import { fakeBasket } from "../../../../../../fakeData/fakeBasket";
 import Order from "./Order";
 
@@ -10,8 +10,8 @@ export default function BasketBody() {
 
   return (
     <BasketBodyStyled>
-      {/* <EmptyOrder /> */}
-      {basket.map(({ id, imageSource, title, price, quantity }) => (
+      <EmptyBasket />
+      {/* {basket.map(({ id, imageSource, title, price, quantity }) => (
         <Order
           key={id}
           imageSource={imageSource}
@@ -19,7 +19,7 @@ export default function BasketBody() {
           price={price}
           quantity={quantity}
         />
-      ))}
+      ))} */}
     </BasketBodyStyled>
   );
 }

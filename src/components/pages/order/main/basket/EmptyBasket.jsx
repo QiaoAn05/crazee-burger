@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../../../theme";
+import { theme } from "../../../../../theme";
 
-export default function EmptyOrder() {
-  return <EmptyOrderStyled>Votre commande est vide.</EmptyOrderStyled>;
+export default function EmptyBasket() {
+  return <EmptyBasketStyled>Votre commande est vide.</EmptyBasketStyled>;
 }
 
-const EmptyOrderStyled = styled.span`
+const EmptyBasketStyled = styled.span`
   display: flex;
   height: calc(95vh - 10vh - 70px - 70px);
   text-align: center;
