@@ -50,6 +50,9 @@ const fonts = {
     bold: 700,
     heavy: 800,
   },
+  family: {
+    stylish: '"Amatic SC", cursive',
+  },
 };
 const gridUnit = 8;
 const borderRadius = {
@@ -65,6 +68,7 @@ const shadows = {
   strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
   orangeHighlight: "0 0 8px 0 rgb(255 154 35 / 100%)",
   basket: "inset 0 0 20px rgba(0, 0, 0, 0.2)",
+  cardBasket: "-4px 4px 15px 0 rgb(0 0 0 / 20%)",
 };
 
 export const theme = {
