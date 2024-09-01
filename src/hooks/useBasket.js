@@ -1,39 +1,39 @@
 import { useState } from "react";
 import { fakeBasket } from "../fakeData/fakeBasket";
-import { deepClone, find } from "../utils/array";
+import { deepClone, find, findIndex } from "../utils/array";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.SMALL);
 
   const handleAddToBasket = (productToAdd) => {
-    //copie du state
     const basketCopy = deepClone(basket);
-
     const isProductAlreadyInBasket =
       find(productToAdd.id, basketCopy) !== undefined;
-    //manip de la copie du state
-    //Le produit n'est pas dans le basket
+    //1er cas : Le produit n'est pas dans le basket
     if (!isProductAlreadyInBasket) {
-      const newBasketProduct = {
-        ...productToAdd,
-        quantity: 1,
-      };
-
-      const basketUpdated = [newBasketProduct, ...basketCopy];
-
-      //update du state
-      setBasket(basketUpdated);
+      createNewProductInBasket(productToAdd, basketCopy, setBasket);
+      return;
     }
-    //Le produit est déjà dans le basket
-    if (isProductAlreadyInBasket) {
-      const indexOfBasketProductToIncrement = basketCopy.findIndex(
-        (basketProduct) => basketProduct.id === productToAdd.id
-      );
+    //2eme cas : Le produit est déjà dans le basket
+    incrementProductAlreadyInBasket(productToAdd, basketCopy);
+  };
 
-      basketCopy[indexOfBasketProductToIncrement].quantity++;
-      //update du state
-      setBasket(basketCopy);
-    }
+  const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
+    const indexOfBasketProductToIncrement = findIndex(
+      productToAdd.id,
+      basketCopy
+    );
+    basketCopy[indexOfBasketProductToIncrement].quantity++;
+    setBasket(basketCopy);
+  };
+
+  const createNewProductInBasket = (productToAdd, basketCopy, setBasket) => {
+    const newBasketProduct = {
+      ...productToAdd,
+      quantity: 1,
+    };
+    const basketUpdated = [newBasketProduct, ...basketCopy];
+    setBasket(basketUpdated);
   };
 
   return { basket, handleAddToBasket };

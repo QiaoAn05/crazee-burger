@@ -5,3 +5,7 @@ export const deepClone = (array) => {
 export const find = (id, array) => {
   return array.find((item) => item.id === id);
 };
+
+export const findIndex = (id, array) => {
+  return array.findIndex((item) => item.id === id);
+};
