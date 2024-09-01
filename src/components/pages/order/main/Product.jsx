@@ -13,6 +13,7 @@ export default function Product({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) {
   return (
     <ProductStyled
@@ -36,11 +37,7 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button
-              Label="Ajouter"
-              version="primary"
-              OnClick={(e) => e.stopPropagation()}
-            />
+            <Button Label="Ajouter" version="primary" OnClick={onAdd} />
           </div>
         </div>
       </div>
