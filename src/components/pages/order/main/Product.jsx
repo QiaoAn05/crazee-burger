@@ -49,8 +49,7 @@ export default function Product({
 }
 
 const ProductStyled = styled.div`
-  /* ${({ isHoverable }) => isHoverable && hoverableStyle} */
-  ${({ $isHoverable }) => $isHoverable && hoverableStyle}
+  ${({ $isHoverable }) => $isHoverable && hoverableStyle};
   border-radius: ${theme.borderRadius.extraRound};
   height: 330px;
 
@@ -132,8 +131,8 @@ const ProductStyled = styled.div`
         }
       }
     }
-    /* ${({ isHoverable, isSelected }) =>
-      isHoverable && isSelected && selectedStyle}
+    ${({ $isHoverable, $isSelected }) =>
+      $isHoverable && $isSelected && selectedStyle}
   }
 `;
 
@@ -201,11 +200,4 @@ const selectedStyle = css`
       }
     }
   }
-  /* .text-info {
-    .description {
-      .left-description {
-        color: ${theme.colors.white};
-      }
-    }
-  } */
 `;

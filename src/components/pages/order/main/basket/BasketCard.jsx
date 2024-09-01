@@ -45,7 +45,7 @@ const BasketCardStyled = styled.div`
   grid-template-columns: 30% 1fr;
 
   border-radius: ${theme.borderRadius.round};
-  background: ${theme.colors.white};
+  background: ${theme.colors.prim};
   box-shadow: ${theme.shadows.cardBasket};
 
   position: relative;
