@@ -26,6 +26,13 @@ export const useBasket = () => {
     }
     //Le produit est déjà dans le basket
     if (isProductAlreadyInBasket) {
+      const indexOfBasketProductToIncrement = basketCopy.findIndex(
+        (basketProduct) => basketProduct.id === productToAdd.id
+      );
+
+      basketCopy[indexOfBasketProductToIncrement].quantity++;
+      //update du state
+      setBasket(basketCopy);
     }
   };
 
