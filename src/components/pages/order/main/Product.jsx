@@ -13,12 +13,13 @@ export default function Product({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) {
   return (
     <ProductStyled
       onClick={onClick}
-      isHoverable={isHoverable}
-      isSelected={isSelected}
+      $isHoverable={isHoverable} //préfixer avec $ permet à styled-component de reconnaître le props utilisé pour le style
+      $isSelected={isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
@@ -36,11 +37,7 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button
-              Label="Ajouter"
-              version="primary"
-              OnClick={(e) => e.stopPropagation()}
-            />
+            <Button Label="Ajouter" version="primary" OnClick={onAdd} />
           </div>
         </div>
       </div>
@@ -49,7 +46,7 @@ export default function Product({
 }
 
 const ProductStyled = styled.div`
-  ${({ isHoverable }) => isHoverable && hoverableStyle}
+  ${({ $isHoverable }) => $isHoverable && hoverableStyle};
   border-radius: ${theme.borderRadius.extraRound};
   height: 330px;
 
@@ -131,8 +128,8 @@ const ProductStyled = styled.div`
         }
       }
     }
-    ${({ isHoverable, isSelected }) =>
-      isHoverable && isSelected && selectedStyle}
+    ${({ $isHoverable, $isSelected }) =>
+      $isHoverable && $isSelected && selectedStyle}
   }
 `;
 
@@ -200,11 +197,4 @@ const selectedStyle = css`
       }
     }
   }
-  /* .text-info {
-    .description {
-      .left-description {
-        color: ${theme.colors.white};
-      }
-    }
-  } */
 `;

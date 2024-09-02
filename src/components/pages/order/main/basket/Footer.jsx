@@ -9,7 +9,6 @@ export default function Footer() {
       <FooterStyled>
         <span>Codé avec ❤️ et React.JS</span>
       </FooterStyled>
-      ;
     </Header>
   );
 }
