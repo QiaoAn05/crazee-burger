@@ -9,7 +9,8 @@ import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
 
 export default function Basket() {
-  const { basket, isAdminMode } = useContext(OrderContext);
+  const { basket, isAdminMode, handleDeleteBasketProduct } =
+    useContext(OrderContext);
 
   const isBasketEmpty = basket.length === 0;
 
@@ -24,7 +25,11 @@ export default function Basket() {
       {isBasketEmpty ? (
         <EmptyBasket />
       ) : (
-        <BasketProducts basket={basket} isAdminMode={isAdminMode} />
+        <BasketProducts
+          basket={basket}
+          isAdminMode={isAdminMode}
+          handleDeleteBasketProduct={handleDeleteBasketProduct}
+        />
       )}
       <Footer />
     </BasketStyled>

@@ -3,9 +3,13 @@ import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { DEFAULT_IMAGE } from "../../../../../enums/product";
 
-export default function BasketProducts({ basket, isAdminMode }) {
+export default function BasketProducts({
+  basket,
+  isAdminMode,
+  handleDeleteBasketProduct,
+}) {
   const handleOnDelete = (id) => {
-    third;
+    handleDeleteBasketProduct(id);
   };
   return (
     <BasketProductsStyled>

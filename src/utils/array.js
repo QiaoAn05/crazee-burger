@@ -9,3 +9,7 @@ export const find = (id, array) => {
 export const findIndex = (id, array) => {
   return array.findIndex((item) => item.id === id);
 };
+
+export const filter = (id, array) => {
+  return array.filter((item) => item.id !== id);
+};
