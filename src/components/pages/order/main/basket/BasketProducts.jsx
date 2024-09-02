@@ -3,7 +3,10 @@ import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { DEFAULT_IMAGE } from "../../../../../enums/product";
 
-export default function BasketProducts({ basket }) {
+export default function BasketProducts({ basket, isAdminMode }) {
+  const handleOnDelete = (id) => {
+    third;
+  };
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => (
@@ -15,6 +18,8 @@ export default function BasketProducts({ basket }) {
                 ? basketProduct.imageSource
                 : DEFAULT_IMAGE
             }
+            isAdminMode={isAdminMode}
+            onDelete={() => handleOnDelete(basketProduct.id)}
           />
         </div>
       ))}
