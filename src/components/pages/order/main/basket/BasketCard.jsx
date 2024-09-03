@@ -10,7 +10,7 @@ export default function BasketCard({
   quantity,
   imageSource,
   className,
-  isAdminMode,
+  isClickable,
   onDelete,
   onClick,
   basketProductSelected,
@@ -18,7 +18,7 @@ export default function BasketCard({
   return (
     <BasketCardStyled
       className={className}
-      $isAdminMode={isAdminMode}
+      $isClickable={isClickable}
       onClick={onClick}
       $basketProductSelected={basketProductSelected}
     >
@@ -44,7 +44,7 @@ export default function BasketCard({
 }
 
 const BasketCardStyled = styled.div`
-  cursor: ${({ $isAdminMode }) => ($isAdminMode ? "pointer" : "auto")};
+  cursor: ${({ $isClickable }) => ($isClickable ? "pointer" : "auto")};
   box-sizing: border-box;
   height: 86px;
   padding: 8px 16px;

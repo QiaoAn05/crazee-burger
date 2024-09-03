@@ -35,7 +35,7 @@ export default function BasketProducts({
                 ? basketProduct.imageSource
                 : DEFAULT_IMAGE
             }
-            isAdminMode={isAdminMode}
+            isClickable={isAdminMode}
             // onDelete={() => handleOnDelete(basketProduct.id)}
             onDelete={(e) => handleBasketProductDelete(e, basketProduct.id)}
             onClick={() => handleClickBasket(basketProduct.id)}
