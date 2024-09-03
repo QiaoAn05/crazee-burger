@@ -7,7 +7,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
 import { DEFAULT_IMAGE, EMPTY_PRODUCT } from "../../../../../enums/product";
-import { find } from "../../../../../utils/array";
+import { find, isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   //state
@@ -53,7 +53,7 @@ export default function Menu() {
 
   //Render
 
-  if (menu.length === 0) {
+  if (isEmpty(menu)) {
     if (!isAdminMode) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
