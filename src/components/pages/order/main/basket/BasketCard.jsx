@@ -12,9 +12,16 @@ export default function BasketCard({
   className,
   isAdminMode,
   onDelete,
+  onClick,
+  basketProductSelected,
 }) {
   return (
-    <BasketCardStyled className={className} $isAdminMode={isAdminMode}>
+    <BasketCardStyled
+      className={className}
+      $isAdminMode={isAdminMode}
+      onClick={onClick}
+      $basketProductSelected={basketProductSelected}
+    >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -152,5 +159,15 @@ const BasketCardStyled = styled.div`
         }
       }
     }
+  }
+  ${({ $basketProductSelected }) =>
+    $basketProductSelected && basketProductSelectedStyle}
+`;
+
+const basketProductSelectedStyle = css`
+  background: ${theme.colors.primary};
+
+  .price {
+    color: white;
   }
 `;

@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { DEFAULT_IMAGE } from "../../../../../enums/product";
+import { find } from "../../../../../utils/array";
 
 export default function BasketProducts({
   basket,
   isAdminMode,
   handleDeleteBasketProduct,
 }) {
+  const [basketProductSelected, setBasketProductSelected] = useState({});
+
+  const handleBasketProductDelete = (e, idBasketProductToDelete) => {
+    e.stopPropagation();
+    handleOnDelete(idBasketProductToDelete);
+  };
   const handleOnDelete = (id) => {
     handleDeleteBasketProduct(id);
+  };
+
+  const handleClickBasket = async (id) => {
+    if (!isAdminMode) return;
+    const basketProductClickedOn = find(id, basket);
+    await setBasketProductSelected(basketProductClickedOn);
   };
   return (
     <BasketProductsStyled>
@@ -23,7 +36,10 @@ export default function BasketProducts({
                 : DEFAULT_IMAGE
             }
             isAdminMode={isAdminMode}
-            onDelete={() => handleOnDelete(basketProduct.id)}
+            // onDelete={() => handleOnDelete(basketProduct.id)}
+            onDelete={(e) => handleBasketProductDelete(e, basketProduct.id)}
+            onClick={() => handleClickBasket(basketProduct.id)}
+            basketProductSelected={basketProductSelected === basketProduct}
           />
         </div>
       ))}
