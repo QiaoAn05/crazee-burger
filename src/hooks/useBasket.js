@@ -5,35 +5,30 @@ import { deepClone, filter, find, findIndex } from "../utils/array";
 export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.EMPTY);
 
-  const handleAddToBasket = (productToAdd) => {
+  const handleAddToBasket = (idProductToAdd) => {
     const basketCopy = deepClone(basket);
-    const isProductAlreadyInBasket =
-      find(productToAdd.id, basketCopy) !== undefined;
-    //1er cas : Le produit n'est pas dans le basket
-    if (!isProductAlreadyInBasket) {
-      createNewProductInBasket(productToAdd, basketCopy, setBasket);
+    const productAlreadyInBasket = find(idProductToAdd, basketCopy);
+
+    if (productAlreadyInBasket) {
+      incrementProductAlreadyInBasket(idProductToAdd, basketCopy);
       return;
     }
-    //2eme cas : Le produit est déjà dans le basket
-    incrementProductAlreadyInBasket(productToAdd, basketCopy);
+    createNewBasketProduct(idProductToAdd, basketCopy, setBasket);
   };
 
-  const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
+  const incrementProductAlreadyInBasket = (idProductToAdd, basketCopy) => {
     const indexOfBasketProductToIncrement = findIndex(
-      productToAdd.id,
+      idProductToAdd,
       basketCopy
     );
     basketCopy[indexOfBasketProductToIncrement].quantity++;
     setBasket(basketCopy);
   };
 
-  const createNewProductInBasket = (productToAdd, basketCopy, setBasket) => {
-    const newBasketProduct = {
-      ...productToAdd,
-      quantity: 1,
-    };
-    const basketUpdated = [newBasketProduct, ...basketCopy];
-    setBasket(basketUpdated);
+  const createNewBasketProduct = (idProductToAdd, basketCopy, setBasket) => {
+    const newBasketProduct = { id: idProductToAdd, quantity: 1 };
+    const newBasket = [newBasketProduct, ...basketCopy];
+    setBasket(newBasket);
   };
 
   const handleDeleteBasketProduct = (idBasketProduct) => {
