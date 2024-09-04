@@ -32,11 +32,7 @@ export const useBasket = () => {
   };
 
   const handleDeleteBasketProduct = (idBasketProduct) => {
-    //copie du state(optionnal because filter create a new array)
-    const basketCopy = deepClone(basket);
-    //modification de la copie du state
-    const basketUpdated = filter(idBasketProduct, basketCopy);
-    //update du state avec le setter
+    const basketUpdated = filter(idBasketProduct, basket);
     setBasket(basketUpdated);
   };
 
