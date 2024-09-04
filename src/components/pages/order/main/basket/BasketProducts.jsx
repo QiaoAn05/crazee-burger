@@ -6,19 +6,20 @@ import { find } from "../../../../../utils/array";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function BasketProducts() {
-  const { basket, isAdminMode, handleDeleteBasketProduct, menu } =
-    useContext(OrderContext);
-  const [basketProductSelected, setBasketProductSelected] = useState({});
+  const {
+    basket,
+    isAdminMode,
+    handleDeleteBasketProduct,
+    menu,
+    handleProductSelected,
+  } = useContext(OrderContext);
 
-  const handleBasketProductDelete = (e, idBasketProductToDelete) => {
+  const handleOnDelete = (e, id) => {
     e.stopPropagation();
-    handleOnDelete(idBasketProductToDelete);
-  };
-  const handleOnDelete = (id) => {
     handleDeleteBasketProduct(id);
   };
 
-  const handleClickBasket = async (id) => {
+  const handleOnClick = async (id) => {
     if (!isAdminMode) return;
     const basketProductClickedOn = find(id, basket);
     await setBasketProductSelected(basketProductClickedOn);
@@ -38,10 +39,12 @@ export default function BasketProducts() {
               }
               quantity={basketProduct.quantity}
               isClickable={isAdminMode}
-              // onDelete={() => handleOnDelete(basketProduct.id)}
-              onDelete={(e) => handleBasketProductDelete(e, basketProduct.id)}
-              onClick={() => handleClickBasket(basketProduct.id)}
-              basketProductSelected={basketProductSelected === basketProduct}
+              onDelete={(e) => handleOnDelete(e, basketProduct.id)}
+              onClick={
+                isAdminMode
+                  ? () => handleProductSelected(basketProduct.id)
+                  : null
+              }
             />
           </div>
         );

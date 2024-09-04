@@ -13,14 +13,12 @@ export default function BasketCard({
   isClickable,
   onDelete,
   onClick,
-  basketProductSelected,
 }) {
   return (
     <BasketCardStyled
       className={className}
       $isClickable={isClickable}
       onClick={onClick}
-      $basketProductSelected={basketProductSelected}
     >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
