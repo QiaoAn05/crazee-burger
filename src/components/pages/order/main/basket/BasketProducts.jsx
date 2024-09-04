@@ -1,32 +1,55 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { DEFAULT_IMAGE } from "../../../../../enums/product";
+import { find } from "../../../../../utils/array";
+import OrderContext from "../../../../../context/OrderContext";
+import { checkIfProductIsClicked } from "../menu/helper";
 
-export default function BasketProducts({
-  basket,
-  isAdminMode,
-  handleDeleteBasketProduct,
-}) {
-  const handleOnDelete = (id) => {
+export default function BasketProducts() {
+  const {
+    basket,
+    isAdminMode,
+    handleDeleteBasketProduct,
+    menu,
+    handleProductSelected,
+    productSelected,
+  } = useContext(OrderContext);
+
+  const handleOnDelete = (e, id) => {
+    e.stopPropagation();
     handleDeleteBasketProduct(id);
   };
+
   return (
     <BasketProductsStyled>
-      {basket.map((basketProduct) => (
-        <div className="basket-card" key={basketProduct.id}>
-          <BasketCard
-            {...basketProduct}
-            imageSource={
-              basketProduct.imageSource
-                ? basketProduct.imageSource
-                : DEFAULT_IMAGE
-            }
-            isAdminMode={isAdminMode}
-            onDelete={() => handleOnDelete(basketProduct.id)}
-          />
-        </div>
-      ))}
+      {basket.map((basketProduct) => {
+        const menuProduct = find(basketProduct.id, menu);
+        return (
+          <div className="basket-card" key={basketProduct.id}>
+            <BasketCard
+              {...menuProduct}
+              imageSource={
+                menuProduct.imageSource
+                  ? menuProduct.imageSource
+                  : DEFAULT_IMAGE
+              }
+              quantity={basketProduct.quantity}
+              isClickable={isAdminMode}
+              onDelete={(e) => handleOnDelete(e, basketProduct.id)}
+              onClick={
+                isAdminMode
+                  ? () => handleProductSelected(basketProduct.id)
+                  : null
+              }
+              isSelected={checkIfProductIsClicked(
+                basketProduct.id,
+                productSelected.id
+              )}
+            />
+          </div>
+        );
+      })}
     </BasketProductsStyled>
   );
 }

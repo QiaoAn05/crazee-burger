@@ -13,3 +13,7 @@ export const findIndex = (id, array) => {
 export const filter = (id, array) => {
   return array.filter((item) => item.id !== id);
 };
+
+export const isEmpty = (array) => {
+  return array.length === 0;
+};

@@ -12,8 +12,8 @@ export default function EditForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     const beingUpdateProduct = { ...productSelected, [name]: value };
-    setProductSelected(beingUpdateProduct);
-    handleEdit(beingUpdateProduct);
+    setProductSelected(beingUpdateProduct); //cette ligne update le formulaire
+    handleEdit(beingUpdateProduct); //cette ligne update le menu
   };
 
   //affichage

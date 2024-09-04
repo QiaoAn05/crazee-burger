@@ -7,7 +7,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
 import { DEFAULT_IMAGE, EMPTY_PRODUCT } from "../../../../../enums/product";
-import { find } from "../../../../../utils/array";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function Menu() {
   //state
@@ -18,24 +18,13 @@ export default function Menu() {
     resetMenu,
     productSelected,
     setProductSelected,
-    setIsCollapsed,
-    setCurrentTabSelected,
     titleEditRef,
     handleAddToBasket,
     handleDeleteBasketProduct,
+    handleProductSelected,
   } = useContext(OrderContext);
 
   //behavior
-
-  const handleClick = async (idProductClicked) => {
-    if (!isAdminMode) return;
-    await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
-    const productClickedOn = find(idProductClicked, menu);
-    await setProductSelected(productClickedOn);
-    titleEditRef.current.focus();
-  };
-
   const handleProductDelete = (e, idProductToDelete) => {
     e.stopPropagation();
     handleDeleteBasketProduct(idProductToDelete);
@@ -47,13 +36,12 @@ export default function Menu() {
 
   const handleAddButton = (e, idProductToAdd) => {
     e.stopPropagation();
-    const productToAdd = find(idProductToAdd, menu);
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(idProductToAdd);
   };
 
   //Render
 
-  if (menu.length === 0) {
+  if (isEmpty(menu)) {
     if (!isAdminMode) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
@@ -67,7 +55,7 @@ export default function Menu() {
           price={price}
           hasDeleteButton={isAdminMode}
           onDelete={(e) => handleProductDelete(e, id)}
-          onClick={() => handleClick(id)}
+          onClick={isAdminMode ? () => handleProductSelected(id) : null}
           isHoverable={isAdminMode}
           isSelected={checkIfProductIsClicked(id, productSelected.id)}
           onAdd={(e) => handleAddButton(e, id)}
