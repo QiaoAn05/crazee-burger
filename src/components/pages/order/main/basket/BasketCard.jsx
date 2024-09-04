@@ -167,7 +167,8 @@ const BasketCardStyled = styled.div`
 const basketProductSelectedStyle = css`
   background: ${theme.colors.primary};
 
-  .price {
+  .price,
+  .quantity {
     color: white;
   }
 `;
