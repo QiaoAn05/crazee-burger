@@ -4,6 +4,7 @@ import BasketCard from "./BasketCard";
 import { DEFAULT_IMAGE } from "../../../../../enums/product";
 import { find } from "../../../../../utils/array";
 import OrderContext from "../../../../../context/OrderContext";
+import { checkIfProductIsClicked } from "../menu/helper";
 
 export default function BasketProducts() {
   const {
@@ -12,6 +13,7 @@ export default function BasketProducts() {
     handleDeleteBasketProduct,
     menu,
     handleProductSelected,
+    productSelected,
   } = useContext(OrderContext);
 
   const handleOnDelete = (e, id) => {
@@ -19,11 +21,6 @@ export default function BasketProducts() {
     handleDeleteBasketProduct(id);
   };
 
-  const handleOnClick = async (id) => {
-    if (!isAdminMode) return;
-    const basketProductClickedOn = find(id, basket);
-    await setBasketProductSelected(basketProductClickedOn);
-  };
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => {
@@ -45,6 +42,10 @@ export default function BasketProducts() {
                   ? () => handleProductSelected(basketProduct.id)
                   : null
               }
+              isSelected={checkIfProductIsClicked(
+                basketProduct.id,
+                productSelected.id
+              )}
             />
           </div>
         );
