@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Total from "./Total";
-import { formatPrice } from "../../../../../utils/maths";
 import Footer from "./Footer";
 import OrderContext from "../../../../../context/OrderContext";
 import { useContext } from "react";
@@ -10,28 +9,12 @@ import BasketProducts from "./BasketProducts";
 import { isEmpty } from "../../../../../utils/array";
 
 export default function Basket() {
-  const { basket, isAdminMode, handleDeleteBasketProduct } =
-    useContext(OrderContext);
-
-  const isBasketEmpty = isEmpty(basket);
-
-  const sumToPay = basket.reduce((total, basketProduct) => {
-    total += basketProduct.price * basketProduct.quantity;
-    return total;
-  }, 0);
+  const { basket } = useContext(OrderContext);
 
   return (
     <BasketStyled>
-      <Total amountToPay={formatPrice(sumToPay)} />
-      {isBasketEmpty ? (
-        <EmptyBasket />
-      ) : (
-        <BasketProducts
-          basket={basket}
-          isAdminMode={isAdminMode}
-          handleDeleteBasketProduct={handleDeleteBasketProduct}
-        />
-      )}
+      <Total />
+      {isEmpty(basket) ? <EmptyBasket /> : <BasketProducts />}
       <Footer />
     </BasketStyled>
   );
