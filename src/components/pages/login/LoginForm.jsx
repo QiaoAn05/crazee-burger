@@ -6,21 +6,25 @@ import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Button";
 import { theme } from "../../../theme";
+import { authenticateUser } from "../../../api/user";
 
 export default function LoginForm() {
   //States
-  const [inputValue, setInputValue] = useState("");
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   //Comportements
   const handleChange = (e) => {
-    setInputValue(e.target.value);
+    setUsername(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setInputValue("");
-    navigate(`order/${inputValue}`);
+
+    authenticateUser(username);
+
+    setUsername("");
+    navigate(`order/${username}`);
   };
   //Affichage
   return (
@@ -29,7 +33,7 @@ export default function LoginForm() {
       <hr />
       <h2>Connectez-vous</h2>
       <TextInput
-        value={inputValue}
+        value={username}
         onChange={handleChange}
         placeholder="Entrez votre prénom"
         required

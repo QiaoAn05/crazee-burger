@@ -8,6 +8,7 @@ import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { find } from "../../../utils/array";
+import { getUser } from "../../../api/user";
 
 export default function OrderPage() {
   //state
@@ -50,6 +51,9 @@ export default function OrderPage() {
     handleDeleteBasketProduct,
     handleProductSelected,
   };
+
+  // //appel API pour récupérer l'utilisateur "Alex"
+  // getUser("Alex");
 
   //affichage
   return (
