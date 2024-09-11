@@ -12,7 +12,7 @@ import { getUser } from "../../../api/user";
 
 export default function OrderPage() {
   //state
-  const [isAdminMode, setIsAdminMode] = useState(true);
+  const [isAdminMode, setIsAdminMode] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
