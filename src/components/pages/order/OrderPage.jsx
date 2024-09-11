@@ -8,7 +8,7 @@ import { EMPTY_PRODUCT } from "../../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { find } from "../../../utils/array";
-import { getUser } from "../../../api/user";
+import { useParams } from "react-router-dom";
 
 export default function OrderPage() {
   //state
@@ -20,6 +20,7 @@ export default function OrderPage() {
   const titleEditRef = useRef();
   const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu();
   const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket();
+  const { username } = useParams();
 
   const handleProductSelected = async (idProductClicked) => {
     const productClickedOn = find(idProductClicked, menu);
@@ -30,6 +31,7 @@ export default function OrderPage() {
   };
 
   const orderContextValue = {
+    username,
     isAdminMode,
     setIsAdminMode,
     isCollapsed,
@@ -51,9 +53,6 @@ export default function OrderPage() {
     handleDeleteBasketProduct,
     handleProductSelected,
   };
-
-  // //appel API pour récupérer l'utilisateur "Alex"
-  // getUser("Alex");
 
   //affichage
   return (
