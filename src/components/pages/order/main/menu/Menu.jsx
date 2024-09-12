@@ -8,6 +8,7 @@ import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
 import { DEFAULT_IMAGE, EMPTY_PRODUCT } from "../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/array";
+import Loader from "./Loader";
 
 export default function Menu() {
   //state
@@ -40,6 +41,8 @@ export default function Menu() {
   };
 
   //Render
+
+  if (menu === undefined) return <Loader />;
 
   if (isEmpty(menu)) {
     if (!isAdminMode) return <EmptyMenuClient />;
