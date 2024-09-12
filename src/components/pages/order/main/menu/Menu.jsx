@@ -13,13 +13,14 @@ import Loader from "./Loader";
 export default function Menu() {
   //state
   const {
+    username,
     menu,
     isAdminMode,
     handleDelete,
     resetMenu,
     productSelected,
     setProductSelected,
-    titleEditRef,
+    // titleEditRef,
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
@@ -29,10 +30,10 @@ export default function Menu() {
   const handleProductDelete = (e, idProductToDelete) => {
     e.stopPropagation();
     handleDeleteBasketProduct(idProductToDelete);
-    handleDelete(idProductToDelete);
+    handleDelete(idProductToDelete, username);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
-    titleEditRef.current.focus();
+    // titleEditRef.current.focus();
   };
 
   const handleAddButton = (e, idProductToAdd) => {
