@@ -5,15 +5,20 @@ import EditInfoMessage from "./EditInfoMessage";
 
 export default function EditForm() {
   //state
-  const { productSelected, setProductSelected, handleEdit, titleEditRef } =
-    useContext(OrderContext);
+  const {
+    username,
+    productSelected,
+    setProductSelected,
+    handleEdit,
+    titleEditRef,
+  } = useContext(OrderContext);
 
   //comportements
   const handleChange = (e) => {
     const { name, value } = e.target;
     const beingUpdateProduct = { ...productSelected, [name]: value };
     setProductSelected(beingUpdateProduct); //cette ligne update le formulaire
-    handleEdit(beingUpdateProduct); //cette ligne update le menu
+    handleEdit(beingUpdateProduct, username); //cette ligne update le menu
   };
 
   //affichage
