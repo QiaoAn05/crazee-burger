@@ -29,7 +29,7 @@ export default function Menu() {
   //behavior
   const handleProductDelete = (e, idProductToDelete) => {
     e.stopPropagation();
-    handleDeleteBasketProduct(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete, username);
     handleDelete(idProductToDelete, username);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
