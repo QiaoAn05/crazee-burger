@@ -1,22 +1,24 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone } from "../utils/array";
+import { syncBothMenus } from "../api/product";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const [menu, setMenu] = useState();
 
   //comportements
 
-  const handleAdd = (newProduct) => {
+  const handleAdd = (newProduct, username) => {
     //copie du state
     const menuCopy = deepClone(menu);
     //manipulation de la copie
     const menuUpdated = [newProduct, ...menuCopy];
     //update du state avec le setter
     setMenu(menuUpdated);
+    syncBothMenus(username, menuUpdated);
   };
 
-  const handleDelete = (idOfProductToDelete) => {
+  const handleDelete = (idOfProductToDelete, username) => {
     //copie du state
     const menuCopy = deepClone(menu);
     //modification de la copie du state
@@ -25,9 +27,10 @@ export const useMenu = () => {
     );
     //update du state avec le setter
     setMenu(menuUpdated);
+    syncBothMenus(username, menuUpdated);
   };
 
-  const handleEdit = (productBeingEdited) => {
+  const handleEdit = (productBeingEdited, username) => {
     //Copie du state(deep clone)
     const menuCopy = deepClone(menu);
     //Manipulation de la copie du state
@@ -38,10 +41,12 @@ export const useMenu = () => {
 
     //Update du state avec le setter
     setMenu(menuCopy);
+    syncBothMenus(username, menuCopy);
   };
 
-  const resetMenu = () => {
+  const resetMenu = (username) => {
     setMenu(fakeMenu.SMALL);
+    syncBothMenus(username, fakeMenu.SMALL);
   };
 
   return { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu };

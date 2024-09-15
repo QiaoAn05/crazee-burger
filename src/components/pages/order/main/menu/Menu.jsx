@@ -8,17 +8,19 @@ import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
 import { DEFAULT_IMAGE, EMPTY_PRODUCT } from "../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/array";
+import Loader from "./Loader";
 
 export default function Menu() {
   //state
   const {
+    username,
     menu,
     isAdminMode,
     handleDelete,
     resetMenu,
     productSelected,
     setProductSelected,
-    titleEditRef,
+    // titleEditRef,
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
@@ -27,23 +29,25 @@ export default function Menu() {
   //behavior
   const handleProductDelete = (e, idProductToDelete) => {
     e.stopPropagation();
-    handleDeleteBasketProduct(idProductToDelete);
-    handleDelete(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete, username);
+    handleDelete(idProductToDelete, username);
     idProductToDelete === productSelected.id &&
       setProductSelected(EMPTY_PRODUCT);
-    titleEditRef.current.focus();
+    // titleEditRef.current.focus();
   };
 
   const handleAddButton = (e, idProductToAdd) => {
     e.stopPropagation();
-    handleAddToBasket(idProductToAdd);
+    handleAddToBasket(idProductToAdd, username);
   };
 
   //Render
 
+  if (menu === undefined) return <Loader />;
+
   if (isEmpty(menu)) {
     if (!isAdminMode) return <EmptyMenuClient />;
-    return <EmptyMenuAdmin onReset={resetMenu} />;
+    return <EmptyMenuAdmin onReset={() => resetMenu(username)} />;
   }
   return (
     <MenuStyled>
