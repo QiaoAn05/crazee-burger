@@ -33,7 +33,7 @@ export default function BasketProducts() {
         return (
           <CSSTransition
             appear={true}
-            classNames={"abricot"}
+            classNames={"basket-card-transition"}
             key={basketProduct.id}
             timeout={{ enter: 500, exit: 500 }}
           >
@@ -77,31 +77,31 @@ const BasketProductsStyled = styled.div`
     scrollbar-color: initial;
   }
 
-  .abricot-appear {
+  .basket-card-transition-appear {
     transform: translateX(100px);
     opacity: 0%;
   }
-  .abricot-appear-active {
+  .basket-card-transition-appear-active {
     transition: 0.5s;
     transform: translateX(0);
     opacity: 100%;
   }
 
-  .abricot-enter {
+  .basket-card-transition-enter {
     transform: translateX(100px);
     opacity: 0%;
   }
-  .abricot-enter-active {
+  .basket-card-transition-enter-active {
     transition: 0.5s;
     transform: translateX(0);
     opacity: 100%;
   }
 
-  .abricot-exit {
+  .basket-card-transition-exit {
     transform: translateX(0);
     opacity: 100%;
   }
-  .abricot-exit-active {
+  .basket-card-transition-exit-active {
     transition: 0.5s;
     transform: translateX(-100px);
     opacity: 0%;
