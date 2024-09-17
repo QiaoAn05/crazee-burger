@@ -16,7 +16,7 @@ export default function Total() {
     <Header>
       <TotalStyled>
         <span className="total">Total</span>
-        <CasinoEffect count={formatPrice(sumToPay)} className={"amount"} />
+        <CasinoEffect count={formatPrice(sumToPay)} />
         {/* <span className="amount">{formatPrice(sumToPay)}</span> */}
       </TotalStyled>
     </Header>
