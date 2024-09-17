@@ -5,6 +5,7 @@ import { DEFAULT_IMAGE } from "../../../../../enums/product";
 import { find } from "../../../../../utils/array";
 import OrderContext from "../../../../../context/OrderContext";
 import { checkIfProductIsClicked } from "../menu/helper";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export default function BasketProducts() {
   const {
@@ -23,35 +24,45 @@ export default function BasketProducts() {
   };
 
   return (
-    <BasketProductsStyled>
+    <TransitionGroup
+      component={BasketProductsStyled} // Replace BasketProductsStyled to remove useless div
+      className={"transition-group"}
+    >
       {basket.map((basketProduct) => {
         const menuProduct = find(basketProduct.id, menu);
         return (
-          <div className="basket-card" key={basketProduct.id}>
-            <BasketCard
-              {...menuProduct}
-              imageSource={
-                menuProduct.imageSource
-                  ? menuProduct.imageSource
-                  : DEFAULT_IMAGE
-              }
-              quantity={basketProduct.quantity}
-              isClickable={isAdminMode}
-              onDelete={(e) => handleOnDelete(e, basketProduct.id)}
-              onClick={
-                isAdminMode
-                  ? () => handleProductSelected(basketProduct.id)
-                  : null
-              }
-              isSelected={checkIfProductIsClicked(
-                basketProduct.id,
-                productSelected.id
-              )}
-            />
-          </div>
+          <CSSTransition
+            appear={true}
+            classNames={"abricot"}
+            key={basketProduct.id}
+            timeout={{ enter: 500, exit: 500 }}
+          >
+            <div className="basket-card">
+              <BasketCard
+                {...menuProduct}
+                imageSource={
+                  menuProduct.imageSource
+                    ? menuProduct.imageSource
+                    : DEFAULT_IMAGE
+                }
+                quantity={basketProduct.quantity}
+                isClickable={isAdminMode}
+                onDelete={(e) => handleOnDelete(e, basketProduct.id)}
+                onClick={
+                  isAdminMode
+                    ? () => handleProductSelected(basketProduct.id)
+                    : null
+                }
+                isSelected={checkIfProductIsClicked(
+                  basketProduct.id,
+                  productSelected.id
+                )}
+              />
+            </div>
+          </CSSTransition>
         );
       })}
-    </BasketProductsStyled>
+    </TransitionGroup>
   );
 }
 
@@ -64,6 +75,36 @@ const BasketProductsStyled = styled.div`
 
   &:hover {
     scrollbar-color: initial;
+  }
+
+  .abricot-appear {
+    transform: translateX(100px);
+    opacity: 0%;
+  }
+  .abricot-appear-active {
+    transition: 0.5s;
+    transform: translateX(0);
+    opacity: 100%;
+  }
+
+  .abricot-enter {
+    transform: translateX(100px);
+    opacity: 0%;
+  }
+  .abricot-enter-active {
+    transition: 0.5s;
+    transform: translateX(0);
+    opacity: 100%;
+  }
+
+  .abricot-exit {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+  .abricot-exit-active {
+    transition: 0.5s;
+    transform: translateX(-100px);
+    opacity: 0%;
   }
 
   .basket-card {
