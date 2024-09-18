@@ -5,6 +5,8 @@ import Menu from "./menu/Menu";
 import Admin from "./admin/Admin";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { adminAnimation } from "../../../../theme/animations";
 
 export default function Main() {
   const { isAdminMode } = useContext(OrderContext);
@@ -14,7 +16,13 @@ export default function Main() {
       <Basket />
       <div className="menu-and-admin">
         <Menu />
-        {isAdminMode && <Admin />}
+        {isAdminMode && (
+          <TransitionGroup className="transition-group">
+            <CSSTransition appear classNames={"admin"} timeout={500}>
+              <Admin />
+            </CSSTransition>
+          </TransitionGroup>
+        )}
       </div>
     </MainStyled>
   );
@@ -39,5 +47,7 @@ const MainStyled = styled.div`
     overflow-y: hidden;
     display: grid;
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
+
+    ${adminAnimation}// Créer la constante avant de l'appeler
   }
 `;
