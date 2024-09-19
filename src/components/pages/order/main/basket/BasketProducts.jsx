@@ -6,6 +6,7 @@ import { find } from "../../../../../utils/array";
 import OrderContext from "../../../../../context/OrderContext";
 import { checkIfProductIsClicked } from "../menu/helper";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { basketAnimation } from "../../../../../theme/animations";
 
 export default function BasketProducts() {
   const {
@@ -77,36 +78,6 @@ const BasketProductsStyled = styled.div`
     scrollbar-color: initial;
   }
 
-  .animation-basket-appear {
-    transform: translateX(100px);
-    opacity: 0%;
-  }
-  .animation-basket-appear-active {
-    transition: 0.5s;
-    transform: translateX(0);
-    opacity: 100%;
-  }
-
-  .animation-basket-enter {
-    transform: translateX(100px);
-    opacity: 0%;
-  }
-  .animation-basket-enter-active {
-    transition: 0.5s;
-    transform: translateX(0);
-    opacity: 100%;
-  }
-
-  .animation-basket-exit {
-    transform: translateX(0);
-    opacity: 100%;
-  }
-  .animation-basket-exit-active {
-    transition: 0.5s;
-    transform: translateX(-100px);
-    opacity: 0%;
-  }
-
   .card-container {
     margin: 10px 16px;
     height: 86px;
@@ -120,4 +91,6 @@ const BasketProductsStyled = styled.div`
       margin-bottom: 20px;
     }
   }
+
+  ${basketAnimation}
 `;
