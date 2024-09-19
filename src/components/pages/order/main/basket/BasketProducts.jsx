@@ -33,11 +33,11 @@ export default function BasketProducts() {
         return (
           <CSSTransition
             appear={true}
-            classNames={"basket-card-transition"}
+            classNames={"animation-basket"}
             key={basketProduct.id}
             timeout={{ enter: 500, exit: 500 }}
           >
-            <div className="basket-card">
+            <div className="card-container">
               <BasketCard
                 {...menuProduct}
                 imageSource={
@@ -77,37 +77,37 @@ const BasketProductsStyled = styled.div`
     scrollbar-color: initial;
   }
 
-  .basket-card-transition-appear {
+  .animation-basket-appear {
     transform: translateX(100px);
     opacity: 0%;
   }
-  .basket-card-transition-appear-active {
+  .animation-basket-appear-active {
     transition: 0.5s;
     transform: translateX(0);
     opacity: 100%;
   }
 
-  .basket-card-transition-enter {
+  .animation-basket-enter {
     transform: translateX(100px);
     opacity: 0%;
   }
-  .basket-card-transition-enter-active {
+  .animation-basket-enter-active {
     transition: 0.5s;
     transform: translateX(0);
     opacity: 100%;
   }
 
-  .basket-card-transition-exit {
+  .animation-basket-exit {
     transform: translateX(0);
     opacity: 100%;
   }
-  .basket-card-transition-exit-active {
+  .animation-basket-exit-active {
     transition: 0.5s;
     transform: translateX(-100px);
     opacity: 0%;
   }
 
-  .basket-card {
+  .card-container {
     margin: 10px 16px;
     height: 86px;
     box-sizing: border-box;
