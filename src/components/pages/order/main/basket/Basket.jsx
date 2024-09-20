@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Total from "./Total";
-import Footer from "./Footer";
 import BasketBody from "./basketBody/BasketBody";
+import BasketFooter from "./BasketFooter";
 
 export default function Basket() {
   return (
     <BasketStyled>
       <Total />
       <BasketBody />
-      <Footer />
+      <BasketFooter />
     </BasketStyled>
   );
 }
