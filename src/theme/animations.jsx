@@ -85,3 +85,20 @@ export const menuAnimation = css`
     }
   }
 `;
+
+export const imageAnimation = css`
+  .animation-Image-appear,
+  .animation-Image-enter {
+    opacity: 0%;
+  }
+
+  .animation-Image-appear-active,
+  .animation-Image-enter-active {
+    transition: ${theme.animations.speed.slow};
+    opacity: 100%;
+  }
+
+  .animation-Image-exit {
+    display: none;
+  }
+`;
