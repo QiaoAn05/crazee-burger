@@ -1,8 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
-import { theme } from "../../../../../theme";
-import { formatPrice } from "../../../../../utils/maths";
+import * as theme from "../../../../../../theme";
+import { formatPrice } from "../../../../../../utils/maths";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 
 export default function BasketCard({
   title,
@@ -36,7 +37,7 @@ export default function BasketCard({
           <span className="price">{formatPrice(price)}</span>
         </div>
         <div className="quantity">
-          <span>x {quantity}</span>
+          <CasinoEffect count={`x ${quantity}`} />
         </div>
       </div>
     </BasketCardStyled>
@@ -51,9 +52,9 @@ const BasketCardStyled = styled.div`
   display: grid;
   grid-template-columns: 30% 1fr;
 
-  border-radius: ${theme.borderRadius.round};
-  background: ${theme.colors.prim};
-  box-shadow: ${theme.shadows.cardBasket};
+  border-radius: ${theme.theme.borderRadius.round};
+  background: ${theme.theme.colors.prim};
+  box-shadow: ${theme.theme.shadows.cardBasket};
 
   position: relative;
 
@@ -74,8 +75,8 @@ const BasketCardStyled = styled.div`
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 70% 1fr;
-    font-size: ${theme.fonts.sizes.P0};
-    color: ${theme.colors.primary};
+    font-size: ${theme.theme.fonts.sizes.P0};
+    color: ${theme.theme.colors.primary};
 
     .left-info {
       display: grid;
@@ -84,11 +85,11 @@ const BasketCardStyled = styled.div`
       .title {
         display: flex;
         align-items: center;
-        font-family: ${theme.fonts.family.stylish};
-        font-size: ${theme.fonts.sizes.P3};
+        font-family: ${theme.theme.fonts.family.stylish};
+        font-size: ${theme.theme.fonts.sizes.P3};
         line-height: 32px;
-        font-weight: ${theme.fonts.weights.bold};
-        color: ${theme.colors.dark};
+        font-weight: ${theme.theme.fonts.weights.bold};
+        color: ${theme.theme.colors.dark};
         /* sans cette div avec "min-width: 0", l'ellipsis ne fonctionne pas dans un span : https://semicolon.dev/tutorial/css/text-overflow-ellipsis-doesnt-work#:~:text=If%20your%20text%2Doverflow%20is,Grid%20or%20on%20a%20Table. */
         min-width: 0;
         span {
@@ -99,20 +100,20 @@ const BasketCardStyled = styled.div`
       }
 
       .price {
-        font-size: ${theme.fonts.sizes.SM};
-        font-weight: ${theme.fonts.weights.medium};
-        font-family: ${theme.fonts.family.openSans};
+        font-size: ${theme.theme.fonts.sizes.SM};
+        font-weight: ${theme.theme.fonts.weights.medium};
+        font-family: ${theme.theme.fonts.family.openSans};
       }
     }
 
     .quantity {
       box-sizing: border-box;
-      font-weight: ${theme.fonts.weights.medium};
+      font-weight: ${theme.theme.fonts.weights.medium};
       display: flex;
       align-items: center;
       justify-content: flex-end;
       margin-right: 20px;
-      font-size: ${theme.fonts.sizes.SM};
+      font-size: ${theme.theme.fonts.sizes.SM};
     }
   }
 
@@ -132,29 +133,29 @@ const BasketCardStyled = styled.div`
       right: 0;
       bottom: 0;
       width: 76px;
-      border-top-right-radius: ${theme.borderRadius.round};
-      border-bottom-right-radius: ${theme.borderRadius.round};
+      border-top-right-radius: ${theme.theme.borderRadius.round};
+      border-bottom-right-radius: ${theme.theme.borderRadius.round};
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: ${theme.colors.red};
-      color: ${theme.colors.white};
+      background: ${theme.theme.colors.red};
+      color: ${theme.theme.colors.white};
       cursor: pointer;
 
       .icon {
-        width: ${theme.fonts.sizes.P3};
-        height: ${theme.fonts.sizes.P3};
+        width: ${theme.theme.fonts.sizes.P3};
+        height: ${theme.theme.fonts.sizes.P3};
       }
 
       /* behaviour on delete-button hover */
       &:hover {
         .icon {
-          color: ${theme.colors.dark};
+          color: ${theme.theme.colors.dark};
         }
         &:active {
           .icon {
-            color: ${theme.colors.white};
+            color: ${theme.theme.colors.white};
           }
         }
       }
@@ -165,7 +166,7 @@ const BasketCardStyled = styled.div`
 `;
 
 const basketProductSelectedStyle = css`
-  background: ${theme.colors.primary};
+  background: ${theme.theme.colors.primary};
 
   .price,
   .quantity {

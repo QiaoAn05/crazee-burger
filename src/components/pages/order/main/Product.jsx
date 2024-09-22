@@ -3,6 +3,7 @@ import Button from "../../../reusable-ui/Button";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import { TiDelete } from "react-icons/ti";
+import { fadeInFromRight } from "../../../../theme/animations";
 
 export default function Product({
   title,
@@ -74,6 +75,7 @@ const ProductStyled = styled.div`
       padding: 0;
       border: none;
       background: none;
+      animation: ${fadeInFromRight} ${theme.animations.speed.slow} ease-out;
 
       .icon {
         height: 100%;

@@ -3,6 +3,8 @@ import AdminTabs from "./AdminTabs";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminPanel from "./adminPanel/AdminPanel";
+import { fadeInFromBottom } from "../../../../../theme/animations";
+import { theme } from "../../../../../theme";
 
 export default function Admin() {
   const { isCollapsed } = useContext(OrderContext);
@@ -20,4 +22,6 @@ const AdminStyled = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+
+  animation: ${fadeInFromBottom} ${theme.animations.speed.slow} ease-out;
 `;

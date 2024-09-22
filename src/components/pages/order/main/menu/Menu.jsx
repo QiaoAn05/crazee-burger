@@ -9,6 +9,8 @@ import { checkIfProductIsClicked } from "./helper";
 import { DEFAULT_IMAGE, EMPTY_PRODUCT } from "../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/array";
 import Loader from "./Loader";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { menuAnimation } from "../../../../../theme/animations";
 
 export default function Menu() {
   //state
@@ -50,22 +52,26 @@ export default function Menu() {
     return <EmptyMenuAdmin onReset={() => resetMenu(username)} />;
   }
   return (
-    <MenuStyled>
-      {menu.map(({ id, title, imageSource, price }) => (
-        <Product
-          key={id}
-          title={title}
-          imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
-          price={price}
-          hasDeleteButton={isAdminMode}
-          onDelete={(e) => handleProductDelete(e, id)}
-          onClick={isAdminMode ? () => handleProductSelected(id) : null}
-          isHoverable={isAdminMode}
-          isSelected={checkIfProductIsClicked(id, productSelected.id)}
-          onAdd={(e) => handleAddButton(e, id)}
-        />
-      ))}
-    </MenuStyled>
+    <TransitionGroup component={MenuStyled}>
+      {menu.map(({ id, title, imageSource, price }) => {
+        return (
+          <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
+            <Product
+              key={id}
+              title={title}
+              imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+              price={price}
+              hasDeleteButton={isAdminMode}
+              onDelete={(e) => handleProductDelete(e, id)}
+              onClick={isAdminMode ? () => handleProductSelected(id) : null}
+              isHoverable={isAdminMode}
+              isSelected={checkIfProductIsClicked(id, productSelected.id)}
+              onAdd={(e) => handleAddButton(e, id)}
+            />
+          </CSSTransition>
+        );
+      })}
+    </TransitionGroup>
   );
 }
 
@@ -79,4 +85,6 @@ const MenuStyled = styled.section`
   justify-items: center;
   box-shadow: ${theme.shadows.strong};
   overflow-y: scroll;
+
+  ${menuAnimation}
 `;
