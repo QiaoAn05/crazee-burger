@@ -19,10 +19,10 @@ export default function LoginForm() {
     setUsername(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    authenticateUser(username);
+    await authenticateUser(username);
 
     setUsername("");
     navigate(`order/${username}`);
