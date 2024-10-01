@@ -2,17 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import TextInput from "../../../../../reusable-ui/TextInput";
 import ImagePreview from "./ImagePreview";
-import { getInputTextConfig } from "./getInputTextConfig";
+import { getInputTextConfig, getSelectInputConfig } from "./getInputConfig";
 import SelectInput from "../../../../../reusable-ui/SelectInput";
-
-const isAvailableOptions = [
-  { value: true, label: "En stock" },
-  { value: false, label: "En rupture" },
-];
-const isPublicisedOptions = [
-  { value: true, label: "Sans pub" },
-  { value: false, label: "Avec pub" },
-];
 
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, children, onFocus, onBlur }, ref) => {
@@ -21,6 +12,7 @@ const Form = React.forwardRef(
     //comportements
 
     const inputTexts = getInputTextConfig(product);
+    const selectInputs = getSelectInputConfig(product);
 
     //affichage
     return (
@@ -38,18 +30,9 @@ const Form = React.forwardRef(
               onBlur={onBlur}
             />
           ))}
-          <SelectInput
-            options={isAvailableOptions}
-            name={isAvailableOptions}
-            className="is-available"
-            id="3"
-          />
-          <SelectInput
-            options={isPublicisedOptions}
-            name={isPublicisedOptions}
-            className="is-publicised"
-            id="4"
-          />
+          {selectInputs.map((selectInput) => (
+            <SelectInput key={selectInput.id} {...selectInput} />
+          ))}
         </div>
         <div className="form-footer">{children}</div>
       </FormStyled>

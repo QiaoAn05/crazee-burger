@@ -1,6 +1,10 @@
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
+import {
+  isAvailableOptions,
+  isPublicisedOptions,
+} from "../../../../../../enums/select";
 
 export const getInputTextConfig = (newProduct) => [
   {
@@ -33,5 +37,26 @@ export const getInputTextConfig = (newProduct) => [
     Icon: <MdOutlineEuro />,
     version: "minimalist",
     className: "price",
+  },
+];
+
+export const getSelectInputConfig = (newProduct) => [
+  {
+    id: "3",
+    name: "isAvailable",
+    value: newProduct.isAvailable,
+    // Icon: <FaHamburger />,
+    // version: "minimalist",
+    options: isAvailableOptions,
+    className: "is-available",
+  },
+  {
+    id: "4",
+    name: "isPublicised",
+    value: newProduct.isPublicised,
+    // Icon: <BsFillCameraFill />,
+    // version: "minimalist",
+    options: isPublicisedOptions,
+    className: "is-publicised",
   },
 ];
