@@ -58,7 +58,6 @@ const FormStyled = styled.form`
   grid-row-gap: 8px;
 
   .input-fields {
-    background-color: blue;
     grid-area: 1/2/4/3;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -75,15 +74,7 @@ const FormStyled = styled.form`
     }
 
     .price {
-      background-color: red;
       grid-area: 3/1/4/2;
-    }
-
-    .is-available {
-      background-color: pink;
-    }
-    .is-publicised {
-      background-color: yellow;
     }
   }
   .form-footer {
