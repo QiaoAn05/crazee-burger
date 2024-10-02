@@ -31,7 +31,11 @@ const Form = React.forwardRef(
             />
           ))}
           {selectInputs.map((selectInput) => (
-            <SelectInput key={selectInput.id} {...selectInput} />
+            <SelectInput
+              key={selectInput.id}
+              {...selectInput}
+              onChange={onChange}
+            />
           ))}
         </div>
         <div className="form-footer">{children}</div>
