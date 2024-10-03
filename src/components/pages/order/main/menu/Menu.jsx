@@ -15,6 +15,7 @@ import { isEmpty } from "../../../../../utils/array";
 import Loader from "./Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { menuAnimation } from "../../../../../theme/animations";
+import { convertStringToBoolean } from "../../../../../utils/string";
 
 export default function Menu() {
   //state
@@ -57,7 +58,8 @@ export default function Menu() {
   }
   return (
     <TransitionGroup component={MenuStyled}>
-      {menu.map(({ id, title, imageSource, price }) => {
+      {menu.map(({ id, title, imageSource, price, isAvailable }) => {
+        console.log("isAvailable: ", typeof isAvailable);
         return (
           <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
             <Product
@@ -72,7 +74,9 @@ export default function Menu() {
               isSelected={checkIfProductIsClicked(id, productSelected.id)}
               onAdd={(e) => handleAddButton(e, id)}
               isOverlapImageSource={IMAGE_NO_STOCK}
-              isOverlapImageVisible={true}
+              isOverlapImageVisible={
+                convertStringToBoolean(isAvailable) === false
+              }
             />
           </CSSTransition>
         );
