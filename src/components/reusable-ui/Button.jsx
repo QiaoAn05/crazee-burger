@@ -24,7 +24,7 @@ const ButtonStyled = styled.button`
   ${({ version }) => extraStyle[version]}//dictionnaire
 `;
 
-const extraStyleNormal = css`
+const extraStylePrimary = css`
   width: 100%;
   display: inline-flex;
   justify-content: center;
@@ -83,6 +83,6 @@ const extraStyleSuccess = css`
 `;
 
 const extraStyle = {
-  normal: extraStyleNormal,
+  primary: extraStylePrimary,
   success: extraStyleSuccess,
 };

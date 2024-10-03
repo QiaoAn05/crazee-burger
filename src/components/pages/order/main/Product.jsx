@@ -56,7 +56,7 @@ export default function Product({
             <p className="price">{formatPrice(price)}</p>
             <Button
               Label="Ajouter"
-              version="normal"
+              version="primary"
               OnClick={onAdd}
               disabled={isOverlapImageVisible}
             />
