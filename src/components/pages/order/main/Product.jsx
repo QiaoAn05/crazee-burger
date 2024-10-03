@@ -54,7 +54,12 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button Label="Ajouter" version="primary" OnClick={onAdd} />
+            <Button
+              Label="Ajouter"
+              version="normal"
+              OnClick={onAdd}
+              disabled={isOverlapImageVisible}
+            />
           </div>
         </div>
       </div>
@@ -87,7 +92,7 @@ const ProductStyled = styled.div`
       width: 30px;
       height: 30px;
       color: ${theme.colors.primary};
-      /* z-index: 2; */
+      /* z-index: 1; */
       padding: 0;
       border: none;
       background: none;

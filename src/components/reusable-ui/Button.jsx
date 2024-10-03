@@ -1,9 +1,19 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function Button({ Label, Icon, OnClick, version = "primary" }) {
+export default function Button({
+  Label,
+  Icon,
+  OnClick,
+  version = "primary",
+  disabled,
+}) {
   return (
-    <ButtonStyled onClick={OnClick && OnClick} version={version}>
+    <ButtonStyled
+      onClick={OnClick && OnClick}
+      version={version}
+      disabled={disabled}
+    >
       <span>{Label}</span>
       {Icon && <div className="icon">{Icon}</div>}
     </ButtonStyled>
@@ -14,7 +24,7 @@ const ButtonStyled = styled.button`
   ${({ version }) => extraStyle[version]}//dictionnaire
 `;
 
-const extraStylePrimary = css`
+const extraStyleNormal = css`
   width: 100%;
   display: inline-flex;
   justify-content: center;
@@ -37,6 +47,11 @@ const extraStylePrimary = css`
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
     cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
   }
 
   .icon {
@@ -68,6 +83,6 @@ const extraStyleSuccess = css`
 `;
 
 const extraStyle = {
-  primary: extraStylePrimary,
+  normal: extraStyleNormal,
   success: extraStyleSuccess,
 };
