@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
-import { DEFAULT_IMAGE } from "../../../../../../enums/product";
+import { BASKET_MESSAGE, DEFAULT_IMAGE } from "../../../../../../enums/product";
 import { find } from "../../../../../../utils/array";
 import OrderContext from "../../../../../../context/OrderContext";
 import { checkIfProductIsClicked } from "../../menu/helper";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
+import { formatPrice } from "../../../../../../utils/maths";
+import { convertStringToBoolean } from "../../../../../../utils/string";
 
 export default function BasketProducts() {
   const {
@@ -58,6 +60,11 @@ export default function BasketProducts() {
                   basketProduct.id,
                   productSelected.id
                 )}
+                price={
+                  convertStringToBoolean(menuProduct.isAvailable)
+                    ? formatPrice(menuProduct.price)
+                    : BASKET_MESSAGE.NOT_AVAILABLE
+                }
               />
             </div>
           </CSSTransition>

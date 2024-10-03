@@ -92,7 +92,7 @@ const ProductStyled = styled.div`
       width: 30px;
       height: 30px;
       color: ${theme.colors.primary};
-      /* z-index: 1; */
+      z-index: 1;
       padding: 0;
       border: none;
       background: none;
