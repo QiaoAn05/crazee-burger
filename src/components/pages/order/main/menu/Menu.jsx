@@ -6,7 +6,11 @@ import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
-import { DEFAULT_IMAGE, EMPTY_PRODUCT } from "../../../../../enums/product";
+import {
+  DEFAULT_IMAGE,
+  EMPTY_PRODUCT,
+  IMAGE_NO_STOCK,
+} from "../../../../../enums/product";
 import { isEmpty } from "../../../../../utils/array";
 import Loader from "./Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -67,6 +71,8 @@ export default function Menu() {
               isHoverable={isAdminMode}
               isSelected={checkIfProductIsClicked(id, productSelected.id)}
               onAdd={(e) => handleAddButton(e, id)}
+              isOverlapImageSource={IMAGE_NO_STOCK}
+              isOverlapImageVisible={true}
             />
           </CSSTransition>
         );
