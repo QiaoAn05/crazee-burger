@@ -18,7 +18,6 @@ export default function Product({
   isOverlapImageSource,
   isOverlapImageVisible,
 }) {
-  console.log("isOverlapImageVisible: ", isOverlapImageVisible);
   return (
     <ProductStyled
       onClick={onClick}

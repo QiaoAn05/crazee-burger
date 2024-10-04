@@ -59,7 +59,6 @@ export default function Menu() {
   return (
     <TransitionGroup component={MenuStyled}>
       {menu.map(({ id, title, imageSource, price, isAvailable }) => {
-        console.log("isAvailable: ", typeof isAvailable);
         return (
           <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
             <Product
