@@ -3,7 +3,7 @@ import Button from "../../../reusable-ui/Button";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import { TiDelete } from "react-icons/ti";
-import { fadeInFromRight } from "../../../../theme/animations";
+import { fadeInFromRight, fadeInFromTop } from "../../../../theme/animations";
 
 export default function Product({
   title,
@@ -15,6 +15,8 @@ export default function Product({
   isHoverable,
   isSelected,
   onAdd,
+  isOverlapImageSource,
+  isOverlapImageVisible,
 }) {
   return (
     <ProductStyled
@@ -33,12 +35,30 @@ export default function Product({
           </button>
         )}
 
-        <img src={imageSource} alt={title} />
+        <div className="image">
+          {isOverlapImageVisible && (
+            <div className="overlap">
+              <div className="transparent-layer"></div>
+              <img
+                className="overlap-image"
+                src={isOverlapImageSource}
+                alt="overlap image"
+              />
+            </div>
+          )}
+          <img src={imageSource} alt={title} />
+        </div>
+
         <div className="card-content">
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button Label="Ajouter" version="primary" OnClick={onAdd} />
+            <Button
+              Label="Ajouter"
+              version="primary"
+              OnClick={onAdd}
+              disabled={isOverlapImageVisible}
+            />
           </div>
         </div>
       </div>
@@ -71,7 +91,7 @@ const ProductStyled = styled.div`
       width: 30px;
       height: 30px;
       color: ${theme.colors.primary};
-      /* z-index: 2; */
+      z-index: 1;
       padding: 0;
       border: none;
       background: none;
@@ -97,6 +117,33 @@ const ProductStyled = styled.div`
       object-fit: contain;
       margin-top: 30px;
     }
+
+    .overlap {
+      .overlap-image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80%;
+        height: 100%;
+        /* z-index: 1; */
+        animation: ${fadeInFromTop} 500ms;
+        border-radius: ${theme.borderRadius.extraRound};
+        margin-top: -30px;
+      }
+
+      .transparent-layer {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 70%;
+        background-color: snow;
+        /* z-index: 1; */
+        border-radius: ${theme.borderRadius.extraRound};
+      }
+    }
+
     .card-content {
       width: 200px;
       height: 105px;
@@ -137,8 +184,6 @@ const ProductStyled = styled.div`
 
 const hoverableStyle = css`
   &:hover {
-    transform: scale(1.05);
-    transition: ease-out 0.4s;
     box-shadow: ${theme.shadows.orangeHighlight};
     cursor: pointer;
     border-radius: ${theme.borderRadius.extraRound};

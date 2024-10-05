@@ -1,46 +1,46 @@
-import { EMPTY_PRODUCT } from "../enums/product";
-export const EMPTY = [];
+import { EMPTY_PRODUCT } from "../enums/product"
+
+export const EMPTY = []
 
 export const SMALL = [
   {
     id: "1",
     title: "Burger Meal",
-    imageSource: "/images/burger1.png",
+    imageSource: "images/burger1.png",
     quantity: 1,
   },
-];
+]
 
 export const MEDIUM = [
   {
     id: "1",
-    imageSource: "/images/burger1.png",
+    imageSource: "images/burger1.png",
     title: "Burger Smoke BBQ",
     price: 5,
     quantity: 2,
   },
   {
     id: "2",
-    imageSource: "/images/burger6.png",
+    imageSource: "images/burger6.png",
     title: "Vegan Burger",
     price: 5,
     quantity: 1,
   },
   {
     id: "3",
-    imageSource:
-      "https://www.ecomiam.com/images/Image/Frites-du-bistro-Code-Menlog.jpg",
+    imageSource: "https://www.ecomiam.com/images/Image/Frites-du-bistro-Code-Menlog.jpg",
     title: "Burger House",
     price: 5,
     quantity: 4,
   },
   {
     id: "4",
-    imageSource: "/images/drink1.png",
+    imageSource: "images/drink1.png",
     title: "Cheese Burger",
     price: 5,
     quantity: 4,
   },
-];
+]
 
 export const LARGE = [
   {
@@ -50,7 +50,7 @@ export const LARGE = [
     price: 3.1678,
     quantity: 13,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "2",
@@ -59,7 +59,7 @@ export const LARGE = [
     price: 3.568,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "3",
@@ -68,7 +68,7 @@ export const LARGE = [
     price: 5.367,
     quantity: 5,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "4",
@@ -77,7 +77,7 @@ export const LARGE = [
     price: 5.4985,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "5",
@@ -86,7 +86,7 @@ export const LARGE = [
     price: 3.487,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "6",
@@ -95,7 +95,7 @@ export const LARGE = [
     price: 3.356,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "7",
@@ -104,7 +104,7 @@ export const LARGE = [
     price: 5.598,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "8",
@@ -113,7 +113,7 @@ export const LARGE = [
     price: 2.567,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "9",
@@ -122,7 +122,7 @@ export const LARGE = [
     price: 3.7,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "10",
@@ -131,9 +131,9 @@ export const LARGE = [
     price: 4.678,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
-];
+]
 
 export const LARGE_WEIRD = [
   {
@@ -147,7 +147,7 @@ export const LARGE_WEIRD = [
     price: 3.1678,
     quantity: 13,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "2",
@@ -156,7 +156,7 @@ export const LARGE_WEIRD = [
     price: 3.568,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "3",
@@ -165,7 +165,7 @@ export const LARGE_WEIRD = [
     price: 0.0,
     quantity: 5,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "4",
@@ -174,7 +174,7 @@ export const LARGE_WEIRD = [
     price: 5.4985,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "5",
@@ -183,7 +183,7 @@ export const LARGE_WEIRD = [
     price: 3.487,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "6",
@@ -192,7 +192,7 @@ export const LARGE_WEIRD = [
     price: 3.356,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "7",
@@ -201,7 +201,7 @@ export const LARGE_WEIRD = [
     price: 5.598,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "8",
@@ -210,7 +210,7 @@ export const LARGE_WEIRD = [
     price: 2.567,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "9",
@@ -219,7 +219,7 @@ export const LARGE_WEIRD = [
     price: 3.7,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
   {
     id: "10",
@@ -228,9 +228,9 @@ export const LARGE_WEIRD = [
     price: 4.678,
     quantity: 1,
     isAvailable: true,
-    isAdvertised: false,
+    isPublicised: false,
   },
-];
+]
 
 export const fakeBasket = {
   EMPTY,
@@ -238,4 +238,4 @@ export const fakeBasket = {
   MEDIUM,
   LARGE,
   LARGE_WEIRD,
-};
+}
