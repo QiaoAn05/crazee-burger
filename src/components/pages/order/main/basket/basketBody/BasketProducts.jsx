@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { BASKET_MESSAGE, DEFAULT_IMAGE } from "../../../../../../enums/product";
@@ -12,6 +12,7 @@ import { convertStringToBoolean } from "../../../../../../utils/string";
 import Sticker from "../../../../../reusable-ui/Sticker";
 
 export default function BasketProducts() {
+  const nodeRef = useRef(null);
   const {
     username,
     basket,
@@ -36,12 +37,13 @@ export default function BasketProducts() {
         const menuProduct = find(basketProduct.id, menu);
         return (
           <CSSTransition
+            nodeRef={nodeRef}
             appear={true}
             classNames={"animation-basket"}
             key={basketProduct.id}
             timeout={{ enter: 500, exit: 500 }}
           >
-            <div className="card-container">
+            <div ref={nodeRef} className="card-container">
               {convertStringToBoolean(menuProduct.isPublicised) && (
                 <Sticker className="badge-new" />
               )}
