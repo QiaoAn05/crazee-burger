@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Product from "../Product";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
@@ -20,6 +20,7 @@ import RibbonAnimated, { ribbonAnimation } from "./RibbonAnimated";
 
 export default function Menu() {
   //state
+  const nodeRef = useRef(null);
   const {
     username,
     menu,
@@ -64,8 +65,13 @@ export default function Menu() {
       {menu.map(
         ({ id, title, imageSource, price, isAvailable, isPublicised }) => {
           return (
-            <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
-              <div className={cardContainerClassName}>
+            <CSSTransition
+              nodeRef={nodeRef}
+              classNames={"menu-animation"}
+              key={id}
+              timeout={300}
+            >
+              <div ref={nodeRef} className={cardContainerClassName}>
                 {convertStringToBoolean(isPublicised) && <RibbonAnimated />}
                 <Product
                   key={id}

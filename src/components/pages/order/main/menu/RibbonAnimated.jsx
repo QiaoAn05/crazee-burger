@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import Ribbon from "../../../../reusable-ui/Ribbon";
 import { css } from "styled-components";
 import { CSSTransition } from "react-transition-group";
 
 export default function RibbonAnimated() {
+  const nodeRef = useRef(null);
   return (
     <CSSTransition
+      nodeRef={nodeRef}
       in={true}
       timeout={500}
       appear={true}
       classNames="ribbon-animation"
     >
-      <Ribbon className="ribbon" label="nouveau" />
+      <Ribbon ref={nodeRef} className="ribbon" label="nouveau" />
     </CSSTransition>
   );
 }

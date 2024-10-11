@@ -3,13 +3,14 @@ import { theme } from "../../../../theme";
 import Basket from "./basket/Basket";
 import Menu from "./menu/Menu";
 import Admin from "./admin/Admin";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { adminAnimation } from "../../../../theme/animations";
 
 export default function Main() {
   const { isAdminMode } = useContext(OrderContext);
+  const nodeRef = useRef(null);
 
   return (
     <MainStyled>
@@ -18,8 +19,15 @@ export default function Main() {
         <Menu />
         {isAdminMode && (
           <TransitionGroup className="transition-group">
-            <CSSTransition appear classNames={"admin"} timeout={500}>
-              <Admin />
+            <CSSTransition
+              nodeRef={nodeRef}
+              appear
+              classNames={"admin"}
+              timeout={500}
+            >
+              <div ref={nodeRef}>
+                <Admin />
+              </div>
             </CSSTransition>
           </TransitionGroup>
         )}
