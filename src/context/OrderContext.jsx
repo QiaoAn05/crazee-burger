@@ -25,6 +25,7 @@ export default createContext({
   basket: [],
   handleAddToBasket: () => {},
   handleDeleteBasketProduct: () => {},
+  handleSubstractToBasket: () => {},
 
   handleProductSelected: () => {},
 });

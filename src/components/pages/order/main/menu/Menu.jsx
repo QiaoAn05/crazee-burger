@@ -32,6 +32,7 @@ export default function Menu() {
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
+    handleSubstractToBasket,
   } = useContext(OrderContext);
 
   //behavior
@@ -46,6 +47,10 @@ export default function Menu() {
   const handleAddButton = (e, idProductToAdd) => {
     e.stopPropagation();
     handleAddToBasket(idProductToAdd, username);
+  };
+  const handleSubstractButton = (e, idProductToSubstract) => {
+    e.stopPropagation();
+    handleSubstractToBasket(idProductToSubstract, username);
   };
 
   let cardContainerClassName = isAdminMode
@@ -84,6 +89,7 @@ export default function Menu() {
                   isHoverable={isAdminMode}
                   isSelected={checkIfProductIsClicked(id, productSelected.id)}
                   onAdd={(e) => handleAddButton(e, id)}
+                  onSubstract={(e) => handleSubstractButton(e, id)}
                   isOverlapImageSource={IMAGE_NO_STOCK}
                   isOverlapImageVisible={
                     convertStringToBoolean(isAvailable) === false

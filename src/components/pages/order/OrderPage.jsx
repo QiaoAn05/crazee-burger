@@ -21,8 +21,13 @@ export default function OrderPage() {
   const titleEditRef = useRef();
   const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } =
     useMenu();
-  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
-    useBasket();
+  const {
+    basket,
+    setBasket,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
+    handleSubstractToBasket,
+  } = useBasket();
   const { username } = useParams();
 
   const handleProductSelected = async (idProductClicked) => {
@@ -59,6 +64,7 @@ export default function OrderPage() {
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
+    handleSubstractToBasket,
   };
 
   //affichage

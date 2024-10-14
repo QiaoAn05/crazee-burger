@@ -15,6 +15,7 @@ export default function Product({
   isHoverable,
   isSelected,
   onAdd,
+  onSubstract,
   isOverlapImageSource,
   isOverlapImageVisible,
 }) {
@@ -54,7 +55,13 @@ export default function Product({
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
             <Button
-              Label="Ajouter"
+              Label="-"
+              version="primary"
+              OnClick={onSubstract}
+              disabled={isOverlapImageVisible}
+            />
+            <Button
+              Label="+"
               version="primary"
               OnClick={onAdd}
               disabled={isOverlapImageVisible}

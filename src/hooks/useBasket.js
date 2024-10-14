@@ -31,6 +31,38 @@ export const useBasket = () => {
     setLocalStorage(username, basketCopy);
   };
 
+  const handleSubstractToBasket = (idProductToSubstract, username) => {
+    const basketCopy = deepClone(basket);
+    const productAlreadyInBasket = find(idProductToSubstract, basketCopy);
+
+    if (productAlreadyInBasket) {
+      decrementProductAlreadyInBasket(
+        idProductToSubstract,
+        basketCopy,
+        username
+      );
+      return;
+    }
+  };
+
+  const decrementProductAlreadyInBasket = (
+    idProductToSubstract,
+    basketCopy,
+    username
+  ) => {
+    const indexOfBasketProductToDecrement = findIndex(
+      idProductToSubstract,
+      basketCopy
+    );
+    basketCopy[indexOfBasketProductToDecrement].quantity--;
+    if (basketCopy[indexOfBasketProductToDecrement].quantity < 1) {
+      handleDeleteBasketProduct(idProductToSubstract, basketCopy);
+      return;
+    }
+    setBasket(basketCopy);
+    setLocalStorage(username, basketCopy);
+  };
+
   const createNewBasketProduct = (
     idProductToAdd,
     basketCopy,
@@ -49,5 +81,11 @@ export const useBasket = () => {
     setLocalStorage(username, basketUpdated);
   };
 
-  return { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct };
+  return {
+    basket,
+    setBasket,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
+    handleSubstractToBasket,
+  };
 };
