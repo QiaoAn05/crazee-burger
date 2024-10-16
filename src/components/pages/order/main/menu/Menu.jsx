@@ -47,10 +47,12 @@ export default function Menu() {
   const handleAddButton = (e, idProductToAdd) => {
     e.stopPropagation();
     handleAddToBasket(idProductToAdd, username);
+    menu[idProductToAdd].quantity++;
   };
   const handleSubstractButton = (e, idProductToSubstract) => {
     e.stopPropagation();
     handleSubstractToBasket(idProductToSubstract, username);
+    menu[idProductToSubstract].quantity--;
   };
 
   let cardContainerClassName = isAdminMode
@@ -58,7 +60,6 @@ export default function Menu() {
     : "card-container";
 
   //Render
-
   if (menu === undefined) return <Loader />;
 
   if (isEmpty(menu)) {
@@ -68,7 +69,15 @@ export default function Menu() {
   return (
     <TransitionGroup component={MenuStyled}>
       {menu.map(
-        ({ id, title, imageSource, price, isAvailable, isPublicised }) => {
+        ({
+          id,
+          title,
+          imageSource,
+          price,
+          isAvailable,
+          isPublicised,
+          quantity,
+        }) => {
           return (
             <CSSTransition
               nodeRef={nodeRef}
@@ -94,6 +103,7 @@ export default function Menu() {
                   isOverlapImageVisible={
                     convertStringToBoolean(isAvailable) === false
                   }
+                  quantity={quantity}
                 />
               </div>
             </CSSTransition>

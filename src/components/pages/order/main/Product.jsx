@@ -18,6 +18,7 @@ export default function Product({
   onSubstract,
   isOverlapImageSource,
   isOverlapImageVisible,
+  quantity,
 }) {
   return (
     <ProductStyled
@@ -60,6 +61,7 @@ export default function Product({
               OnClick={onSubstract}
               disabled={isOverlapImageVisible}
             />
+            <span>{quantity}</span>
             <Button
               Label="+"
               version="primary"

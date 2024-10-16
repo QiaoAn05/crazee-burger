@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { fakeBasket } from "../fakeData/fakeBasket";
 import { deepClone, filter, find, findIndex } from "../utils/array";
-import { setLocalStorage } from "../utils/window";
+import { deleteLocalStorage, setLocalStorage } from "../utils/window";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState([]);
@@ -55,8 +54,14 @@ export const useBasket = () => {
       basketCopy
     );
     basketCopy[indexOfBasketProductToDecrement].quantity--;
-    if (basketCopy[indexOfBasketProductToDecrement].quantity < 1) {
-      handleDeleteBasketProduct(idProductToSubstract, basketCopy);
+    if (basketCopy[indexOfBasketProductToDecrement].quantity <= 0) {
+      const productToDelete = basketCopy[indexOfBasketProductToDecrement];
+      // Retirer l'élément du panier
+      basketCopy.splice(indexOfBasketProductToDecrement, 1);
+      setBasket(basketCopy);
+
+      // Supprimer uniquement ce produit du localStorage
+      deleteLocalStorage(username, productToDelete);
       return;
     }
     setBasket(basketCopy);
