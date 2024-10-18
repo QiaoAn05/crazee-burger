@@ -43,7 +43,7 @@ export default function BasketProducts() {
             key={basketProduct.id}
             timeout={{ enter: 500, exit: 500 }}
           >
-            <div ref={nodeRef} className="card-container">
+            <div className="card-container">
               {convertStringToBoolean(menuProduct.isPublicised) && (
                 <Sticker className="badge-new" />
               )}
