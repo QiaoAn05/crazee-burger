@@ -55,19 +55,22 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button
-              Label="-"
-              version="primary"
-              OnClick={onSubstract}
-              disabled={isOverlapImageVisible}
-            />
-            <span>{quantity}</span>
-            <Button
-              Label="+"
-              version="primary"
-              OnClick={onAdd}
-              disabled={isOverlapImageVisible}
-            />
+            <div className="button-container">
+              <Button
+                Label="-"
+                version="primary"
+                OnClick={onSubstract}
+                disabled={isOverlapImageVisible}
+                className="decrease"
+              />
+              <span className="quantity">{quantity}</span>
+              <Button
+                Label="+"
+                version="primary"
+                OnClick={onAdd}
+                disabled={isOverlapImageVisible}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -176,12 +179,38 @@ const ProductStyled = styled.div`
           color: orange;
           margin: 0;
         }
-        button {
-          width: fit-content;
-          padding: 12px 26px;
-          &:active {
+        .button-container {
+          display: flex;
+          height: 100%;
+
+          button {
+            /* width: fit-content; */
+            /* padding: 12px 26px; old values*/
+            width: 30px;
+            padding: 12px 16px;
+            border-radius: ${theme.borderRadius.round} 0 0
+              ${theme.borderRadius.round};
+            &:active {
+              background-color: ${theme.colors.primary};
+              color: ${theme.colors.white};
+            }
+          }
+
+          button:first-child {
+            border-radius: ${theme.borderRadius.round} 0 0
+              ${theme.borderRadius.round};
+          }
+          button:last-child {
+            border-radius: 0 ${theme.borderRadius.round}
+              ${theme.borderRadius.round} 0;
+          }
+          .quantity {
             background-color: ${theme.colors.primary};
             color: ${theme.colors.white};
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
           }
         }
       }
@@ -215,40 +244,48 @@ const selectedStyle = css`
         color: ${theme.colors.white};
         color: white;
       }
-      button {
-        color: ${theme.colors.primary};
-        background-color: ${theme.colors.white};
-        border: 1px solid ${theme.colors.white};
-        transition: all 200ms ease-out;
-        &:hover {
-          color: ${theme.colors.white};
-          background-color: ${theme.colors.primary};
-          border: ${theme.colors.white};
+
+      .button-container {
+        button {
+          color: ${theme.colors.primary};
+          background-color: ${theme.colors.white};
+          border: 1px solid ${theme.colors.white};
           transition: all 200ms ease-out;
-        }
-        &:active {
-          background-color: ${theme.colors.white};
-          color: ${theme.colors.primary};
-        }
-
-        &.is-disabled {
-          opacity: 50%;
-          cursor: not-allowed;
-          z-index: 2;
-        }
-
-        &.with-focus {
-          border: 1px solid white;
-          background-color: ${theme.colors.white};
-          color: ${theme.colors.primary};
           &:hover {
             color: ${theme.colors.white};
-            background-color: ${theme.colors.white};
+            background-color: ${theme.colors.primary};
+            border: ${theme.colors.white};
+            transition: all 200ms ease-out;
+            margin: 0;
           }
           &:active {
             background-color: ${theme.colors.white};
             color: ${theme.colors.primary};
           }
+
+          &.is-disabled {
+            opacity: 50%;
+            cursor: not-allowed;
+            z-index: 2;
+          }
+
+          &.with-focus {
+            border: 1px solid white;
+            background-color: ${theme.colors.white};
+            color: ${theme.colors.primary};
+            &:hover {
+              color: ${theme.colors.white};
+              background-color: ${theme.colors.white};
+            }
+            &:active {
+              background-color: ${theme.colors.white};
+              color: ${theme.colors.primary};
+            }
+          }
+        }
+        .quantity {
+          background-color: ${theme.colors.white};
+          color: ${theme.colors.primary};
         }
       }
     }
