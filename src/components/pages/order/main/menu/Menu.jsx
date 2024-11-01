@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Product from "../Product";
+import Product from "../product/Product";
 import { useContext, useEffect, useRef, useState } from "react";
 import { theme } from "../../../../../theme";
 import OrderContext from "../../../../../context/OrderContext";

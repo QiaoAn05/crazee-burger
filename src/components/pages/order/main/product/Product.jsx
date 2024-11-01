@@ -1,9 +1,13 @@
 import styled, { css } from "styled-components";
-import Button from "../../../reusable-ui/Button";
-import { formatPrice } from "../../../../utils/maths";
-import { theme } from "../../../../theme";
+import Button from "../../../../reusable-ui/Button";
+import { formatPrice } from "../../../../../utils/maths";
+import { theme } from "../../../../../theme";
 import { TiDelete } from "react-icons/ti";
-import { fadeInFromRight, fadeInFromTop } from "../../../../theme/animations";
+import {
+  fadeInFromRight,
+  fadeInFromTop,
+} from "../../../../../theme/animations";
+import QuantityControl from "./QuantityControl";
 
 export default function Product({
   title,
@@ -55,7 +59,13 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <div className="button-container">
+            <QuantityControl
+              onLeftClick={onSubstract}
+              onRightClick={onAdd}
+              disabled={isOverlapImageVisible}
+              quantity={quantity}
+            />
+            {/* <div className="button-container">
               <Button
                 Label="-"
                 version="primary"
@@ -70,7 +80,7 @@ export default function Product({
                 OnClick={onAdd}
                 disabled={isOverlapImageVisible}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
