@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
 import * as theme from "../../../../../../theme";
 import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
+import { fadeInFromRight } from "../../../../../../theme/animations";
 
 export default function BasketCard({
   title,
@@ -119,6 +120,7 @@ const BasketCardStyled = styled.div`
   .delete-button {
     display: none;
     z-index: 1;
+    animation: ${fadeInFromRight} ${theme.theme.animations.speed.quick} ease-out;
   }
 
   /* hover de la card */
