@@ -1,9 +1,12 @@
 import styled, { css } from "styled-components";
-import Button from "../../../reusable-ui/Button";
-import { formatPrice } from "../../../../utils/maths";
-import { theme } from "../../../../theme";
+import { formatPrice } from "../../../../../utils/maths";
+import { theme } from "../../../../../theme";
 import { TiDelete } from "react-icons/ti";
-import { fadeInFromRight, fadeInFromTop } from "../../../../theme/animations";
+import {
+  fadeInFromRight,
+  fadeInFromTop,
+} from "../../../../../theme/animations";
+import QuantityControl from "./QuantityControl";
 
 export default function Product({
   title,
@@ -15,8 +18,10 @@ export default function Product({
   isHoverable,
   isSelected,
   onAdd,
+  onSubstract,
   isOverlapImageSource,
   isOverlapImageVisible,
+  quantity,
 }) {
   return (
     <ProductStyled
@@ -53,11 +58,12 @@ export default function Product({
           <p className="title">{title}</p>
           <div className="card-description">
             <p className="price">{formatPrice(price)}</p>
-            <Button
-              Label="Ajouter"
-              version="primary"
-              OnClick={onAdd}
+            <QuantityControl
+              onLeftClick={onSubstract}
+              onRightClick={onAdd}
               disabled={isOverlapImageVisible}
+              quantity={quantity}
+              isSelected={isSelected}
             />
           </div>
         </div>
@@ -167,14 +173,6 @@ const ProductStyled = styled.div`
           color: orange;
           margin: 0;
         }
-        button {
-          width: fit-content;
-          padding: 12px 26px;
-          &:active {
-            background-color: ${theme.colors.primary};
-            color: ${theme.colors.white};
-          }
-        }
       }
     }
     ${({ $isHoverable, $isSelected }) =>
@@ -205,42 +203,6 @@ const selectedStyle = css`
       .price {
         color: ${theme.colors.white};
         color: white;
-      }
-      button {
-        color: ${theme.colors.primary};
-        background-color: ${theme.colors.white};
-        border: 1px solid ${theme.colors.white};
-        transition: all 200ms ease-out;
-        &:hover {
-          color: ${theme.colors.white};
-          background-color: ${theme.colors.primary};
-          border: ${theme.colors.white};
-          transition: all 200ms ease-out;
-        }
-        &:active {
-          background-color: ${theme.colors.white};
-          color: ${theme.colors.primary};
-        }
-
-        &.is-disabled {
-          opacity: 50%;
-          cursor: not-allowed;
-          z-index: 2;
-        }
-
-        &.with-focus {
-          border: 1px solid white;
-          background-color: ${theme.colors.white};
-          color: ${theme.colors.primary};
-          &:hover {
-            color: ${theme.colors.white};
-            background-color: ${theme.colors.white};
-          }
-          &:active {
-            background-color: ${theme.colors.white};
-            color: ${theme.colors.primary};
-          }
-        }
       }
     }
   }

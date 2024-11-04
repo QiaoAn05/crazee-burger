@@ -4,9 +4,10 @@ import SavingMessage from "./SavingMessage";
 import OrderContext from "../../../../../../../context/OrderContext";
 import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage";
 import Form from "../Form/Form";
+import { replaceFrenchCommaWithDot } from "../../../../../../../utils/maths";
 
 export default function EditForm() {
-  //state
+  // state
   const {
     username,
     productSelected,
@@ -18,12 +19,13 @@ export default function EditForm() {
   const [valueOnFocus, setValueOnFocus] = useState();
   const { isSubmitted: isSaved, displaySuccessMessage } = useSuccessMessage();
 
-  //comportements
+  // comportements
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Garder la valeur telle qu'elle est pendant la saisie pour une expérience utilisateur fluide
     const beingUpdateProduct = { ...productSelected, [name]: value };
-    setProductSelected(beingUpdateProduct); //cette ligne update le formulaire
-    handleEdit(beingUpdateProduct, username); //cette ligne update le menu
+    setProductSelected(beingUpdateProduct); // mettre à jour le formulaire sans conversion immédiate
   };
 
   const handleOnFocus = (e) => {
@@ -31,14 +33,25 @@ export default function EditForm() {
   };
 
   const handleOnBlur = (e) => {
-    const valueOnBlur = e.target.value;
+    const { name, value } = e.target;
 
-    if (valueOnFocus !== valueOnBlur) {
+    // Appliquer la conversion seulement sur le champ prix au moment du blur
+    if (name === "price") {
+      const valueToUpdate = replaceFrenchCommaWithDot(value);
+      const beingUpdateProduct = { ...productSelected, [name]: valueToUpdate };
+
+      setProductSelected(beingUpdateProduct);
+      handleEdit(beingUpdateProduct, username); // Mettre à jour avec le prix corrigé
+    } else {
+      handleEdit(productSelected, username); // Mettre à jour sans conversion pour les autres champs
+    }
+
+    if (valueOnFocus !== value) {
       displaySuccessMessage();
     }
   };
 
-  //affichage
+  // affichage
   return (
     <Form
       product={productSelected}

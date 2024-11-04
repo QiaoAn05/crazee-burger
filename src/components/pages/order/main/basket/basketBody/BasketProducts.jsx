@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useMemo } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import { BASKET_MESSAGE, DEFAULT_IMAGE } from "../../../../../../enums/product";
@@ -12,7 +12,6 @@ import { convertStringToBoolean } from "../../../../../../utils/string";
 import Sticker from "../../../../../reusable-ui/Sticker";
 
 export default function BasketProducts() {
-  const nodeRef = useRef(null);
   const {
     username,
     basket,
@@ -23,6 +22,14 @@ export default function BasketProducts() {
     productSelected,
   } = useContext(OrderContext);
 
+  // On utilise `useMemo` pour garantir que l'ordre des références ne change pas à chaque rendu
+  const refs = useMemo(() => {
+    return basket.reduce((acc, product) => {
+      acc[product.id] = React.createRef();
+      return acc;
+    }, {});
+  }, [basket]);
+
   const handleOnDelete = (e, id) => {
     e.stopPropagation();
     handleDeleteBasketProduct(id, username);
@@ -30,11 +37,13 @@ export default function BasketProducts() {
 
   return (
     <TransitionGroup
-      component={BasketProductsStyled} // Replace BasketProductsStyled to remove useless div
+      component={BasketProductsStyled}
       className={"transition-group"}
     >
       {basket.map((basketProduct) => {
         const menuProduct = find(basketProduct.id, menu);
+        const nodeRef = refs[basketProduct.id]; // Utiliser la référence correspondante
+
         return (
           <CSSTransition
             nodeRef={nodeRef}

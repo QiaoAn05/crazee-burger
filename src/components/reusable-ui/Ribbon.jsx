@@ -1,15 +1,19 @@
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function Ribbon({ label = "new", className }) {
+// Utilisation de forwardRef pour permettre au composant d'accepter une référence
+const Ribbon = forwardRef(({ label = "new", className }, ref) => {
   return (
-    <RibbonStyled className={className}>
+    <RibbonStyled ref={ref} className={className}>
       <div className="ribbon ribbon-top-left">
         <span>{label}</span>
       </div>
     </RibbonStyled>
   );
-}
+});
+
+export default Ribbon;
 
 const RibbonStyled = styled.div`
   body {

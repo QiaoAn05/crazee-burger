@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { fakeBasket } from "../fakeData/fakeBasket";
 import { deepClone, filter, find, findIndex } from "../utils/array";
-import { setLocalStorage } from "../utils/window";
+import { deleteLocalStorage, setLocalStorage } from "../utils/window";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState([]);
@@ -31,6 +30,44 @@ export const useBasket = () => {
     setLocalStorage(username, basketCopy);
   };
 
+  const handleSubstractToBasket = (idProductToSubstract, username) => {
+    const basketCopy = deepClone(basket);
+    const productAlreadyInBasket = find(idProductToSubstract, basketCopy);
+
+    if (productAlreadyInBasket) {
+      decrementProductAlreadyInBasket(
+        idProductToSubstract,
+        basketCopy,
+        username
+      );
+      return;
+    }
+  };
+
+  const decrementProductAlreadyInBasket = (
+    idProductToSubstract,
+    basketCopy,
+    username
+  ) => {
+    const indexOfBasketProductToDecrement = findIndex(
+      idProductToSubstract,
+      basketCopy
+    );
+    basketCopy[indexOfBasketProductToDecrement].quantity--;
+    if (basketCopy[indexOfBasketProductToDecrement].quantity <= 0) {
+      const productToDelete = basketCopy[indexOfBasketProductToDecrement];
+      // Retirer l'élément du panier
+      basketCopy.splice(indexOfBasketProductToDecrement, 1);
+      setBasket(basketCopy);
+
+      // Supprimer uniquement ce produit du localStorage
+      deleteLocalStorage(username, productToDelete);
+      return;
+    }
+    setBasket(basketCopy);
+    setLocalStorage(username, basketCopy);
+  };
+
   const createNewBasketProduct = (
     idProductToAdd,
     basketCopy,
@@ -49,5 +86,11 @@ export const useBasket = () => {
     setLocalStorage(username, basketUpdated);
   };
 
-  return { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct };
+  return {
+    basket,
+    setBasket,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
+    handleSubstractToBasket,
+  };
 };
