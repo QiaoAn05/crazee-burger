@@ -1,13 +1,13 @@
-import React from "react"
 import { theme } from "../../theme"
 import styled from "styled-components"
+import { ToggleButtonType } from "../../typescript/ToggleButtonType"
 
 export default function ToggleButton({
   isChecked,
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
-}) {
+}: ToggleButtonType) {
   return (
     <ToggleButtonStyled>
       <input
@@ -28,7 +28,6 @@ export default function ToggleButton({
 }
 
 const ToggleButtonStyled = styled.div`
-  /* border: 1px solid red; */
 
   display: flex;
   margin-right: 10px;
