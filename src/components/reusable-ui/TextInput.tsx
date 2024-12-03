@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import React from "react";
+import React, { ReactNode } from "react";
+import { TextInputType } from "../../typescript/TextInputType";
 
-const TextInput = React.forwardRef(
+const TextInput = React.forwardRef<HTMLInputElement, TextInputType>(
   (
     { value, onChange, Icon, className, version = "normal", ...extraProps },
     ref
@@ -24,7 +25,7 @@ const TextInput = React.forwardRef(
 
 export default TextInput;
 
-const TextInputStyled = styled.div`
+const TextInputStyled = styled.div<{ version: "normal" | "minimalist" }>`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
