@@ -1,6 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { SelectInputType } from "../../typescript/SelectInputType";
 
 export default function SelectInput({
   value,
@@ -12,7 +12,7 @@ export default function SelectInput({
   onChange,
   onFocus,
   onBlur,
-}) {
+}: SelectInputType) {
   return (
     <SelectInputStyled className={className}>
       {Icon && <div className="icon">{Icon}</div>}
