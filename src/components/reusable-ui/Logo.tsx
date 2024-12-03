@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { LogoType } from "../../typescript/LogoType";
 
-export default function Logo({ className, onClick }) {
+export default function Logo({ className, onClick }: LogoType) {
   return (
     <LogoStyled className={className} onClick={onClick}>
       <h1>CRAZEE</h1>
