@@ -1,0 +1,1 @@
+export type ButtonVersionType = {version: "primary" | "success"};

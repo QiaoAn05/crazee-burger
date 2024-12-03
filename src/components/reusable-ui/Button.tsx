@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
+import { ButtonType } from "../../typescript/ButtonType";
+import { ButtonVersionType } from "../../typescript/ButtonVersionType";
 
 export default function Button({
   Label,
@@ -7,7 +9,7 @@ export default function Button({
   OnClick,
   version = "primary",
   disabled,
-}) {
+}: ButtonType) {
   return (
     <ButtonStyled
       onClick={OnClick && OnClick}
@@ -20,8 +22,8 @@ export default function Button({
   );
 }
 
-const ButtonStyled = styled.button`
-  ${({ version }) => extraStyle[version]}//dictionnaire
+const ButtonStyled = styled.button<ButtonVersionType>`
+  ${({ version }) => extraStyle[version]}
 `;
 
 const extraStylePrimary = css`
