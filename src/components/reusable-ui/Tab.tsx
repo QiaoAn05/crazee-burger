@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { TabType } from "../../typescript/TabType";
 
-export default function Tab({ label, Icon, onClick, className }) {
+export default function Tab({ label, Icon, onClick, className }: TabType) {
   return (
     <TabStyled onClick={onClick} className={className}>
         <div className="icon">
@@ -13,7 +14,6 @@ export default function Tab({ label, Icon, onClick, className }) {
 }
 
 const TabStyled = styled.button`
-  /* border: 1px solid blue; */
   height: 43px;
   padding: 0 22px;
 
