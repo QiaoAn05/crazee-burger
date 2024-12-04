@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { StickerType } from "../../typescript/StickerType";
 
-export default function Sticker({ label = "new", className }: StickerType) {
+type StickerProps = {
+  label: string;
+  className?: string;
+}
+
+export default function Sticker({ label = "new", className }: StickerProps) {
   return <StickerStyled className={className}>{label}</StickerStyled>;
 }
 
