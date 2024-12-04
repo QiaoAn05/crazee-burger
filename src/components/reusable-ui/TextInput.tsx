@@ -1,7 +1,14 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import React, { ReactNode } from "react";
-import { TextInputType } from "../../typescript/TextInputType";
+
+type TextInputType = {
+  value: string | number; 
+  onChange: () => void; 
+  Icon: ReactNode; 
+  className: string; 
+  version?: "normal" | "minimalist";
+}
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputType>(
   (
