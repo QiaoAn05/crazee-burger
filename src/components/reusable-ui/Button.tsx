@@ -1,28 +1,40 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import { ButtonType } from "../../typescript/ButtonType";
-import { ButtonVersionType } from "../../typescript/ButtonVersionType";
+import { ReactNode } from "react";
+
+type ButtonProps = {
+  label: string;
+  Icon?: ReactNode;
+  onClick?: () => void;
+  version?: ButtonVersion;
+  disabled?: boolean;
+}
+
+enum ButtonVersion {
+  Primary = "primary",
+  Success = "success",
+}
 
 export default function Button({
-  Label,
+  label,
   Icon,
-  OnClick,
-  version = "primary",
+  onClick,
+  version = ButtonVersion.Primary,
   disabled,
-}: ButtonType) {
+}: ButtonProps) {
   return (
     <ButtonStyled
-      onClick={OnClick && OnClick}
+      onClick={onClick}
       version={version}
       disabled={disabled}
     >
-      <span>{Label}</span>
+      <span>{label}</span>
       {Icon && <div className="icon">{Icon}</div>}
     </ButtonStyled>
   );
 }
 
-const ButtonStyled = styled.button<ButtonVersionType>`
+const ButtonStyled = styled.button<{ version: ButtonVersion}>`
   ${({ version }) => extraStyle[version]}
 `;
 

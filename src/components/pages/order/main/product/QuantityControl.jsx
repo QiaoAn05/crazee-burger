@@ -13,17 +13,17 @@ export default function QuantityControl({
   return (
     <QuantityControlStyled $isSelected={isSelected}>
       <Button
-        Label="-"
+        label="-"
         version="primary"
-        OnClick={onLeftClick}
+        onClick={onLeftClick}
         disabled={disabled}
         className="decrease"
       />
       <span className="quantity">{quantity}</span>
       <Button
-        Label="+"
+        label="+"
         version="primary"
-        OnClick={onRightClick}
+        onClick={onRightClick}
         disabled={disabled}
       />
     </QuantityControlStyled>
