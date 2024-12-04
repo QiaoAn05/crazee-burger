@@ -1,13 +1,19 @@
 import { theme } from "../../theme"
 import styled from "styled-components"
-import { ToggleButtonType } from "../../typescript/ToggleButtonType"
+
+type ToggleButtonProps = {
+  isChecked: boolean;
+  onToggle: () => void;
+  labelIfChecked?: string;
+  labelIfUnchecked?: string;
+}
 
 export default function ToggleButton({
   isChecked,
   onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
-}: ToggleButtonType) {
+}: ToggleButtonProps) {
   return (
     <ToggleButtonStyled>
       <input
