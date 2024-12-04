@@ -1,8 +1,11 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { RibbonType } from "../../typescript/RibbonType";
 
+type RibbonType = {
+  label: string;
+  className?: string;
+}
 
 // Utilisation de forwardRef pour permettre au composant d'accepter une référence
 const Ribbon = forwardRef<HTMLDivElement, RibbonType>(({ label = "new", className }, ref) => {
