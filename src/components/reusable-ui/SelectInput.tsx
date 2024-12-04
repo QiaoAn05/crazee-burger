@@ -1,6 +1,21 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { SelectInputType } from "../../typescript/SelectInputType";
+import { ReactNode } from "react";
+
+type SelectInputProps = {
+  value: string | number;
+  options:{
+    value: string | number;
+    label: string;
+}[];
+  name: string;
+  Icon: ReactNode;
+  className?: string;
+  id: string;
+  onChange: ()=> void;
+  onFocus: ()=> void;
+  onBlur: ()=> void;
+}
 
 export default function SelectInput({
   value,
@@ -12,7 +27,7 @@ export default function SelectInput({
   onChange,
   onFocus,
   onBlur,
-}: SelectInputType) {
+}: SelectInputProps) {
   return (
     <SelectInputStyled className={className}>
       {Icon && <div className="icon">{Icon}</div>}
