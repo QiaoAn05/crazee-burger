@@ -3,10 +3,10 @@ import { theme } from "../../theme";
 import { ReactNode } from "react";
 
 type TabProps = {
-  label: string;
+  label?: string;
   Icon: ReactNode;
-  onClick: () => void;
-  className: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  className?: string;
 }
 
 export default function Tab({ label, Icon, onClick, className }: TabProps) {
