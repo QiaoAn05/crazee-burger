@@ -1,16 +1,15 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import React, { ReactNode } from "react";
+import React, { ComponentPropsWithRef } from "react";
 
-type TextInputType = {
-  value?: string | number | readonly string[];
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  Icon: ReactNode; 
-  className?: string; 
-  version?: "normal" | "minimalist";
-}
+type TextInputVersion = "normal" | "minimalist";
 
-const TextInput = React.forwardRef<HTMLInputElement, TextInputType>(
+type TextInputProps = {
+  Icon: JSX.Element;
+  version?: TextInputVersion;
+}&ComponentPropsWithRef<"input">
+
+const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   (
     { value, onChange, Icon, className, version = "normal", ...extraProps },
     ref
@@ -32,7 +31,11 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputType>(
 
 export default TextInput;
 
-const TextInputStyled = styled.div<{ version: "normal" | "minimalist" }>`
+type TextInputStyledProps = {
+  version: TextInputVersion;
+}
+
+const TextInputStyled = styled.div<TextInputStyledProps>`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
@@ -60,7 +63,7 @@ const TextInputStyled = styled.div<{ version: "normal" | "minimalist" }>`
     if (props.version === "minimalist") return extraStyleMinimalist;
   }} */
 
-  ${({ version }) => extraStyle[version]}//dictionnaire
+  ${({ version }) => extraStyle[version]}
 `;
 
 const extraStyleNormal = css`
