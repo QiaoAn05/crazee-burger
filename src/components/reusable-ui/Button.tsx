@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 type ButtonProps = {
   label: string;
   Icon?: ReactNode;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
   version?: ButtonVersion;
   disabled?: boolean;
 }
