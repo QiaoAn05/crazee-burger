@@ -3,18 +3,18 @@ import { theme } from "../../theme";
 import { ReactNode } from "react";
 
 type SelectInputProps = {
-  value: string | number;
-  options:{
+  value?: string | number | readonly string[];
+  options: {
     value: string | number;
     label: string;
-}[];
-  name: string;
+}[]
+  name?: string;
   Icon: ReactNode;
   className?: string;
-  id: string;
-  onChange: ()=> void;
-  onFocus: ()=> void;
-  onBlur: ()=> void;
+  id?: string;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
+  onFocus?: React.FocusEventHandler<HTMLSelectElement> ;
+  onBlur?: React.FocusEventHandler<HTMLSelectElement>;
 }
 
 export default function SelectInput({
