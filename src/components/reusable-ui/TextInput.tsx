@@ -3,10 +3,10 @@ import { theme } from "../../theme";
 import React, { ReactNode } from "react";
 
 type TextInputType = {
-  value: string | number; 
-  onChange: () => void; 
+  value?: string | number | readonly string[];
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   Icon: ReactNode; 
-  className: string; 
+  className?: string; 
   version?: "normal" | "minimalist";
 }
 
