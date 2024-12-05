@@ -1,11 +1,10 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import React, { ReactNode } from "react";
 
 type TextInputType = {
   value?: string | number | readonly string[];
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  Icon: ReactNode; 
+  Icon: React.ReactNode; 
   className?: string; 
   version?: "normal" | "minimalist";
 }
