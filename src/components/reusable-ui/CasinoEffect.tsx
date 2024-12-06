@@ -1,8 +1,13 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 
-export default function CasinoEffect({ count, className }) {
+type CasinoEffectProps = {
+  count: number;
+  className?: string;
+}
+
+export default function CasinoEffect({ count, className }: CasinoEffectProps) {
   const nodeRef = useRef(null);
   return (
     <TransitionGroup component={CasinoEffectStyled}>

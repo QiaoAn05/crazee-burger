@@ -9,7 +9,7 @@ export default function EmptyMenuAdmin({ onReset }) {
       <span className="description">
         Cliquez ci-dessous pour le réinitialiser
       </span>
-      <Button Label={"Générer de nouveaux produits"} OnClick={onReset} />
+      <Button label={"Générer de nouveaux produits"} onClick={onReset} />
     </EmptyMenuAdminStyled>
   );
 }

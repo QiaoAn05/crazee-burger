@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { ComponentProps } from "react";
 
-export default function Tab({ label, Icon, onClick, className }) {
+type TabProps = {
+  label?: string;
+  Icon: JSX.Element;
+} & ComponentProps<"button">
+
+export default function Tab({ label, Icon, onClick, className }: TabProps) {
   return (
     <TabStyled onClick={onClick} className={className}>
         <div className="icon">
@@ -13,7 +19,6 @@ export default function Tab({ label, Icon, onClick, className }) {
 }
 
 const TabStyled = styled.button`
-  /* border: 1px solid blue; */
   height: 43px;
   padding: 0 22px;
 
