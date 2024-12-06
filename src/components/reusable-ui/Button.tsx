@@ -1,25 +1,20 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import { ReactNode } from "react";
+import { ComponentProps } from "react";
+
+type ButtonVersion = "primary" | "success";
 
 type ButtonProps = {
   label: string;
-  Icon?: ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  Icon?: JSX.Element;
   version?: ButtonVersion;
-  disabled?: boolean;
-}
-
-enum ButtonVersion {
-  Primary = "primary",
-  Success = "success",
-}
+}&ComponentProps<"button">
 
 export default function Button({
   label,
   Icon,
   onClick,
-  version = ButtonVersion.Primary,
+  version = "primary",
   disabled,
 }: ButtonProps) {
   return (
