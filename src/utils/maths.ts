@@ -1,4 +1,4 @@
-export function formatPrice(priceToFormat: number) {
+export function formatPrice(priceToFormat: number | string) {
   let price = priceToFormat;
 
   // @TODO: perhaps change this to if(!price) return 0
@@ -12,9 +12,7 @@ export function formatPrice(priceToFormat: number) {
   return formattedPrice;
 }
 
-type PriceVersion = number | string;
-
-export function replaceFrenchCommaWithDot(price: PriceVersion) {
+export function replaceFrenchCommaWithDot(price: number | string) {
   if (typeof price === "string") price = parseFloat(price.replace(",", "."));
   return price;
 }
