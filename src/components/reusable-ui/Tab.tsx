@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { ReactNode } from "react";
+import { ComponentProps } from "react";
 
 type TabProps = {
   label?: string;
-  Icon: ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-}
+  Icon: JSX.Element;
+} & ComponentProps<"button">
 
 export default function Tab({ label, Icon, onClick, className }: TabProps) {
   return (
