@@ -9,6 +9,11 @@ export const getLocalStorage = <T>(key: string): T | null => {
   return item ? JSON.parse(item) : null;
 };
 
+// export const getLocalStorage = (key: string): unknown | null => {
+//   const item = localStorage.getItem(key);
+//   if(item) return JSON.parse(item);
+// };
+
 export const deleteLocalStorage = <T extends { id: string }>(
   username: string,
   productToDelete: T
