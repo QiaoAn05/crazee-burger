@@ -1,4 +1,13 @@
-export const EMPTY_PRODUCT = Object.freeze({
+type ProductType = {
+  id: string,
+  title: string,
+  imageSource: string,
+  price: number,
+  isAvailable: boolean,
+  isPublicised: boolean,
+}
+
+export const EMPTY_PRODUCT = <ProductType> Object.freeze({
   id: "",
   title: "",
   imageSource: "",
@@ -7,10 +16,16 @@ export const EMPTY_PRODUCT = Object.freeze({
   isPublicised: false,
 });
 
-export const DEFAULT_IMAGE = "/images/coming-soon.png";
-export const IMAGE_NO_STOCK = "/images/stock-epuise.png";
+export const DEFAULT_IMAGE: string = "/images/coming-soon.png";
+export const IMAGE_NO_STOCK: string = "/images/stock-epuise.png";
 
-export const BASKET_MESSAGE = {
+type BasketMessageType = {
+  EMPTY: string,
+  LOADING: string,
+  NOT_AVAILABLE: string,
+}
+
+export const BASKET_MESSAGE = <BasketMessageType> {
   EMPTY: "Votre commande est vide.",
   LOADING: "Chargement en cours...",
   NOT_AVAILABLE: "Non disponible",
