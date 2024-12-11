@@ -1,7 +1,7 @@
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 
-export const syncBothMenus = (userId, menuUpdated) => {
+export const syncBothMenus = (userId: string, menuUpdated) => {
   const cachette = doc(db, "users", userId); //la cachette nécessite le nom de la base de donnée (ici db) et un path séparé par une "," pour chaque niveau du chemin
 
   const nourriture = {
@@ -12,7 +12,7 @@ export const syncBothMenus = (userId, menuUpdated) => {
   setDoc(cachette, nourriture);
 };
 
-export const getMenu = async (userId) => {
+export const getMenu = async (userId: string) => {
   const docRef = doc(db, "users", userId); //Doc récupére un chemin
 
   const docSnapshot = await getDoc(docRef);
