@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { deepClone, filter, find, findIndex } from "../utils/array";
 import { deleteLocalStorage, setLocalStorage } from "../utils/window";
-
-type BasketType = {
-  id: string;
-  quantity: number;
-}[];
+import { BasketProductQuantity } from "../types/Product";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState<BasketType>([]);
+  const [basket, setBasket] = useState<BasketProductQuantity[]>([])
 
   const handleAddToBasket = (idProductToAdd: string, username: string) => {
     const basketCopy = deepClone(basket);
@@ -23,7 +19,7 @@ export const useBasket = () => {
 
   const incrementProductAlreadyInBasket = (
     idProductToAdd: string,
-    basketCopy: BasketType,
+    basketCopy: BasketProductQuantity[],
     username: string
   ) => {
     const indexOfBasketProductToIncrement = findIndex(
@@ -51,7 +47,7 @@ export const useBasket = () => {
 
   const decrementProductAlreadyInBasket = (
     idProductToSubstract: string,
-    basketCopy: BasketType,
+    basketCopy: BasketProductQuantity[],
     username: string
   ) => {
     const indexOfBasketProductToDecrement = findIndex(
@@ -75,8 +71,8 @@ export const useBasket = () => {
 
   const createNewBasketProduct = (
     idProductToAdd: string,
-    basketCopy: BasketType,
-    setBasket: React.Dispatch<React.SetStateAction<BasketType>>,//A revoir
+    basketCopy: BasketProductQuantity[],
+    setBasket: React.Dispatch<React.SetStateAction<BasketProductQuantity[]>>,//A revoir
     username: string
   ) => {
     const newBasketProduct = { id: idProductToAdd, quantity: 1 };
