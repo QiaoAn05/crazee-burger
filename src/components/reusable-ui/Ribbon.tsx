@@ -1,9 +1,13 @@
-import React, { forwardRef } from "react";
+import { ComponentPropsWithRef, forwardRef } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
+type RibbonType = {
+  label?: string;
+} & ComponentPropsWithRef<"div">
+
 // Utilisation de forwardRef pour permettre au composant d'accepter une référence
-const Ribbon = forwardRef(({ label = "new", className }, ref) => {
+const Ribbon = forwardRef<HTMLDivElement, RibbonType>(({ label = "new", className }, ref) => {
   return (
     <RibbonStyled ref={ref} className={className}>
       <div className="ribbon ribbon-top-left">

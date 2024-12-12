@@ -1,6 +1,16 @@
-import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { ComponentProps } from "react";
+
+type OptionType = {
+  value?: string | number | readonly string[];
+  label: string;
+}
+
+type SelectInputProps = {
+  options: OptionType[]
+  Icon: JSX.Element;
+} & ComponentProps<"select">
 
 export default function SelectInput({
   value,
@@ -12,7 +22,7 @@ export default function SelectInput({
   onChange,
   onFocus,
   onBlur,
-}) {
+}: SelectInputProps) {
   return (
     <SelectInputStyled className={className}>
       {Icon && <div className="icon">{Icon}</div>}
