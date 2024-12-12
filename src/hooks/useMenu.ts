@@ -10,13 +10,15 @@ export const useMenu = () => {
   //comportements
 
   const handleAdd = (newProduct: MenuProduct, username: string) => {
-    //copie du state
-    const menuCopy = deepClone(menu);
-    //manipulation de la copie
-    const menuUpdated = [newProduct, ...menuCopy];
-    //update du state avec le setter
-    setMenu(menuUpdated);
-    syncBothMenus(username, menuUpdated);
+    if(menu) {
+      //copie du state
+      const menuCopy = deepClone(menu);
+      //manipulation de la copie
+      const menuUpdated = [newProduct, ...menuCopy];
+      //update du state avec le setter
+      setMenu(menuUpdated);
+      syncBothMenus(username, menuUpdated);
+    }
   };
 
   const handleDelete = (idOfProductToDelete: string, username: string) => {
