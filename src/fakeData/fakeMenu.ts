@@ -1,4 +1,6 @@
-const EMPTY = [];
+import { MenuProduct } from "../types/Product";
+
+const EMPTY: MenuProduct[] = [];
 
 const SMALL = [
   {
