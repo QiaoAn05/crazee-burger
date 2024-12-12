@@ -1,18 +1,24 @@
-import React, { useRef } from "react";
+// import { useRef } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 
-export default function CasinoEffect({ count, className }) {
-  const nodeRef = useRef(null);
+type CasinoEffectProps = {
+  count: number;
+  className?: string;
+}
+
+export default function CasinoEffect({ count, className }: CasinoEffectProps) {
+  // const nodeRef = useRef(null);
   return (
     <TransitionGroup component={CasinoEffectStyled}>
       <CSSTransition
-        nodeRef={nodeRef}
+        // nodeRef={nodeRef}
         classNames="count-animated"
         timeout={300}
         key={count}
       >
-        <span ref={nodeRef} className={className}>
+        {/* <span ref={nodeRef} className={className}> */}
+        <span className={className}>
           {count}
         </span>
       </CSSTransition>

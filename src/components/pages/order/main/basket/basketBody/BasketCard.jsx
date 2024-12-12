@@ -149,7 +149,7 @@ const BasketCardStyled = styled.div`
         height: ${theme.theme.fonts.sizes.P3};
       }
 
-      /* behaviour on delete-button hover */
+      /* behavior on delete-button hover */
       &:hover {
         .icon {
           color: ${theme.theme.colors.dark};

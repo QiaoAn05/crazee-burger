@@ -1,27 +1,36 @@
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
+import { ComponentProps } from "react";
+
+type ButtonVersion = "primary" | "success";
+
+type ButtonProps = {
+  label: string;
+  Icon?: JSX.Element;
+  version?: ButtonVersion;
+}&ComponentProps<"button">
 
 export default function Button({
-  Label,
+  label,
   Icon,
-  OnClick,
+  onClick,
   version = "primary",
   disabled,
-}) {
+}: ButtonProps) {
   return (
     <ButtonStyled
-      onClick={OnClick && OnClick}
+      onClick={onClick}
       version={version}
       disabled={disabled}
     >
-      <span>{Label}</span>
+      <span>{label}</span>
       {Icon && <div className="icon">{Icon}</div>}
     </ButtonStyled>
   );
 }
 
-const ButtonStyled = styled.button`
-  ${({ version }) => extraStyle[version]}//dictionnaire
+const ButtonStyled = styled.button<{ version: ButtonVersion}>`
+  ${({ version }) => extraStyle[version]}
 `;
 
 const extraStylePrimary = css`
