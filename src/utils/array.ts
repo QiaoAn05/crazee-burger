@@ -2,13 +2,11 @@ export const deepClone = <T>(array: T[]): T[] => {
   return JSON.parse(JSON.stringify(array));
 };
 
-type ID = string | number
-
-export const find = <T extends { id: ID }>(id: ID, array: T[]) => {
+export const find = <T extends { id: string }>(id: string, array: T[]) => {
   return array.find((item) => item.id === id);
 };
 
-export const findIndex = <T extends { id: ID }>(id: ID, array: T[]): number => {
+export const findIndex = <T extends { id: string }>(id: string, array: T[]): number => {
   return array.findIndex((item) => item.id === id);
 };
 

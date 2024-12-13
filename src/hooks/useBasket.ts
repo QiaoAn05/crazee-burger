@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { deepClone, filter, find, findIndex } from "../utils/array";
 import { deleteLocalStorage, setLocalStorage } from "../utils/window";
+import { BasketProductQuantity } from "../types/Product";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState([]);
+  const [basket, setBasket] = useState<BasketProductQuantity[]>([]);
 
-  const handleAddToBasket = (idProductToAdd, username) => {
+  const handleAddToBasket = (idProductToAdd: string, username: string) => {
     const basketCopy = deepClone(basket);
     const productAlreadyInBasket = find(idProductToAdd, basketCopy);
 
@@ -17,9 +18,9 @@ export const useBasket = () => {
   };
 
   const incrementProductAlreadyInBasket = (
-    idProductToAdd,
-    basketCopy,
-    username
+    idProductToAdd: string,
+    basketCopy: BasketProductQuantity[],
+    username: string
   ) => {
     const indexOfBasketProductToIncrement = findIndex(
       idProductToAdd,
@@ -30,7 +31,7 @@ export const useBasket = () => {
     setLocalStorage(username, basketCopy);
   };
 
-  const handleSubstractToBasket = (idProductToSubstract, username) => {
+  const handleSubstractToBasket = (idProductToSubstract: string, username: string) => {
     const basketCopy = deepClone(basket);
     const productAlreadyInBasket = find(idProductToSubstract, basketCopy);
 
@@ -45,9 +46,9 @@ export const useBasket = () => {
   };
 
   const decrementProductAlreadyInBasket = (
-    idProductToSubstract,
-    basketCopy,
-    username
+    idProductToSubstract: string,
+    basketCopy: BasketProductQuantity[],
+    username: string
   ) => {
     const indexOfBasketProductToDecrement = findIndex(
       idProductToSubstract,
@@ -69,10 +70,10 @@ export const useBasket = () => {
   };
 
   const createNewBasketProduct = (
-    idProductToAdd,
-    basketCopy,
-    setBasket,
-    username
+    idProductToAdd: string,
+    basketCopy: BasketProductQuantity[],
+    setBasket: React.Dispatch<React.SetStateAction<BasketProductQuantity[]>>,
+    username: string
   ) => {
     const newBasketProduct = { id: idProductToAdd, quantity: 1 };
     const newBasket = [newBasketProduct, ...basketCopy];
@@ -80,7 +81,7 @@ export const useBasket = () => {
     setLocalStorage(username, newBasket);
   };
 
-  const handleDeleteBasketProduct = (idBasketProduct, username) => {
+  const handleDeleteBasketProduct = (idBasketProduct: string, username: string) => {
     const basketUpdated = filter(idBasketProduct, basket);
     setBasket(basketUpdated);
     setLocalStorage(username, basketUpdated);
