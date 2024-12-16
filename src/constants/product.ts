@@ -1,4 +1,6 @@
-export const EMPTY_PRODUCT = Object.freeze({
+import { MenuProduct } from "../types/Product";
+
+export const EMPTY_PRODUCT: Readonly<MenuProduct> = Object.freeze({
   id: "",
   title: "",
   imageSource: "",
@@ -14,4 +16,4 @@ export const BASKET_MESSAGE = {
   EMPTY: "Votre commande est vide.",
   LOADING: "Chargement en cours...",
   NOT_AVAILABLE: "Non disponible",
-};
+} as const;
