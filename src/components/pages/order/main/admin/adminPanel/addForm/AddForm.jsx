@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import OrderContext from "../../../../../../../context/OrderContext";
-import { EMPTY_PRODUCT } from "../../../../../../../enums/product";
+import { EMPTY_PRODUCT } from "../../../../../../../constants/product";
 import Form from "../Form/Form";
 import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage";
 import { replaceFrenchCommaWithDot } from "../../../../../../../utils/maths";

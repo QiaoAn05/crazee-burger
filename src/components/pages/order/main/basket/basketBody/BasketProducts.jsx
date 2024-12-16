@@ -1,7 +1,10 @@
 import React, { useContext, useRef, useState, useMemo } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
-import { BASKET_MESSAGE, DEFAULT_IMAGE } from "../../../../../../enums/product";
+import {
+  BASKET_MESSAGE,
+  DEFAULT_IMAGE,
+} from "../../../../../../constants/product";
 import { find } from "../../../../../../utils/array";
 import OrderContext from "../../../../../../context/OrderContext";
 import { checkIfProductIsClicked } from "../../menu/helper";

@@ -10,7 +10,7 @@ import {
   DEFAULT_IMAGE,
   EMPTY_PRODUCT,
   IMAGE_NO_STOCK,
-} from "../../../../../enums/product";
+} from "../../../../../constants/product";
 import { isEmpty } from "../../../../../utils/array";
 import Loader from "./Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
