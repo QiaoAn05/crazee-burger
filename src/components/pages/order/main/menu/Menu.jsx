@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Product from "../product/Product";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { theme } from "../../../../../theme";
-import OrderContext from "../../../../../context/OrderContext";
+import { useOrderContext } from "../../../../../context/OrderContext";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { checkIfProductIsClicked } from "./helper";
@@ -17,13 +17,13 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { menuAnimation } from "../../../../../theme/animations";
 import { convertStringToBoolean } from "../../../../../utils/string";
 import RibbonAnimated, { ribbonAnimation } from "./RibbonAnimated";
+import { useParams } from "react-router-dom";
 
 export default function Menu() {
   //state
   const nodeRef = useRef(null);
   const [basketMap, setBasketMap] = useState(new Map());
   const {
-    username,
     menu,
     basket,
     isAdminMode,
@@ -35,7 +35,9 @@ export default function Menu() {
     handleDeleteBasketProduct,
     handleProductSelected,
     handleSubstractToBasket,
-  } = useContext(OrderContext);
+  } = useOrderContext();
+
+  const { username } = useParams();
 
   //behavior
   // useEffect pour créer une Map à partir du panier

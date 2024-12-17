@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import BasketCard from "./BasketCard";
 import {
@@ -6,7 +6,7 @@ import {
   DEFAULT_IMAGE,
 } from "../../../../../../constants/product";
 import { find } from "../../../../../../utils/array";
-import OrderContext from "../../../../../../context/OrderContext";
+import { useOrderContext } from "../../../../../../context/OrderContext";
 import { checkIfProductIsClicked } from "../../menu/helper";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { basketAnimation } from "../../../../../../theme/animations";
@@ -23,7 +23,7 @@ export default function BasketProducts() {
     menu,
     handleProductSelected,
     productSelected,
-  } = useContext(OrderContext);
+  } = useOrderContext();
 
   // On utilise `useMemo` pour garantir que l'ordre des références ne change pas à chaque rendu
   const refs = useMemo(() => {

@@ -3,13 +3,13 @@ import { theme } from "../../../../theme";
 import Basket from "./basket/Basket";
 import Menu from "./menu/Menu";
 import Admin from "./admin/Admin";
-import { useContext, useRef } from "react";
-import OrderContext from "../../../../context/OrderContext";
+import { useRef } from "react";
+import { useOrderContext } from "../../../../context/OrderContext";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { adminAnimation } from "../../../../theme/animations";
 
 export default function Main() {
-  const { isAdminMode } = useContext(OrderContext);
+  const { isAdminMode } = useOrderContext();
   const nodeRef = useRef(null);
 
   return (
