@@ -3,12 +3,11 @@ import Profile from "./Profile";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import { toast } from "react-toastify";
 import { FaUserSecret } from "react-icons/fa";
-import { useContext } from "react";
 import ToastAdmin from "./ToastAdmin";
-import OrderContext from "../../../../context/OrderContext";
+import { useOrderContext } from "../../../../context/OrderContext";
 
 export default function NavbarRightSide() {
-  const { isAdminMode, setIsAdminMode } = useContext(OrderContext)
+  const { isAdminMode, setIsAdminMode } = useOrderContext();
 
   const onToggleToast = () => {
     if (!isAdminMode) {
@@ -22,30 +21,30 @@ export default function NavbarRightSide() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      })
+      });
     }
-    setIsAdminMode(!isAdminMode)
-  }
-  
+    setIsAdminMode(!isAdminMode);
+  };
+
   return (
     <NavbarRightSideStyled>
-        <ToggleButton
+      <ToggleButton
         isChecked={isAdminMode}
         onToggle={onToggleToast}
         labelIfUnchecked="Activer le mode admin"
         labelIfChecked="Désactiver le mode admin"
-        />
-        <Profile/>
-        <ToastAdmin/>
+      />
+      <Profile />
+      <ToastAdmin />
     </NavbarRightSideStyled>
-  )
+  );
 }
 
 const NavbarRightSideStyled = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    .toaster {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  .toaster {
     max-width: 300px;
   }
 `;

@@ -1,20 +1,18 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import EditInfoMessage from "./EditInfoMessage";
 import SavingMessage from "./SavingMessage";
-import OrderContext from "../../../../../../../context/OrderContext";
+import { useOrderContext } from "../../../../../../../context/OrderContext";
 import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage";
 import Form from "../Form/Form";
 import { replaceFrenchCommaWithDot } from "../../../../../../../utils/maths";
+import { useParams } from "react-router-dom";
 
 export default function EditForm() {
   // state
-  const {
-    username,
-    productSelected,
-    setProductSelected,
-    handleEdit,
-    titleEditRef,
-  } = useContext(OrderContext);
+  const { productSelected, setProductSelected, handleEdit, titleEditRef } =
+    useOrderContext();
+
+  const { username } = useParams();
 
   const [valueOnFocus, setValueOnFocus] = useState();
   const { isSubmitted: isSaved, displaySuccessMessage } = useSuccessMessage();

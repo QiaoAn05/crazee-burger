@@ -2,11 +2,9 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import { useContext } from "react";
-import OrderContext from "../../../../context/OrderContext";
 
 export default function Profile() {
-  const { username } = useContext(OrderContext);
+  const { username } = useParams();
 
   return (
     <ProfileStyled>

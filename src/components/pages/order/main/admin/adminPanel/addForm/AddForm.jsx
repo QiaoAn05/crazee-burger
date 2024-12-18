@@ -1,16 +1,17 @@
-import { useContext } from "react";
-import OrderContext from "../../../../../../../context/OrderContext";
+import { useOrderContext } from "../../../../../../../context/OrderContext";
 import { EMPTY_PRODUCT } from "../../../../../../../constants/product";
 import Form from "../Form/Form";
 import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage";
 import { replaceFrenchCommaWithDot } from "../../../../../../../utils/maths";
 import SubmitButton from "./SubmitButton";
+import { useParams } from "react-router-dom";
 
 export default function AddForm() {
   //state
-  const { username, handleAdd, newProduct, setNewProduct } =
-    useContext(OrderContext);
+  const { handleAdd, newProduct, setNewProduct } = useOrderContext();
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage(5000);
+
+  const { username } = useParams();
 
   //comportements
   const handleSubmit = (e) => {
