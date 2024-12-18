@@ -1,8 +1,10 @@
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, PropsWithChildren, useContext, useRef, useState } from "react";
 import { useMenu } from "../hooks/useMenu";
 import { useBasket } from "../hooks/useBasket";
 import { EMPTY_PRODUCT } from "../constants/product";
 import { find } from "../utils/array";
+import { MenuProduct } from "../types/Product";
+import { ADMIN_TAB_LABEL } from "../constants/tabs";
 
 //1. Création du context
 const OrderContext = createContext({
@@ -36,14 +38,14 @@ const OrderContext = createContext({
 });
 
 //2. Installation du context
-export const OrderContextProvider = ({ children }) => {
+export const OrderContextProvider = ({ children }: PropsWithChildren) => {
   //state
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [currentTabSelected, setCurrentTabSelected] = useState<ADMIN_TAB_LABEL>(ADMIN_TAB_LABEL.ADD);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
-  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
-  const titleEditRef = useRef();
+  const [productSelected, setProductSelected] = useState<MenuProduct>(EMPTY_PRODUCT);
+  const titleEditRef = useRef<HTMLInputElement>(null);
   const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } =
     useMenu();
   const {
@@ -54,12 +56,14 @@ export const OrderContextProvider = ({ children }) => {
     handleSubstractToBasket,
   } = useBasket();
 
-  const handleProductSelected = async (idProductClicked) => {
+  const handleProductSelected = async (idProductClicked: string) => {
+    if(!menu) return
     const productClickedOn = find(idProductClicked, menu);
+    if(productClickedOn === undefined) return
     await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
+    await setCurrentTabSelected(ADMIN_TAB_LABEL.EDIT);
     await setProductSelected(productClickedOn);
-    titleEditRef.current.focus();
+    titleEditRef.current?.focus();
   };
 
   const orderContextValue = {
