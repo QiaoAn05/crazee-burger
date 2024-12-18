@@ -4,6 +4,7 @@ import { useBasket } from "../hooks/useBasket";
 import { EMPTY_PRODUCT } from "../constants/product";
 import { find } from "../utils/array";
 import { BasketProductQuantity, MenuProduct } from "../types/Product";
+//@TODO : Check later if it works with ADMIN_TAB_LABEL
 import { ADMIN_TAB_LABEL } from "../constants/tabs";
 
 type OrderContextType = {
@@ -11,8 +12,8 @@ type OrderContextType = {
   setIsAdminMode: React.Dispatch<React.SetStateAction<boolean>>,
   isCollapsed: boolean,
   setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>,
-  currentTabSelected: ADMIN_TAB_LABEL,
-  setCurrentTabSelected: React.Dispatch<React.SetStateAction<ADMIN_TAB_LABEL>>,
+  currentTabSelected: string,
+  setCurrentTabSelected: React.Dispatch<React.SetStateAction<string>>,
 
   menu: MenuProduct[] | undefined,
   setMenu: React.Dispatch<React.SetStateAction<MenuProduct[] | undefined>>,
@@ -46,7 +47,7 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
   //state
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState<ADMIN_TAB_LABEL>(ADMIN_TAB_LABEL.ADD);
+  const [currentTabSelected, setCurrentTabSelected] = useState<string>("add");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState<MenuProduct>(EMPTY_PRODUCT);
   const titleEditRef = useRef<HTMLInputElement>(null);
@@ -65,7 +66,7 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
     const productClickedOn = find(idProductClicked, menu);
     if(productClickedOn === undefined) return
     await setIsCollapsed(false);
-    await setCurrentTabSelected(ADMIN_TAB_LABEL.EDIT);
+    await setCurrentTabSelected("edit");
     await setProductSelected(productClickedOn);
     titleEditRef.current?.focus();
   };
