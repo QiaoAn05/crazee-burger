@@ -11,15 +11,15 @@ import Welcome from "./Welcome";
 
 export default function LoginForm() {
   //States
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState<string>("");
   const navigate = useNavigate();
 
   //Comportements
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     await authenticateUser(username);
