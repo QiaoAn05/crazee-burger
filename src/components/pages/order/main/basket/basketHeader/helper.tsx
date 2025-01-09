@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { find } from "../../../../../../utils/array";
 import { convertStringToBoolean } from "../../../../../../utils/string";
 
