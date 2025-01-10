@@ -11,10 +11,9 @@ type BasketCardProps = {
   imageSource: string,
   className?: string,
   isClickable?: boolean,
-  onClick?: React.MouseEventHandler<HTMLDivElement>,
   onDelete?: React.MouseEventHandler<HTMLDivElement>,
+  onClick?: React.MouseEventHandler<HTMLDivElement>,
   isSelected?: boolean,
-  isPublicised?: boolean,
 }
 
 export default function BasketCard({
@@ -70,8 +69,9 @@ const BasketCardStyled = styled.div<BasketCardStyledProps>`
   grid-template-columns: 30% 1fr;
 
   border-radius: ${theme.theme.borderRadius.round};
-  background: ${theme.theme.colors.primary};
+  background: ${theme.theme.colors.background_white};
   box-shadow: ${theme.theme.shadows.cardBasket};
+  color: black;
 
   position: relative;
 
@@ -93,7 +93,7 @@ const BasketCardStyled = styled.div<BasketCardStyledProps>`
     display: grid;
     grid-template-columns: 70% 1fr;
     font-size: ${theme.theme.fonts.sizes.P0};
-    color: ${theme.theme.colors.white};
+    color: ${theme.theme.colors.primary};
 
     .left-info {
       display: grid;
