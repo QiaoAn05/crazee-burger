@@ -14,6 +14,6 @@ export const filter = <T extends { id: string }>(id: string, array: T[]) => {
   return array.filter((item) => item.id !== id);
 };
 
-export const isEmpty = (array: []) => {
+export const isEmpty = <T>(array: T[]) => {
   return array.length === 0;
 };
