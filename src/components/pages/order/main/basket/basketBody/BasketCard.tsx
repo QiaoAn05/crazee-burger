@@ -1,9 +1,21 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
 import * as theme from "../../../../../../theme";
 import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 import { fadeInFromRight } from "../../../../../../theme/animations";
+
+type BasketCardProps = {
+  title: string,
+  price: string,
+  quantity: number,
+  imageSource: string,
+  className?: string,
+  isClickable?: boolean,
+  onClick?: React.MouseEventHandler<HTMLDivElement>,
+  onDelete?: React.MouseEventHandler<HTMLDivElement>,
+  isSelected?: boolean,
+  isPublicised?: boolean,
+}
 
 export default function BasketCard({
   title,
@@ -15,7 +27,7 @@ export default function BasketCard({
   onDelete,
   onClick,
   isSelected,
-}) {
+}: BasketCardProps) {
   return (
     <BasketCardStyled
       className={className}
@@ -44,7 +56,12 @@ export default function BasketCard({
   );
 }
 
-const BasketCardStyled = styled.div`
+type BasketCardStyledProps = {
+  $isClickable?: boolean,
+  $isSelected?: boolean
+}
+
+const BasketCardStyled = styled.div<BasketCardStyledProps>`
   cursor: ${({ $isClickable }) => ($isClickable ? "pointer" : "auto")};
   box-sizing: border-box;
   height: 86px;
@@ -53,7 +70,7 @@ const BasketCardStyled = styled.div`
   grid-template-columns: 30% 1fr;
 
   border-radius: ${theme.theme.borderRadius.round};
-  background: ${theme.theme.colors.prim};
+  background: ${theme.theme.colors.primary};
   box-shadow: ${theme.theme.shadows.cardBasket};
 
   position: relative;
@@ -76,7 +93,7 @@ const BasketCardStyled = styled.div`
     display: grid;
     grid-template-columns: 70% 1fr;
     font-size: ${theme.theme.fonts.sizes.P0};
-    color: ${theme.theme.colors.primary};
+    color: ${theme.theme.colors.white};
 
     .left-info {
       display: grid;
@@ -102,7 +119,7 @@ const BasketCardStyled = styled.div`
       .price {
         font-size: ${theme.theme.fonts.sizes.SM};
         font-weight: ${theme.theme.fonts.weights.medium};
-        font-family: ${theme.theme.fonts.family.openSans};
+        font-family: 'Open Sans';
       }
     }
 
