@@ -23,3 +23,5 @@ export const getMenu = async (userId: string): Promise<MenuProduct[] | undefined
     return menu as MenuProduct[];
   }
 };
+
+export const DEFAULT_SUM_TO_PAY = 0;

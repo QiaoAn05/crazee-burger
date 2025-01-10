@@ -8,7 +8,7 @@ import { calculateSumToPay } from "./helper";
 
 export default function BasketHeader() {
   const { basket, menu } = useOrderContext();
-
+  
   const sumToPay = calculateSumToPay(basket, menu);
 
   return (

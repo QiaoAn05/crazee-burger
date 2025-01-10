@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import Header from "../../../../reusable-ui/Header";
 import { theme } from "../../../../../theme";
